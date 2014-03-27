@@ -1,0 +1,4 @@
+pfe_web:
+    resource: "@PfeWebBundle/Resources/config/routing.yml"
+    prefix:   /
+
