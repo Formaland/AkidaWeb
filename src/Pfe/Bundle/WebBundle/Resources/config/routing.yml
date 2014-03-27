@@ -1,3 +1,9 @@
-pfe_web_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: PfeWebBundle:Default:index }
+pfe_web_backend:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/dashboard.yml"
+    host:     admin.akida-web.local
+    prefix:   /
+
+pfe_web_frontend:
+    resource: "@PfeWebBundle/Resources/config/Routing/Frontend/main.yml"
+    host:     www.akida-web.local
+    prefix:   /

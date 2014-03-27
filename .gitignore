@@ -1,5 +1,8 @@
 /web/bundles/
+/web/compiled/*
+/web/cache/*
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
 /vendor/
+.idea

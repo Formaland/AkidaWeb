@@ -1,0 +1,7 @@
+pfe_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: PfeWebBundle:Frontend/Page:index }
+
+pfe_frontend_page:
+    pattern:  /contact
+    defaults: { _controller: PfeWebBundle:Frontend/Page:index }
