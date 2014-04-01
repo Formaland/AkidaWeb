@@ -1,5 +1,5 @@
 pfe_web_backend:
-    resource: "@PfeWebBundle/Resources/config/Routing/Backend/dashboard.yml"
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/main.yml"
     host:     admin.akida-web.local
     prefix:   /
 

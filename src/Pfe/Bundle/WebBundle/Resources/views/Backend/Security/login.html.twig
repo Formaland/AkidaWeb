@@ -1,0 +1,24 @@
+{% extends "PfeWebBundle:Backend:login.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+
+        {% if error %}
+        <p class="mt5 mb20">{{ error|trans }}</p>
+        {% endif %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        <label for="username">{{ 'security.login.username'|trans }}</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control uname" required="required" />
+
+        <label for="password">{{ 'security.login.password'|trans }}</label>
+        <input type="password" id="password" name="_password" class="form-control pword" required="required" />
+
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+        <button class="btn btn-success btn-block">{{ 'security.login.submit'|trans }}</button>
+    </form>
+{% endblock content %}
