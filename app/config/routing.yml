@@ -1,3 +1,7 @@
+pfe_user:
+    resource: "@PfeUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pfe_web_bundle:
     resource: "@PfeWebBundle/Resources/config/routing.yml"
     prefix:   /
