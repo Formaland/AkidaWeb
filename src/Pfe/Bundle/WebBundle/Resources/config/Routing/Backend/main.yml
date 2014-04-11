@@ -1,0 +1,9 @@
+pfe_user_include_dashboard:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/dashboard.yml"
+
+pfe_user_include_user:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/user.yml"
+    prefix: /user
+
+pfe_user_include_security:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/security.yml"

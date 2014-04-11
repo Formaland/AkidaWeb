@@ -1,4 +1,12 @@
 {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
+{% block title_head %}
+    {{ 'title.head'|trans({}, 'backend') }}
+{% endblock %}
+
+{% block title_page %}
+    <i class="fa fa-dashboard"></i> {{ 'title.page'|trans({}, 'backend') }}
+{% endblock %}
+
 {% block content %}
 {% endblock %}

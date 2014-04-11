@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<head>
+    <title>{% block title_head %}Administration{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    {% stylesheets output='compiled/backend/main.css' filter='cssrewrite'
+    'bundles/pfeweb/Backend/css/style.default.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+</head>
+
+<body class="signin">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+
+    <div class="signinpanel">
+
+        <div class="row">
+
+            <div class="col-md-7">
+
+                <div class="signin-info">
+                    <div class="logopanel">
+                        <h1><span>[</span> bracket <span>]</span></h1>
+                    </div><!-- logopanel -->
+
+                    <div class="mb20"></div>
+
+                    <h5><strong>Welcome to Bracket Bootstrap 3 Template!</strong></h5>
+                    <ul>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Fully Responsive Layout</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> HTML5/CSS3 Valid</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Retina Ready</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> WYSIWYG CKEditor</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> and much more...</li>
+                    </ul>
+                    <div class="mb20"></div>
+                    <strong>Not a member? <a href="signup.html">Sign Up</a></strong>
+                </div><!-- signin0-info -->
+
+            </div><!-- col-sm-7 -->
+
+            <div class="col-md-5">
+                {% block content %}
+                {% endblock %}
+            </div><!-- col-sm-5 -->
+
+        </div><!-- row -->
+
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2014. All Rights Reserved. Bracket Bootstrap 3 Admin Template
+            </div>
+            <div class="pull-right">
+                Created By: <a href="http://themepixels.com/" target="_blank">ThemePixels</a>
+            </div>
+        </div>
+
+    </div><!-- signin -->
+
+</section>
+
+{% javascripts output='compiled/backend/main.js'
+    'bundles/pfeweb/Backend/js/jquery-1.10.2.min.js'
+    'bundles/pfeweb/Backend/js/jquery-migrate-1.2.1.min.js'
+    'bundles/pfeweb/Backend/js/bootstrap.min.js'
+    'bundles/pfeweb/Backend/js/modernizr.min.js'
+    'bundles/pfeweb/Backend/js/retina.min.js'
+    'bundles/pfeweb/Backend/js/custom.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+</body>
+
+</html>
