@@ -1,3 +1,0 @@
-pfe_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: PfeUserBundle:Default:index }

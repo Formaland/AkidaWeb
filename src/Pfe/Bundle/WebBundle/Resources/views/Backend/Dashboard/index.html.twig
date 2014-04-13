@@ -13,6 +13,14 @@
 
 {% endblock %}
 
+{% block title_head %}
+    {{ 'title.head'|trans({}, 'backend') }}
+{% endblock %}
+
+{% block title_page %}
+    <i class="fa fa-dashboard"></i> {{ 'title.page'|trans({}, 'backend') }}
+{% endblock %}
+
 {% block content %}
 <div class="col-md-6">
 <form id="basicForm" class="form-horizontal" action="form-validation.html" novalidate="novalidate">
