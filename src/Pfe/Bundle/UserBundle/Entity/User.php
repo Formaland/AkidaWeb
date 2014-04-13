@@ -49,11 +49,12 @@ class User extends BaseUser
     protected $phone;
 
     /**
-     * @var string
+     * @var object User
      *
-     * @ORM\Column(name="cin", type="string", length=8, nullable=true)
+     * @ORM\Column(name="student_id")
+     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", cascade={"persist"})
      */
-    protected $cin;
+    protected $student;
 
     public function __construct()
     {
@@ -161,28 +162,5 @@ class User extends BaseUser
     public function getPhone()
     {
         return $this->phone;
-    }
-
-    /**
-     * Set cin
-     *
-     * @param string $cin
-     * @return User
-     */
-    public function setCin($cin)
-    {
-        $this->cin = $cin;
-    
-        return $this;
-    }
-
-    /**
-     * Get cin
-     *
-     * @return string 
-     */
-    public function getCin()
-    {
-        return $this->cin;
     }
 }
