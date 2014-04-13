@@ -9,4 +9,5 @@ class DashboardController extends Controller {
     public function indexAction(){
         return $this->render('PfeWebBundle:Backend\Dashboard:index.html.twig');
     }
+
 }

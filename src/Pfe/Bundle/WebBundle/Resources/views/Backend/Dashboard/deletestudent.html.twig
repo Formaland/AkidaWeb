@@ -1,55 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>{% block title_head %}Administration{% endblock %}</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-        {% stylesheets output='compiled/backend/main.css' filter='cssrewrite'
-            'bundles/pfeweb/Backend/css/style.default.css'
-        %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-
-        <link rel="shortcut icon" href="images/favicon.png" type="image/png">
-    </head>
-    <body>
-        <!-- Preloader -->
-        <div id="preloader">
-            <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
-        </div>
-
-        <section>
-
-            {% include 'PfeWebBundle:Backend/Include:sidebar.html.twig' %}
-
-            <div class="mainpanel">
-
-                {% include 'PfeWebBundle:Backend/Include:header.html.twig' %}
-
-                <div class="pageheader">
-                    <h2>{% block title_page %}<i class="fa fa-dashboard"></i>Tableau de board <span>Subtitle goes here...</span>{% endblock %}</h2>
-                </div>
-
-                <div class="contentpanel">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div><!-- mainpanel -->
-        </section>
-
-        {% javascripts output='compiled/backend/main.js'
-            'bundles/pfeweb/Backend/js/jquery-1.10.2.min.js'
-            'bundles/pfeweb/Backend/js/jquery-migrate-1.2.1.min.js'
-            'bundles/pfeweb/Backend/js/bootstrap.min.js'
-            'bundles/pfeweb/Backend/js/modernizr.min.js'
-            'bundles/pfeweb/Backend/js/jquery.sparkline.min.js'
-            'bundles/pfeweb/Backend/js/toggles.min.js'
-            'bundles/pfeweb/Backend/js/retina.min.js'
-            'bundles/pfeweb/Backend/js/jquery.cookies.js'
-            'bundles/pfeweb/Backend/js/custom.js'
-        %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-    </body>
-</html>
+<div class="col-md-6">
+<form id="basicForm" class="form-horizontal" action="form-validation.html" novalidate="novalidate">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-btns">
+<a class="panel-close" href="">×</a>
+<a class="minimize" href="">−</a>
+</div>
+<h4 class="panel-title">Supprimer un élève</h4>
+</div>
+<div class="panel-body">
+<div class="form-group">
+<label class="col-sm-3 control-label">
+Ncin
+</label>
+<div class="col-sm-9">
+<select id="fruits" class="form-control" required="">
+<option value="">Choose One</option>
+<option value="apple">Apple</option>
+<option value="orange">Orange</option>
+<option value="grapes">Grapes</option>
+<option value="strawberry">Strawberry</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label class="col-sm-3 control-label">
+Nom
+</label>
+<div class="col-sm-9">
+<input class="form-control" type="text" required="" placeholder="entrer le nom"  name="email">
+</div>
+</div>
+<div class="form-group">
+<label class="col-sm-3 control-label">Prenom</label>
+<div class="col-sm-9">
+<input class="form-control" type="text" name="Prenom" required="" placeholder="entrer le prenom " >
+</div>
+</div>
+    <div class="form-group">
+<label class="col-sm-3 control-label">
+Date de naissance
+</label>
+<div class="col-sm-9">
+<input class="form-control" type="date" required="" placeholder="entrer la date de naissance" name="email">
+</div>
+</div>
+ 
+     <div class="form-group">
+<label class="col-sm-3 control-label">
+Adresse
+</label>
+<div class="col-sm-9">
+<input class="form-control" type="text" required="" placeholder="Tentrer l'adresse" name="email">
+</div>
+</div>
+</div>
+<div class="panel-footer">
+<div class="row">
+<div class="col-sm-9 col-sm-offset-3">
+<button class="btn btn-primary">Ajouter</button>
+<button class="btn btn-default" type="reset">Annuler</button>
+</div>
+</div>
+</div>
+    
+</div>
+</div>
+</div>
+</form>

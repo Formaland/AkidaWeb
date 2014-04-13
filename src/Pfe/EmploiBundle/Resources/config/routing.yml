@@ -1,0 +1,3 @@
+pfe_emploi_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: PfeEmploiBundle:Default:index }

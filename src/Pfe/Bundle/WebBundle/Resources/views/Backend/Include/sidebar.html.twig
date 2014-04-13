@@ -28,7 +28,72 @@
         <h5 class="sidebartitle">Navigation</h5>
 
         <ul class="nav nav-pills nav-stacked nav-bracket">
-            <li><a href="{{ path('pfe_backend_homepage') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+          <li class="nav-parent nav-active active">
+              
+<li class="nav-parent">
+<a href="">
+<i class="fa fa-suitcase"></i>
+<span>Elève</span>
+</a>
+<ul class="children" style="display: none;">
+<li>
+<a href="{{ path('pfe_backend_homepage') }}">
+<i class="fa fa-caret-right"></i>
+Ajouter
+</a>
+</li>
+<li>
+<a href="{{ path('pfe_backend_homepage') }}">
+<i class="fa fa-caret-right"></i>
+Modifier
+</a>
+</li>
+<li>
+<a href="{{ path('pfe_backend_homepage') }}">
+<i class="fa fa-caret-right"></i>
+Supprimer
+</a>
+</li>
+</ul>
+</li>
+
+
+
+
+
+<li class="nav-parent">
+<a href="">
+<i class="fa fa-suitcase"></i>
+<span>Enseignant</span>
+</a>
+<ul class="children" style="display: none;">
+<li>
+<a href="{{ path('pfe_backend_homepage') }}">
+<i class="fa fa-caret-right"></i>
+Ajouter
+</a>
+</li>
+<li>
+<a href="{{ path('pfe_backend_homepage') }}">
+<i class="fa fa-caret-right"></i>
+Modifir
+</a>
+</li>
+<li>
+<a href="{{ path('pfe_backend_homepage') }}">
+<i class="fa fa-caret-right"></i>
+Supprimer
+</a>
+</li>
+</ul>
+</li>
+
+
+
+
+            
+            <li><a href="{{ path('pfe_backend_homepage') }}"><i class="fa fa-home"></i> <span>Groupe</span></a></li>
+            <li><a href="{{ path('pfe_backend_homepage') }}"><i class="fa fa-home"></i> <span>Emploi</span></a></li>
         </ul>
     </div><!-- leftpanelinner -->
 </div><!-- leftpanel -->
