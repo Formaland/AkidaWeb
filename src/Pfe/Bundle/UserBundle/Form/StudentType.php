@@ -36,5 +36,6 @@ class StudentType extends AbstractType
     public function getName()
     {
         return 'pfe_bundle_userbundle_student';
+
     }
 }

@@ -2,3 +2,10 @@ pfe_user_student:
     resource: "@PfeUserBundle/Resources/config/routing/student.yml"
     prefix:   /student
 
+Pfe_user_teacher:
+    resource: "@PfeUserBundle/Resources/config/routing/teacher.yml"
+    prefix:   /teacher
+
+Pfe_user_group:
+    resource: "@PfeUserBundle/Resources/config/routing/group.yml"
+    prefix:   /group

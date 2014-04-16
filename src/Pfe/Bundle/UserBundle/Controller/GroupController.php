@@ -4,39 +4,47 @@ namespace Pfe\Bundle\UserBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Pfe\Bundle\UserBundle\Entity\User;
-use Pfe\Bundle\UserBundle\Form\UserType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Pfe\Bundle\UserBundle\Entity\Group;
+use Pfe\Bundle\UserBundle\Form\GroupType;
 
 /**
- * User controller.
+ * Group controller.
  *
+ * @Route("/group")
  */
-class UserController extends Controller
+class GroupController extends Controller
 {
 
     /**
-     * Lists all User entities.
+     * Lists all Group entities.
      *
+     * @Route("/", name="group")
+     * @Method("GET")
+     * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('PfeUserBundle:User')->findAll();
+        $entities = $em->getRepository('PfeUserBundle:Group')->findAll();
 
-        return $this->render('PfeWebBundle:Backend/User:index.html.twig', array(
+        return array(
             'entities' => $entities,
-        ));
+        );
     }
-
     /**
-     * Creates a new User entity.
+     * Creates a new Group entity.
      *
+     * @Route("/", name="group_create")
+     * @Method("POST")
+     * @Template("PfeUserBundle:Group:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new User();
+        $entity = new Group();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -45,26 +53,26 @@ class UserController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('user_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('group_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('PfeWebBundle:Backend/User:new.html.twig', array(
+        return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
+        );
     }
 
     /**
-    * Creates a form to create a User entity.
+    * Creates a form to create a Group entity.
     *
-    * @param User $entity The entity
+    * @param Group $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(User $entity)
+    private function createCreateForm(Group $entity)
     {
-        $form = $this->createForm(new UserType(), $entity, array(
-            'action' => $this->generateUrl('user_create'),
+        $form = $this->createForm(new GroupType(), $entity, array(
+            'action' => $this->generateUrl('group_create'),
             'method' => 'POST',
         ));
 
@@ -74,76 +82,86 @@ class UserController extends Controller
     }
 
     /**
-     * Displays a form to create a new User entity.
+     * Displays a form to create a new Group entity.
      *
+     * @Route("/new", name="group_new")
+     * @Method("GET")
+     * @Template()
      */
     public function newAction()
     {
-        $entity = new User();
+        $entity = new Group();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('PfeWebBundle:Backend/User:new.html.twig', array(
+        return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
+        );
     }
 
     /**
-     * Finds and displays a User entity.
+     * Finds and displays a Group entity.
      *
+     * @Route("/{id}", name="group_show")
+     * @Method("GET")
+     * @Template()
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('PfeUserBundle:User')->find($id);
+        $entity = $em->getRepository('PfeUserBundle:Group')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find User entity.');
+            throw $this->createNotFoundException('Unable to find Group entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('PfeWebBundle:Backend/User:show.html.twig', array(
+        return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),
+        );
     }
 
     /**
-     * Displays a form to edit an existing User entity.
+     * Displays a form to edit an existing Group entity.
      *
+     * @Route("/{id}/edit", name="group_edit")
+     * @Method("GET")
+     * @Template()
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('PfeUserBundle:User')->find($id);
+        $entity = $em->getRepository('PfeUserBundle:Group')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find User entity.');
+            throw $this->createNotFoundException('Unable to find Group entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('PfeWebBundle:Backend/User:edit.html.twig', array(
+        return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
-    * Creates a form to edit a User entity.
+    * Creates a form to edit a Group entity.
     *
-    * @param User $entity The entity
+    * @param Group $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(User $entity)
+    private function createEditForm(Group $entity)
     {
-        $form = $this->createForm(new UserType(), $entity, array(
-            'action' => $this->generateUrl('user_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new GroupType(), $entity, array(
+            'action' => $this->generateUrl('group_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -152,17 +170,20 @@ class UserController extends Controller
         return $form;
     }
     /**
-     * Edits an existing User entity.
+     * Edits an existing Group entity.
      *
+     * @Route("/{id}", name="group_update")
+     * @Method("PUT")
+     * @Template("PfeUserBundle:Group:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('PfeUserBundle:User')->find($id);
+        $entity = $em->getRepository('PfeUserBundle:Group')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find User entity.');
+            throw $this->createNotFoundException('Unable to find Group entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -172,18 +193,20 @@ class UserController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('user_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('group_edit', array('id' => $id)));
         }
 
-        return $this->render('PfeWebBundle:Backend/User:edit.html.twig', array(
+        return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
     /**
-     * Deletes a User entity.
+     * Deletes a Group entity.
      *
+     * @Route("/{id}", name="group_delete")
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -192,21 +215,21 @@ class UserController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('PfeUserBundle:User')->find($id);
+            $entity = $em->getRepository('PfeUserBundle:Group')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find User entity.');
+                throw $this->createNotFoundException('Unable to find Group entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('user'));
+        return $this->redirect($this->generateUrl('group'));
     }
 
     /**
-     * Creates a form to delete a User entity by id.
+     * Creates a form to delete a Group entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -215,7 +238,7 @@ class UserController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('user_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('group_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
