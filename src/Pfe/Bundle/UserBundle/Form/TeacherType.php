@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserType extends AbstractType
+class TeacherType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,17 +15,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
-            ->add('email')
-            ->add('enabled')
-            ->add('plainPassword')
-            ->add('locked')
-            ->add('roles')
-            ->add('firstName')
-            ->add('lastName')
-            ->add('token')
-            ->add('phone')
-            ->add('cin')
+            ->add('user')
         ;
     }
     
@@ -35,7 +25,7 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Pfe\Bundle\UserBundle\Entity\User'
+            'data_class' => 'Pfe\Bundle\UserBundle\Entity\Teacher'
         ));
     }
 
@@ -44,6 +34,6 @@ class UserType extends AbstractType
      */
     public function getName()
     {
-        return 'pfe_bundle_userbundle_user';
+        return 'pfe_bundle_userbundle_teacher';
     }
 }

@@ -12,7 +12,6 @@ class PageController extends Controller {
         $t = $this->get('translator')->trans('Symfony2 is great');
 
         return $this->render('PfeWebBundle:Frontend\Page:index.html.twig', array('title' => $t));
-// >>>>>>> e6d09c14d8e54b631c6cb77449ca7afe24a13159
-// c'est un conflie de git
+
     }
 }

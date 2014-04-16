@@ -16,73 +16,7 @@
 {# On peux pas definir deux fois un block twig #}
 
 {% block content %}
-<div class="col-md-6">
-<form id="basicForm" class="form-horizontal" action="form-validation.html" novalidate="novalidate">
-<div class="panel panel-default">
-<div class="panel-heading">
-<div class="panel-btns">
-<a class="panel-close" href="">×</a>
-<a class="minimize" href="">−</a>
-</div>
-<h4 class="panel-title">Supprimer un élève</h4>
-</div>
-<div class="panel-body">
-<div class="form-group">
-<label class="col-sm-3 control-label">
-Ncin
-</label>
-<div class="col-sm-9">
-<select id="fruits" class="form-control" required="">
-<option value="">Choisir une cin</option>
-<option value="apple">Apple</option>
-<option value="orange">Orange</option>
-<option value="grapes">Grapes</option>
-<option value="strawberry">Strawberry</option>
-</select>
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">
-Nom
-</label>
-<div class="col-sm-9">
-<input class="form-control" type="text" required=""   name="email">
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-3 control-label">Prenom</label>
-<div class="col-sm-9">
-    <input class="form-control" type="text" name="Prenom" required="" >
-</div>
-</div>
-    <div class="form-group">
-<label class="col-sm-3 control-label">
-Date de naissance
-</label>
-<div class="col-sm-9">
-<input class="form-control" type="text" required=""  name="email">
-</div>
-</div>
- 
-     <div class="form-group">
-<label class="col-sm-3 control-label">
-Adresse
-</label>
-<div class="col-sm-9">
-<input class="form-control" type="text" required=""  name="email">
-</div>
-</div>
-</div>
-<div class="panel-footer">
-<div class="row">
-<div class="col-sm-9 col-sm-offset-3">
-<button class="btn btn-primary">Supprimer</button>
-</div>
-</div>
-</div>
-    
-</div>
-</div>
-</div>
-</form>
+    {% include 'PfeUserBundle:student:new.html.twig' %}
+    {% include 'PfeUserBundle:student:edit.html.twig' %}
+    {% include 'PfeUserBundle:student:delete.html.twig' %}
 {% endblock %}
