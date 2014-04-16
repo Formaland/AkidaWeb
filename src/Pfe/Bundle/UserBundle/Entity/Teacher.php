@@ -11,7 +11,7 @@ use Pfe\Bundle\UserBundle\Entity\User as BaseUser;
  * @ORM\Table(name="pfe_teacher")
  * @ORM\Entity(repositoryClass="Pfe\Bundle\UserBundle\Entity\Repository\TeacherRepository")
  */
-class Teacher
+class Teacher extends User
 {
     /**
      * @var integer
@@ -30,10 +30,39 @@ class Teacher
      */
     protected $user;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diplome", type="string", length=30, nullable=true)
+     */
+    protected $diplome;
+
     public function __construct(){
 
         $this->user->setRoles(array('ROLE_TEACHER'));
 
+    }
+    /**
+     * Set diplome
+     *
+     * @param string $diplome
+     * @return User
+     */
+    public function setDiplome($diplome)
+    {
+        $this->diplome = $diplome;
+
+        return $this;
+    }
+
+    /**
+     * Get diplome
+     *
+     * @return string
+     */
+    public function getDiplome()
+    {
+        return $this->diplome;
     }
 
 }

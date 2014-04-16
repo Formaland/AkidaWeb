@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pfe_student")
  * @ORM\Entity(repositoryClass="Pfe\Bundle\UserBundle\Entity\Repository\StudentRepository")
  */
-class Student
+class Student extends User
 {
     /**
      * @var integer
@@ -24,9 +24,30 @@ class Student
     /**
      * @var string
      *
-     * @ORM\Column(name="cin", type="string", length=8, nullable=true)
+     * @ORM\Column(name="mere", type="string", length=30, nullable=true)
      */
-    protected $cin;
+    protected $mere;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pere", type="string", length=30, nullable=true)
+     */
+    protected $pere;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ecole", type="string", length=30, nullable=true)
+     */
+    protected $ecole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="niveau_scolaire", type="string", length=30, nullable=true)
+     */
+    protected $niveau_scolaire;
 
     /**
      * @var object User
@@ -36,26 +57,12 @@ class Student
      */
     protected $user;
 
+
     public function __construct(){
 
 
     }
 
-    /**
-     * @param string $cin
-     */
-    public function setCin($cin)
-    {
-        $this->cin = $cin;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCin()
-    {
-        return $this->cin;
-    }
 
     /**
      * @param int $id
@@ -88,6 +95,97 @@ class Student
     {
         return $this->user;
     }
+    /**
+     * Set pere
+     *
+     * @param string $pere
+     * @return User
+     */
+    public function setPere($pere)
+    {
+        $this->pere = $pere;
+
+        return $this;
+    }
+
+    /**
+     * Get pere
+     *
+     * @return string
+     */
+    public function getPere()
+    {
+        return $this->pere;
+    }
+    /**
+     * Set mere
+     *
+     * @param string $mere
+     * @return User
+     */
+    public function setMere($mere)
+    {
+        $this->mere = $mere;
+
+        return $this;
+    }
+
+    /**
+     * Get mere
+     *
+     * @return string
+     */
+    public function getMere()
+    {
+        return $this->mere;
+    }
+
+    /**
+     * Set ecole
+     *
+     * @param string $ecole
+     * @return User
+     */
+    public function setEcole($ecole)
+    {
+        $this->ecole = $ecole;
+
+        return $this;
+    }
+
+    /**
+     * Get ecole
+     *
+     * @return string
+     */
+    public function getEcole()
+    {
+        return $this->ecole;
+    }
+
+    /**
+     * Set niveau_scolaire
+     *
+     * @param string $niveau_scolaire
+     * @return User
+     */
+    public function setNiveau_scolaire($niveau_scolaire)
+    {
+        $this->niveau_scolaire = $niveau_scolaire;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau_scolaire
+     *
+     * @return string
+     */
+    public function getNiveau_scolaire()
+    {
+        return $this->niveau_scolaire;
+    }
+
 
 
 }

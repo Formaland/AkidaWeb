@@ -23,6 +23,13 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="cin", type="string", length=8, nullable=true)
+     */
+    protected $cin;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="first_name", type="string", length=100, nullable=true)
      */
     protected $firstName;
@@ -33,6 +40,28 @@ class User extends BaseUser
      * @ORM\Column(name="last_name", type="string", length=100, nullable=true)
      */
     protected $lastName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=100, nullable=true)
+     */
+    protected $adresse;
+
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="date_creation", type="datetime", length=40)
+     */
+    private $date_creation;
+
+    /**
+     * @var DATETIME
+     *
+     * @ORM\Column(name="date_modification", type="datetime", length=40)
+     */
+    private $date_modification;
 
     /**
      * @var string
@@ -53,9 +82,9 @@ class User extends BaseUser
      *
      * @ORM\Column(name="student_id")
      * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", cascade={"persist"})
-     */
+     *
     protected $student;
-
+    */
     public function __construct()
     {
         parent::__construct();
@@ -162,5 +191,95 @@ class User extends BaseUser
     public function getPhone()
     {
         return $this->phone;
+    }
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     * @return User
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+    /**
+     * Set cin
+     *
+     * @param string $cin
+     * @return User
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set date_creation
+     *
+     * @param string $date_creation
+     * @return User
+     */
+    public function setDate_creation($date_creation)
+    {
+        $this->date_creation= $date_creation;
+
+        return $this;
+    }
+
+    /**
+     * Get date_creation
+     *
+     * @return datetime
+     */
+    public function getDate_creation()
+    {
+        return $this->date_creation;
+    }
+
+    /**
+     * Set date_modification
+     *
+     * @param string $date_modification
+     * @return User
+     */
+    public function setDate_modification($date_modification)
+    {
+        $this->date_modification= $date_modification;
+
+        return $this;
+    }
+
+    /**
+     * Get date_modification
+     *
+     * @return datetime
+     */
+    public function getDate_modification()
+    {
+        return $this->date_modification;
     }
 }
