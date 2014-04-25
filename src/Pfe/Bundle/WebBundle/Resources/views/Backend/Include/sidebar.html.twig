@@ -28,7 +28,7 @@
         <h5 class="sidebartitle">Navigation</h5>
 
         <ul class="nav nav-pills nav-stacked nav-bracket">
-<<<<<<< HEAD
+
           <li class="nav-parent nav-active active">
               
 <li class="nav-parent">
@@ -38,19 +38,21 @@
 </a>
 <ul class="children" style="display: none;">
 <li>
-<a href="{{ path('pfe_backend_homepage') }}">
+<a href="{{ path('student_new') }}">
 <i class="fa fa-caret-right"></i>
 Ajouter
 </a>
 </li>
+
 <li>
-<a href="{{ path('pfe_backend_homepage') }}">
+<a href="{{ path('student_edit', { 'id':student.id }) }}">
 <i class="fa fa-caret-right"></i>
 Modifier
 </a>
 </li>
+
 <li>
-<a href="{{ path('pfe_backend_homepage') }}">
+<a href="{{ path('student_delete', { 'id':student.id }) }}">
 <i class="fa fa-caret-right"></i>
 Supprimer
 </a>
@@ -77,7 +79,7 @@ Ajouter
 <li>
 <a href="{{ path('pfe_backend_homepage') }}">
 <i class="fa fa-caret-right"></i>
-Modifir
+Modifier
 </a>
 </li>
 <li>
