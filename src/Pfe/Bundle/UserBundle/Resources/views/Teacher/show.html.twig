@@ -1,7 +1,6 @@
-{% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Teacher</h1>
+    <h1>{{ 'sidebar.Liste des apprenants'|trans({}, 'backend') }}</h1>
 
     <table class="record_properties">
         <tbody>
@@ -9,9 +8,13 @@
                 <th>Id</th>
                 <td>{{ entity.id }}</td>
             </tr>
-            <tr>
+            {# <tr>
                 <th>User</th>
                 <td>{{ entity.user }}</td>
+            </tr>#}
+            <tr>
+                <th>Diplome</th>
+                <td>{{ entity.diplome }}</td>
             </tr>
         </tbody>
     </table>

@@ -3,4 +3,28 @@ title:
   page: طاولة مجلس
 
 sidebar:
-  dashboard: طاولة مجلس
+  utilisateur: المستخدمين
+  Ajouter: إضافة مستخدم
+  Lister: مشاهدة قائمة
+  Apprenant: المتعلّمين
+  Enseignant: المعلّمون
+  Groupe: المجموعة
+  Ajouter groupe: إضافة مجموعة
+  Lister groupe: مشاهدة القائمة
+  Liste des apprenants: قائمة المتعلّمين
+  Enregister apprenant: تسجيل المتعلّم
+  Liste des  enseignants: قائمة المعلّمون
+  Enregistrer enseignant: تسجيل المعلّم
+  Modifier apprenant: تغيير ملف تعريف المتعلّم
+  Modifier enseignant: تغيير ملف تعريف المعلّم
+Liens:
+  Editer: تحرير
+  Show: عرض
+  Ajouter: إضافة
+  Retour à la liste: العودة إلى القائمة
+student:
+  Mere: الأم
+  Pere: الأب
+  Ecole: المدرسة
+  Niveau scolaire: المستوى الدّراسي
+  Id: الرّمز

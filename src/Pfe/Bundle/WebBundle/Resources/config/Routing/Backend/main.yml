@@ -9,5 +9,13 @@ pfe_user_include_student:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/student.yml"
     prefix: /student
 
+pfe_user_include_teacher:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/teacher.yml"
+    prefix: /teacher
+
+pfe_user_include_group:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/group.yml"
+    prefix: /group
+
 pfe_user_include_security:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/security.yml"

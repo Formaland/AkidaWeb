@@ -1,3 +1,11 @@
+pfe_session:
+    resource: "@PfeSessionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pfe_courses:
+    resource: "@PfeCoursesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pfe_web_bundle:
     resource: "@PfeWebBundle/Resources/config/routing.yml"
     prefix:   /

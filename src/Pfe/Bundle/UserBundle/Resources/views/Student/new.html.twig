@@ -1,15 +1,18 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+{% block content -%}
+    <h1>{{ 'sidebar.Enregister apprenant'|trans({}, 'backend') }}</h1>
 
-{% block body -%}
-    <h1>Student creation</h1>
+
 
     {{ form(form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('student') }}">
-            Back to the list
-        </a>
+        <a href="{{ path('student') }}"><button type="button" class="btn btn-info">
+                <span class="  glyphicon-circle-arrow-left"></span>
+                {{ 'Liens.Retour à la liste'|trans({}, 'backend') }}
+        </button></a>
+
     </li>
 </ul>
 {% endblock %}

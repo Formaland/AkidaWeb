@@ -3,6 +3,7 @@
 namespace Pfe\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Entities\User;
 
 /**
  * Student
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pfe_student")
  * @ORM\Entity(repositoryClass="Pfe\Bundle\UserBundle\Entity\Repository\StudentRepository")
  */
-class Student extends User
+class Student
 {
     /**
      * @var integer
@@ -20,6 +21,7 @@ class Student extends User
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
 
     /**
      * @var string
@@ -38,31 +40,25 @@ class Student extends User
     /**
      * @var string
      *
-     * @ORM\Column(name="ecole", type="string", length=30, nullable=true)
+     * @ORM\Column(name="ecole", type="string", length=80, nullable=true)
      */
     protected $ecole;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="niveau_scolaire", type="string", length=30, nullable=true)
+     * @ORM\Column(name="niveauscolaire", type="string", length=80, nullable=true)
      */
-    protected $niveau_scolaire;
+    protected $niveauscolaire;
+
+
 
     /**
-     * @var object User
      *
-     * @ORM\Column(name="user_id")
-     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Group", mappedBy="student")
+     *
      */
-    protected $user;
-
-
-    public function __construct(){
-
-
-    }
-
+    protected $group;
 
     /**
      * @param int $id
@@ -80,21 +76,6 @@ class Student extends User
         return $this->id;
     }
 
-    /**
-     * @param object $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * @return object
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
     /**
      * Set pere
      *
@@ -164,26 +145,84 @@ class Student extends User
     }
 
     /**
-     * Set niveau_scolaire
+     * Set niveauscolaire
      *
-     * @param string $niveau_scolaire
+     * @param string $niveauscolaire
      * @return User
      */
-    public function setNiveau_scolaire($niveau_scolaire)
+    public function setNiveauscolaire($niveauscolaire)
     {
-        $this->niveau_scolaire = $niveau_scolaire;
+        $this->niveauscolaire = $niveauscolaire;
 
         return $this;
     }
 
     /**
-     * Get niveau_scolaire
+     * Get niveauscolaire
      *
      * @return string
      */
-    public function getNiveau_scolaire()
+    public function getNiveauscolaire()
     {
-        return $this->niveau_scolaire;
+        return $this->niveauscolaire;
+    }
+
+
+    /**
+     * Set group
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Group $group
+     * @return Student
+     */
+    public function setGroup(\Pfe\Bundle\UserBundle\Entity\Group $group = null)
+    {
+        $this->group = $group;
+    
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Pfe\Bundle\UserBundle\Entity\Group 
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add group
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Group $group
+     * @return Student
+     */
+    public function addGroup(\Pfe\Bundle\UserBundle\Entity\Group $group)
+    {
+        $this->group[] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Remove group
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Group $group
+     */
+    public function removeGroup(\Pfe\Bundle\UserBundle\Entity\Group $group)
+    {
+        $this->group->removeElement($group);
+    }
+    public function __toString()
+    {
+        return $this->getPere();
     }
 
 

@@ -11,7 +11,7 @@ use Pfe\Bundle\UserBundle\Entity\User as BaseUser;
  * @ORM\Table(name="pfe_teacher")
  * @ORM\Entity(repositoryClass="Pfe\Bundle\UserBundle\Entity\Repository\TeacherRepository")
  */
-class Teacher extends User
+class Teacher
 {
     /**
      * @var integer
@@ -22,25 +22,41 @@ class Teacher extends User
      */
     protected $id;
 
-    /**
-     * @var object User
-     *
-     * @ORM\Column(name="user_id")
-     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\User", cascade={"persist"})
-     */
-    protected $user;
+
 
     /**
      * @var string
      *
-     * @ORM\Column(name="diplome", type="string", length=30, nullable=true)
+     * @ORM\Column(name="diplome", type="string", length=80, nullable=true)
      */
     protected $diplome;
 
-    public function __construct(){
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string",length=255,  nullable=true)
+     */
+    protected $description;
 
-        $this->user->setRoles(array('ROLE_TEACHER'));
+ public function __construct(){
 
+
+
+      }
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
     /**
      * Set diplome
@@ -63,6 +79,35 @@ class Teacher extends User
     public function getDiplome()
     {
         return $this->diplome;
+    }
+
+
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Teacher
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    public function __toString()
+    {
+        return $this->getDescription();
     }
 
 }

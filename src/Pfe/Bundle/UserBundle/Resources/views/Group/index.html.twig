@@ -8,7 +8,9 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Student</th>
+                <th>Description</th>
+                <th>Date creation</th>
+                <th>Date modification</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,7 +19,9 @@
             <tr>
                 <td><a href="{{ path('group_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nom }}</td>
-                <td>{{ entity.student }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{% if entity.datecreation %}{{ entity.datecreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datemodification %}{{ entity.datemodification|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>

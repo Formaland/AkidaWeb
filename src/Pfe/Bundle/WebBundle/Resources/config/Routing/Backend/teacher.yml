@@ -26,5 +26,5 @@ teacher_update:
 
 teacher_delete:
     pattern:  /{id}/delete
-    defaults: { _controller: "PfeUserBundle:Student:delete" }
+    defaults: { _controller: "PfeUserBundle:Teacher:delete" }
     requirements: { _method: post|delete }

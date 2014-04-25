@@ -9,3 +9,7 @@ Pfe_user_teacher:
 Pfe_user_group:
     resource: "@PfeUserBundle/Resources/config/routing/group.yml"
     prefix:   /group
+
+Pfe_user_user:
+    resource: "@PfeUserBundle/Resources/config/routing/user.yml"
+    prefix:   /user

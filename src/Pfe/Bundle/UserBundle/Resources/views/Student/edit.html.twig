@@ -1,14 +1,16 @@
-{% extends '::base.html.twig' %}
+
 
 {% block body -%}
-    <h1>Student edit</h1>
+    <h1>{{ 'sidebar.Modifier apprenant'|trans({}, 'backend') }}</h1>
+
 
     {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('student') }}">
-            Back to the list
+        <a href="{{ path('student') }}"><button type="button" class="btn btn-default btn-lg">
+                <span class=" glyphicon-pencil"></span>
+                {{ 'Liens.Retour à la liste'|trans({}, 'backend') }}</button>
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

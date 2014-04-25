@@ -1,7 +1,0 @@
-parameters:
-#    pfe_emploi.example.class: Pfe\EmploiBundle\Example
-
-services:
-#    pfe_emploi.example:
-#        class: %pfe_emploi.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

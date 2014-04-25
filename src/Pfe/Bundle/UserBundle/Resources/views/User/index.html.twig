@@ -1,0 +1,71 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>User list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cin</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Adresse</th>
+                <th>Date of birth</th>
+                <th>Phone</th>
+               {#<th>Roles</th>#}
+                <th>Date creation</th>
+                <th>Date modification</th>
+                <th>Registration date</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.cin }}</td>
+                <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+
+                <td>{{ entity.email }}</td>
+
+                <td>{{ entity.firstName }}</td>
+                <td>{{ entity.lastName }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{% if entity.dateofbirth %}{{ entity.dateofbirth|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.phone }}</td>
+               {#<td>{{ entity.roles }}</td>#}
+
+                <td>{% if entity.datecreation %}{{ entity.datecreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datemodification %}{{ entity.datemodification|date('Y-m-d H:i:s') }}{% endif %}</td>
+
+                <td>{% if entity.registrationdate %}{{ entity.registrationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.description }}</td>
+
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('user_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('user_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

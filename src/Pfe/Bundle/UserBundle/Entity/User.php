@@ -27,6 +27,20 @@ class User extends BaseUser
      */
     protected $cin;
 
+
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="dateofbirth", type="date",  nullable=true)
+     */
+    protected $dateofbirth;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string",length=255,  nullable=true)
+     */
+    protected $description;
     /**
      * @var string
      *
@@ -78,18 +92,28 @@ class User extends BaseUser
     protected $phone;
 
     /**
+     * @var date
+     *
+     * @ORM\Column(name="registrationdate", type="date",  nullable=true)
+     */
+    protected $registrationdate;
+
+    /**
      * @var object User
      *
-     * @ORM\Column(name="student_id")
+
      * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", cascade={"persist"})
-     *
+     */
     protected $student;
-    */
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
+
+    /**
+     * @var object User
+     *
+     *
+     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Teacher", cascade={"persist"})
+     *
+     */
+    protected $teacher;
 
     /**
      * Get id
@@ -281,5 +305,171 @@ class User extends BaseUser
     public function getDate_modification()
     {
         return $this->date_modification;
+    }
+
+    /**
+     * Set date_creation
+     *
+     * @param \DateTime $dateCreation
+     * @return User
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->date_creation = $dateCreation;
+    
+        return $this;
+    }
+
+    /**
+     * Get date_creation
+     *
+     * @return \DateTime 
+     */
+    public function getDateCreation()
+    {
+        return $this->date_creation;
+    }
+
+    /**
+     * Set date_modification
+     *
+     * @param \DateTime $dateModification
+     * @return User
+     */
+    public function setDateModification($dateModification)
+    {
+        $this->date_modification = $dateModification;
+    
+        return $this;
+    }
+
+    /**
+     * Get date_modification
+     *
+     * @return \DateTime 
+     */
+    public function getDateModification()
+    {
+        return $this->date_modification;
+    }
+
+    /**
+     * Set dateofbirth
+     *
+     * @param \DateTime $dateofbirth
+     * @return User
+     */
+    public function setDateofbirth($dateofbirth)
+    {
+        $this->dateofbirth = $dateofbirth;
+    
+        return $this;
+    }
+
+    /**
+     * Get dateofbirth
+     *
+     * @return \DateTime 
+     */
+    public function getDateofbirth()
+    {
+        return $this->dateofbirth;
+    }
+
+    /**
+     * Set registrationdate
+     *
+     * @param \DateTime $registrationdate
+     * @return User
+     */
+    public function setRegistrationdate($registrationdate)
+    {
+        $this->registrationdate = $registrationdate;
+    
+        return $this;
+    }
+
+    /**
+     * Get registrationdate
+     *
+     * @return \DateTime 
+     */
+    public function getRegistrationdate()
+    {
+        return $this->registrationdate;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return User
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    public function __toString()
+    {
+        return $this->getCin();
+    }
+
+
+    /**
+     * Set student
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Student $student
+     * @return User
+     */
+    public function setStudent(\Pfe\Bundle\UserBundle\Entity\Student $student = null)
+    {
+        $this->student = $student;
+    
+        return $this;
+    }
+
+    /**
+     * Get student
+     *
+     * @return \Pfe\Bundle\UserBundle\Entity\Student 
+     */
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    /**
+     * Set teacher
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Teacher $teacher
+     * @return User
+     */
+    public function setTeacher(\Pfe\Bundle\UserBundle\Entity\Teacher $teacher = null)
+    {
+        $this->teacher = $teacher;
+    
+        return $this;
+    }
+
+    /**
+     * Get teacher
+     *
+     * @return \Pfe\Bundle\UserBundle\Entity\Teacher 
+     */
+    public function getTeacher()
+    {
+        return $this->teacher;
     }
 }
