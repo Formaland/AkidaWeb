@@ -1,0 +1,167 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+
+    {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+<div class="col-md-6">
+
+    <form id="basicForm" class="form-horizontal" action="path{{'hezb_create'}}" novalidate="novalidate" methode='post'>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close" href="#">
+
+                        ×
+
+                    </a>
+                    <a class="minimize" href="#">
+
+                        −
+
+                    </a>
+                </div>
+                <h4 class="panel-title">
+
+                    {{ 'sidebar.Ajouter hezb'|trans({}, 'backend') }}
+
+                </h4>
+
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+                        {{ form_widget(form.nameoraltest) }}
+                        {{ form_errors(form.nameoraltest) }}
+                    </div>
+
+
+
+
+                    <label class="col-sm-3 control-label">
+
+                        {{ 'Horale.nom'|trans({}, 'backend') }}
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+                    </label></div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(form.hezb) }}
+                        {{ form_errors(form.hezb) }}
+                    </div>
+
+
+
+                    <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                        {{ 'hezb.num hezb'|trans({}, 'backend') }}
+
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(form.weeklysession) }}
+                        {{ form_errors(form.weeklysession) }}
+                    </div>
+
+
+
+                    <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                        {{ 'hezb.sourah'|trans({}, 'backend') }}
+
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(form.student) }}
+                        {{ form_errors(form.student) }}
+                    </div>
+
+
+
+                    <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                        {{ 'hezb.sourah'|trans({}, 'backend') }}
+
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(form.teacher) }}
+                        {{ form_errors(form.teacher) }}
+                    </div>
+
+
+
+                    <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                        {{ 'hezb.sourah'|trans({}, 'backend') }}
+
+                    </label>
+
+                </div>
+
+
+                <!--
+
+                 panel
+
+                -->
+
+
+            </div>
+
+
+
+
+   </div> </form></div>
+
+
+
+
+
+
+    {# <h1>Oraltest creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('oraltest') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>#}
+{% endblock %}

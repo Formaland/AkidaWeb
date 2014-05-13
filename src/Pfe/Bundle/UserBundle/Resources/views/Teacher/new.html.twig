@@ -1,14 +1,102 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
-    <h1>{{ 'sidebar.Enregistrer enseignant'|trans({}, 'backend') }}</h1>
 
-    {{ form(form) }}
+{% block content -%}
+    <div class="col-md-6">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('teacher') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+        <form id="basicForm" class="form-horizontal" action="{{ path('teacher_create') }}"  novalidate="novalidate" method="post" {{ form_enctype(form) }}>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            −
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title">
+
+                        {{ 'sidebar.Enregistrer enseignant'|trans({}, 'backend') }}
+
+                    </h4>
+
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(form.diplome) }}
+                            {{ form_errors(form.diplome) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+
+                <span class="asterisk">
+
+                            *
+
+                        </span>
+                            {{ 'enseignant.diplome'|trans({}, 'backend') }}
+
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.description) }}
+                            {{ form_errors(form.description) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                            {{ 'enseignant.description'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+
+
+                                {{ form_widget(form.create) }}
+
+                            </div>
+                        </div>
+                        <!--
+
+                         panel
+
+                        -->
+
+
+
+
+
+
+
+                    </div></div> </div>
+
+            {{ form_rest(form) }}
+        </form></div>
 {% endblock %}

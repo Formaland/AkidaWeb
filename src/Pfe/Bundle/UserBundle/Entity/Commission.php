@@ -30,10 +30,17 @@ class Commission
     protected $teacher;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Note", inversedBy="commission")
+     * @ORM\OneToMany(targetEntity="Pfe\Bundle\ExamenBundle\Entity\Note", mappedBy="commission")
      */
-    protected $note;
+    private  $note;
 
+    /**
+     * @var object Examen
+     *
+     * @ORM\JoinColumn(name="examen_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\ExamenBundle\Entity\Examen", mappedBy="examen",  cascade={"persist"})
+     */
+    protected $examen;
     /**
      * @var string
      *
@@ -44,7 +51,7 @@ class Commission
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text", length=255)
      */
     private $description;
 
@@ -151,7 +158,7 @@ class Commission
      * @param \Pfe\Bundle\CoursesBundle\Entity\Note $note
      * @return Commission
      */
-    public function setNote(\Pfe\Bundle\CoursesBundle\Entity\Note $note = null)
+    public function setNote(\Pfe\Bundle\ExamenBundle\Entity\Note $note = null)
     {
         $this->note = $note;
     

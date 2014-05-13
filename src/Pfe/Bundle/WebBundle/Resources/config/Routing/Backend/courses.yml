@@ -1,0 +1,30 @@
+courses:
+    pattern:  /
+    defaults: { _controller: "PfeCoursesBundle:Courses:index" }
+
+courses_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeCoursesBundle:Courses:show" }
+
+courses_new:
+    pattern:  /new
+    defaults: { _controller: "PfeCoursesBundle:Courses:new" }
+
+courses_create:
+    pattern:  /create
+    defaults: { _controller: "PfeCoursesBundle:Courses:create" }
+    requirements: { _method: post }
+
+courses_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeCoursesBundle:Courses:edit" }
+
+courses_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeCoursesBundle:Courses:update" }
+    requirements: { _method: post|put }
+
+courses_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeCoursesBundle:Courses:delete" }
+    requirements: { _method: post|delete }

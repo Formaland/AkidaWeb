@@ -1,0 +1,37 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+    <h1>Sourah</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Namesourah</th>
+                <td>{{ entity.namesourah }}</td>
+            </tr>
+            <tr>
+                <th>Numsourah</th>
+                <td>{{ entity.numsourah }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('sourah') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('sourah_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

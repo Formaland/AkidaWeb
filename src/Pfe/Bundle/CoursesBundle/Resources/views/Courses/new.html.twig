@@ -1,0 +1,152 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+    <div class="col-md-6">
+
+        <form id="basicForm" class="form-horizontal" action="path{{'hezb_create'}}" novalidate="novalidate" methode='post'>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            -
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title">
+                        <font color="blue" size="5%" align="left">
+                            {{ 'sidebar.Ajouter hezb'|trans({}, 'backend') }}</font>
+
+                    </h4>
+
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(form.namecourses) }}
+                            {{ form_errors(form.namecourses) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label"><font color="black">
+
+
+                                {{ 'cours.nom'|trans({}, 'backend') }}</font>
+
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.durationcourses) }}
+                            {{ form_errors(form.durationcourses) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="black">
+
+
+                                {{ 'cours.duree'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.group) }}
+                            {{ form_errors(form.group) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="black">
+
+
+                                {{ 'groupe.nom'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.weeklysession) }}
+                            {{ form_errors(form.weeklysession) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="black">
+
+
+                                {{ 'seanceheb.nom'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+
+
+
+
+
+
+                    <!--
+
+                     panel
+
+                    -->
+
+
+                </div>
+
+
+
+
+            </div></form></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   {#<h1>Courses creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('courses') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>#}
+{% endblock %}

@@ -10,21 +10,116 @@ sidebar:
   Enseignant: المعلّمون
   Groupe: المجموعة
   Ajouter groupe: إضافة مجموعة
-  Lister groupe: مشاهدة القائمة
+  Lister groupe: قائمة المجموعات
   Liste des apprenants: قائمة المتعلّمين
   Enregister apprenant: تسجيل المتعلّم
   Liste des  enseignants: قائمة المعلّمون
   Enregistrer enseignant: تسجيل المعلّم
   Modifier apprenant: تغيير ملف تعريف المتعلّم
   Modifier enseignant: تغيير ملف تعريف المعلّم
+  Commission: لجان العرض
+  Ajouter commission: إضافة لجنة عرض
+  Cours: الدّروس
+  Ajouter cours: إضافة درس
+  Liste des cours: قائمة الدّروس
+  Liste des commissions: قائمة لجان العرض
+  Examens:  الإختبارات الكتابية
+  Ajouter examen: إضافة إختبار
+  Liste des examens: قائمة الإختبارات الكتابية
+  Examens horales: العرض
+  Ajouter examen horale: إضافة عرض
+  Liste des examens horales:  قائمة العروض
+  Horales: المملّين
+  Ajouter horale: إضافة ممل
+  Liste horales: قائمة المملّين
+  Change horale: تحويل التّلاميذ من ممل إلى ممل
+  Ahzeb: الأحزاب
+  Ajouter hezb: إضافةحزب
+  Liste ahzebs: متابعة  حفض الأحزاب
+  App hezb: قائمة التّلاميذ الحافظين
+  Menu: لائحة
+  users: المستخدمين
+
+
 Liens:
   Editer: تحرير
   Show: عرض
   Ajouter: إضافة
   Retour à la liste: العودة إلى القائمة
+  envoyer: ارسال
+
 student:
   Mere: الأم
   Pere: الأب
   Ecole: المدرسة
   Niveau scolaire: المستوى الدّراسي
   Id: الرّمز
+
+user:
+  id: الرّمز
+  nom: الإسم
+  prenom: اللّقب
+  mot_pass: كلمة المرور
+  num_tel: رقم الهاتف
+  email: البريد الإلكتروني
+  date_naissance: تاريخ الولادة
+  adress: العنوان
+  description: الوصف
+  cin: بطاقة التعريف  الوطنية
+  date_inscription: تاريخ التّسجيل
+  login: اسم المستخدم
+  password: كلمة المرور
+  liste_users: قائمة المستخدمين
+  liste hezb:  قائمة الأحزاب المحفوظة
+  app: متعلّم
+  ens: معلّم
+  simple: مستخدم عادي
+  list: قائمة
+  unitaire: أحادي
+
+enseignant:
+  diplome: الشّهادة
+  description: الوصف
+
+groupe:
+  nom: المجموعة
+  description: الوصف
+  datecreation :  تاريخ الإضافة
+  datemodification : تاريخ التغيير
+  coures :
+
+commission:
+  type: اختصاص الّجنة
+  description:  الوصف
+  enseignant : المعلّم
+  note : العدد
+
+cours:
+  nom: عنوان الدّرس
+  duree: مدة الدّرس
+
+examen:
+  nom: اسم الاختبار
+  date: تاريخ الاختبار
+  heure deb: ساعة البداية
+  heure fin: ساعة النهاية
+
+horale:
+  nom: إسم العرض
+
+hezb:
+  num hezb: عدد الحزب
+
+sourah:
+  nom: اسم السّورة
+
+seanceheb:
+   nom: الحصّة الأسبوعية
+
+form:
+  titreuser: إضافة مستخدم جديد
+  modifier groupe: تغيير معطيات المجوعة
+  modifuser: تغيير ملف تعريف المستخدم
+  modifcomm:  تغيير لجنة العرض
+  modifstudent: تغيير ملف تعريف المتعلّم
+  user existe: مستخدم موجود

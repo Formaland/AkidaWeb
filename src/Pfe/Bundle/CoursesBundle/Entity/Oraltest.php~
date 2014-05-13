@@ -38,7 +38,7 @@ class Oraltest
      * @var object Student
      *
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
-     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Student", inversedBy="student",  cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", inversedBy="student",  cascade={"persist"})
      */
     protected $student;
 
@@ -121,5 +121,61 @@ class Oraltest
     public function getHezb()
     {
         return $this->hezb;
+    }
+
+    /**
+     * Set weeklysession
+     *
+     * @param \Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession
+     * @return Oraltest
+     */
+    public function setWeeklysession(\Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession = null)
+    {
+        $this->weeklysession = $weeklysession;
+    
+        return $this;
+    }
+
+    /**
+     * Get weeklysession
+     *
+     * @return \Pfe\Bundle\SessionBundle\Entity\Weeklysession 
+     */
+    public function getWeeklysession()
+    {
+        return $this->weeklysession;
+    }
+
+    /**
+     * Add student
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Student $student
+     * @return Oraltest
+     */
+    public function addStudent(\Pfe\Bundle\CoursesBundle\Entity\Student $student)
+    {
+        $this->student[] = $student;
+    
+        return $this;
+    }
+
+    /**
+     * Remove student
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Student $student
+     */
+    public function removeStudent(\Pfe\Bundle\CoursesBundle\Entity\Student $student)
+    {
+        $this->student->removeElement($student);
+    }
+
+    /**
+     * Get student
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudent()
+    {
+        return $this->student;
     }
 }

@@ -1,18 +1,183 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
 
-{% block body -%}
-    <h1>{{ 'sidebar.Modifier apprenant'|trans({}, 'backend') }}</h1>
+{% block content -%}
 
+    <div class="col-md-6">
+
+        <form id="basicForm" class="form-horizontal" action="{{ path('student_update', { 'id': entity.id }) }}"  novalidate="novalidate" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            −
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title">
+
+                        {{ 'form.modifstudent'|trans({}, 'backend') }}
+
+                    </h4>
+
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.mere) }}
+                            {{ form_errors(edit_form.mere) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'student.Mere'|trans({}, 'backend') }}
+
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.pere) }}
+                            {{ form_errors(edit_form.pere) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+
+
+
+                            {{ 'student.Pere'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.ecole) }}
+                            {{ form_errors(edit_form.ecole) }}
+                        </div>
+
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'student.Ecole'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.niveauscolaire) }}
+                            {{ form_errors(edit_form.niveauscolaire) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'student.Niveau scolaire'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.group) }}
+                            {{ form_errors(edit_form.group) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'sidebar.Groupe'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+
+
+
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+
+
+                                {{ form_widget(edit_form.submit) }}
+
+                            </div>
+                        </div>
+                        <!--
+
+                         panel
+
+                        -->
+
+
+
+
+
+
+
+                    </div></div> </div>
+
+            {{ form_rest(edit_form) }}
+        </form></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {# <h1>Student edit</h1>
 
     {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('student') }}"><button type="button" class="btn btn-default btn-lg">
-                <span class=" glyphicon-pencil"></span>
-                {{ 'Liens.Retour à la liste'|trans({}, 'backend') }}</button>
+        <a href="{{ path('student') }}">
+            Back to the list
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
-</ul>
+</ul>#}
 {% endblock %}

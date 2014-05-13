@@ -29,9 +29,9 @@ class Group
     private $nom;
 
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text",length=255)
      */
     private $description;
 
@@ -53,13 +53,23 @@ class Group
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", inversedBy="group")
+     * @ORM\OneToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", mappedBy="group")
      */
-    protected $student;
+    private  $students;
+
+    /**
+     * @var object Courses
+     *
+     * @ORM\JoinColumn(name="courses_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses", mappedBy="courses",  cascade={"persist"})
+     */
+    protected $courses;
+
+
 
     public function __construct()
     {
-
+        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -245,53 +255,45 @@ class Group
         return $this->courses;
     }
 
-    /**
-     * Add student
-     *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Student $student
-     * @return Group
-     */
-    public function addStudent(\Pfe\Bundle\CoursesBundle\Entity\Student $student)
-    {
-        $this->student[] = $student;
-    
-        return $this;
-    }
 
-    /**
-     * Remove student
-     *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Student $student
-     */
-    public function removeStudent(\Pfe\Bundle\CoursesBundle\Entity\Student $student)
-    {
-        $this->student->removeElement($student);
-    }
 
-    /**
-     * Get student
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getStudent()
-    {
-        return $this->student;
-    }
-
-    /**
-     * Set student
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\Student $student
-     * @return Group
-     */
-    public function setStudent(\Pfe\Bundle\UserBundle\Entity\Student $student = null)
-    {
-        $this->student = $student;
-    
-        return $this;
-    }
     public function __toString()
     {
         return $this->getNom();
+    }
+
+    /**
+     * Add students
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Student $students
+     * @return Group
+     */
+    public function addStudent(\Pfe\Bundle\UserBundle\Entity\Student $students)
+    {
+        $this->students[] = $students;
+        $students->setGroup($this);
+        return $this;
+    
+
+    }
+
+    /**
+     * Remove students
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Student $students
+     */
+    public function removeStudent(\Pfe\Bundle\UserBundle\Entity\Student $students)
+    {
+        $this->students->removeElement($students);
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudents()
+    {
+        return $this->students;
     }
 }

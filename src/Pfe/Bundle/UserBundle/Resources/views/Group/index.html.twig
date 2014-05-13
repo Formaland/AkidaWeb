@@ -1,28 +1,60 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Group list</h1>
 
-    <table class="records_list">
+{% block content -%}
+
+ <h1>  {{ 'sidebar.Lister groupe'|trans({}, 'backend') }}</h1>
+
+
+<p class="mb20"></p>
+
+<div class="table-responsive">
+
+    <table class="table table-striped mb30">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Date creation</th>
-                <th>Date modification</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th></th>
+
+            <th>
+                {{ 'groupe.description'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'groupe.nom'|trans({}, 'backend') }}
+            </th>
+
+            </th>
+            <th>
+                #
+            </th>
+
+
+        </tr>
+
+
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('group_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nom }}</td>
+
+                <td class="table-action">
+
+                    <a href="{{ path('group_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="delete-row" href="">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+
+                </td>
+
+
                 <td>{{ entity.description }}</td>
-                <td>{% if entity.datecreation %}{{ entity.datecreation|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.datemodification %}{{ entity.datemodification|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
+                <td>{{ entity.nom }}</td>
+                <td><a href="{{ path('group_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+
+
+              {# <td>
                 <ul>
                     <li>
                         <a href="{{ path('group_show', { 'id': entity.id }) }}">show</a>
@@ -31,7 +63,7 @@
                         <a href="{{ path('group_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
-                </td>
+                </td>#}
             </tr>
         {% endfor %}
         </tbody>

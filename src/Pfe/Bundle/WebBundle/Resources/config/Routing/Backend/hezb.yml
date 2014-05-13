@@ -1,0 +1,30 @@
+hezb:
+    pattern:  /
+    defaults: { _controller: "PfeHoralTestBundle:Hezb:index" }
+
+hezb_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeHoralTestBundle:Hezb:show" }
+
+hezb_new:
+    pattern:  /new
+    defaults: { _controller: "PfeHoralTestBundle:Hezb:new" }
+
+hezb_create:
+    pattern:  /create
+    defaults: { _controller: "PfeHoralTestBundle:Hezb:create" }
+    requirements: { _method: post }
+
+hezb_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeHoralTestBundle:Hezb:edit" }
+
+hezb_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeCHoralTestBundle:Hezb:update" }
+    requirements: { _method: post|put }
+
+hezb_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeHoralTestBundle:Hezb:delete" }
+    requirements: { _method: post|delete }

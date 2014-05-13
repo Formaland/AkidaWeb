@@ -1,6 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
+
+{% block content -%}
     <h1>Group</h1>
 
     <table class="record_properties">
@@ -18,11 +19,11 @@
                 <td>{{ entity.description }}</td>
             </tr>
             <tr>
-                <th>Date creation</th>
+                <th>Date_creation</th>
                 <td>{{ entity.datecreation|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Date modification</th>
+                <th>Date_modification</th>
                 <td>{{ entity.datemodification|date('Y-m-d H:i:s') }}</td>
             </tr>
         </tbody>

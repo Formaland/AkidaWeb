@@ -1,0 +1,120 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+    <div class="col-md-6">
+
+    <form id="basicForm" class="form-horizontal" action="{{ path('commission_create') }}"  novalidate="novalidate" method="post">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-btns">
+            <a class="panel-close" href="#">
+
+                ×
+
+            </a>
+            <a class="minimize" href="#">
+
+                −
+
+            </a>
+        </div>
+        <h4 class="panel-title">
+
+            {{ 'sidebar.Ajouter commission'|trans({}, 'backend') }}
+
+        </h4>
+
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+
+            <div class="col-sm-9">
+                {{ form_widget(form.typecommission) }}
+                {{ form_errors(form.typecommission) }}
+            </div>
+
+
+
+
+            <label class="col-sm-3 control-label">
+
+                {{ 'commission.type'|trans({}, 'backend') }}
+                <span class="asterisk">
+
+                            *
+
+                        </span>
+            </label></div>
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(form.description) }}
+                {{ form_errors(form.description) }}
+            </div>
+
+
+
+            <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                {{ 'commission.description'|trans({}, 'backend') }}
+
+            </label>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(form.teacher) }}
+                {{ form_errors(form.teacher) }}
+            </div>
+
+
+            <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                {{ 'commission.enseignant'|trans({}, 'backend') }}
+
+            </label>
+
+    </div>
+
+
+
+        <div class="panel-footer">
+
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+
+
+                    {{ form_widget(form.create) }}
+
+                </div>
+            </div>
+            <!--
+
+             panel
+
+            -->
+
+
+
+
+
+
+
+        </div></div> </div>
+
+    {{ form_rest(form) }}
+    </form></div>
+
+{% endblock %}

@@ -32,9 +32,43 @@ class Teacher
     protected $diplome;
 
     /**
+     * @var object Courses
+     *
+     * @ORM\JoinColumn(name="courses_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses", mappedBy="courses",  cascade={"persist"})
+     */
+    protected $courses;
+
+    /**
+     * @var object Oraltest
+     *
+     * @ORM\JoinColumn(name="oraltest_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\HoralTestBundle\Entity\Oraltest", mappedBy="oraltest",  cascade={"persist"})
+     */
+    protected $oraltest;
+
+
+    /**
+     * @var object Commission
+     *
+     * @ORM\JoinColumn(name="commission_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Commission", mappedBy="commission",  cascade={"persist"})
+     */
+    protected $commission;
+
+    /**
+     * @var object User
+     *
+     *
+     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\User", cascade={"persist"})
+     *
+     */
+    protected $user;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string",length=255,  nullable=true)
+     * @ORM\Column(name="description", type="text",length=255,  nullable=true)
      */
     protected $description;
 
@@ -110,4 +144,70 @@ class Teacher
         return $this->getDescription();
     }
 
+
+    /**
+     * Add courses
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
+     * @return Teacher
+     */
+    public function addCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses[] = $courses;
+    
+        return $this;
+    }
+
+    /**
+     * Remove courses
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
+     */
+    public function removeCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses->removeElement($courses);
+    }
+
+    /**
+     * Get courses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCourses()
+    {
+        return $this->courses;
+    }
+
+    /**
+     * Add commission
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
+     * @return Teacher
+     */
+    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    {
+        $this->commission[] = $commission;
+    
+        return $this;
+    }
+
+    /**
+     * Remove commission
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
+     */
+    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    {
+        $this->commission->removeElement($commission);
+    }
+
+    /**
+     * Get commission
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommission()
+    {
+        return $this->commission;
+    }
 }

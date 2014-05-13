@@ -1,42 +1,78 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
 
-{% block body -%}
-    <h1>{{ 'sidebar.Liste des apprenants'|trans({}, 'backend') }}</h1>
+{% block content -%}
 
-    <table class="records_list" border="1">
+<h1>{{ 'sidebar.Liste des apprenants'|trans({}, 'backend') }}</h1>
+
+
+<p class="mb20"></p>
+
+<div class="table-responsive">
+
+    <table class="table table-striped mb30">
         <thead>
-            <tr>
-                <th>{{ 'student.Id'|trans({}, 'backend') }}</th>
-               {# <th>User</th>#}
-                <th>{{ 'student.Mere'|trans({}, 'backend') }}</th>
-                <th>{{ 'student.Pere'|trans({}, 'backend') }}</th>
-                <th>{{ 'student.Ecole'|trans({}, 'backend') }}</th>
-                <th>{{ 'student.Niveau scolaire'|trans({}, 'backend') }}</th>
-            </tr>
+        <tr>
+       <th></th>
+
+            <th>
+                {{ 'student.Niveau scolaire'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'student.Ecole'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'student.Mere'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'student.Pere'|trans({}, 'backend') }}
+            </th>
+
+            </th>
+            <th>
+                #
+            </th>
+
+
+        </tr>
+
+
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
 
-               {#<td>{{ entity.user }}</td>#}
+
+                <td class="table-action">
+
+                    <a href="{{ path('student_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="delete-row" href="{{ path('student_delete', { 'id': entity.id }) }}">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+
+                </td>
+
+                <td>{{ entity.niveauscolaire }}</td>
+                <td>{{ entity.ecole }}</td>
+
                 <td>{{ entity.mere }}</td>
                 <td>{{ entity.pere }}</td>
-                <td>{{ entity.ecole }}</td>
-                <td>{{ entity.niveauscolaire }}</td>
-                <td>
+
+               <td><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+
+                {#<td>
                 <ul>
                     <li>
-                        <a href="{{ path('student_show', { 'id': entity.id }) }}"><button type="button" class="btn btn-default btn-lg">
-                                <span class=" glyphicon-pencil"></span>{{ 'Liens.Show'|trans({}, 'backend') }}</button></a>
+                        <a href="{{ path('student_show', { 'id': entity.id }) }}">show</a>
                     </li>
-                    <li><span class=" glyphicon-pencil"></span>
-                        <a href="{{ path('student_edit', { 'id': entity.id }) }}"><button type="button" class="btn btn-default btn-lg">
-                                 {{ 'Liens.Editer'|trans({}, 'backend') }}
-                            </button></a>
+                    <li>
+                        <a href="{{ path('student_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
-                </td>
+                </td>#}
             </tr>
         {% endfor %}
         </tbody>
@@ -45,9 +81,7 @@
         <ul>
         <li>
             <a href="{{ path('student_new') }}">
-                <button type="button" class="btn btn-default btn-lg">
-                    <span class=" glyphicon-pencil"></span> {{ 'Liens.Ajouter'|trans({}, 'backend') }}
-                </button></a>
+                Create a new entry
             </a>
         </li>
     </ul>

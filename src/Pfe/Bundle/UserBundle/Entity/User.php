@@ -4,6 +4,7 @@ namespace Pfe\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -23,7 +24,8 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="cin", type="string", length=8, nullable=true)
+     * @ORM\Column(name="cin", type="integer", length=8, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $cin;
 
@@ -38,13 +40,15 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string",length=255,  nullable=true)
+     * @ORM\Column(name="description", type="text",length=255,  nullable=true)
      */
     protected $description;
+
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=100, nullable=true)
+     * @ORM\Column(name="first_name", type="string", nullable=true)
+     * @Assert\NotBlank()
      */
     protected $firstName;
 
@@ -52,6 +56,7 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=100, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $lastName;
 
@@ -59,23 +64,10 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="adresse", type="string", length=100, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $adresse;
 
-
-    /**
-     * @var datetime
-     *
-     * @ORM\Column(name="date_creation", type="datetime", length=40)
-     */
-    private $date_creation;
-
-    /**
-     * @var DATETIME
-     *
-     * @ORM\Column(name="date_modification", type="datetime", length=40)
-     */
-    private $date_modification;
 
     /**
      * @var string
@@ -88,6 +80,7 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="phone", type="string", length=100, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $phone;
 
@@ -98,22 +91,9 @@ class User extends BaseUser
      */
     protected $registrationdate;
 
-    /**
-     * @var object User
-     *
 
-     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", cascade={"persist"})
-     */
-    protected $student;
 
-    /**
-     * @var object User
-     *
-     *
-     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Teacher", cascade={"persist"})
-     *
-     */
-    protected $teacher;
+
 
     /**
      * Get id
@@ -171,28 +151,6 @@ class User extends BaseUser
         return $this->lastName;
     }
 
-    /**
-     * Set token
-     *
-     * @param string $token
-     * @return User
-     */
-    public function setToken($token)
-    {
-        $this->token = $token;
-    
-        return $this;
-    }
-
-    /**
-     * Get token
-     *
-     * @return string 
-     */
-    public function getToken()
-    {
-        return $this->token;
-    }
 
     /**
      * Set phone
@@ -261,97 +219,7 @@ class User extends BaseUser
         return $this->cin;
     }
 
-    /**
-     * Set date_creation
-     *
-     * @param string $date_creation
-     * @return User
-     */
-    public function setDate_creation($date_creation)
-    {
-        $this->date_creation= $date_creation;
 
-        return $this;
-    }
-
-    /**
-     * Get date_creation
-     *
-     * @return datetime
-     */
-    public function getDate_creation()
-    {
-        return $this->date_creation;
-    }
-
-    /**
-     * Set date_modification
-     *
-     * @param string $date_modification
-     * @return User
-     */
-    public function setDate_modification($date_modification)
-    {
-        $this->date_modification= $date_modification;
-
-        return $this;
-    }
-
-    /**
-     * Get date_modification
-     *
-     * @return datetime
-     */
-    public function getDate_modification()
-    {
-        return $this->date_modification;
-    }
-
-    /**
-     * Set date_creation
-     *
-     * @param \DateTime $dateCreation
-     * @return User
-     */
-    public function setDateCreation($dateCreation)
-    {
-        $this->date_creation = $dateCreation;
-    
-        return $this;
-    }
-
-    /**
-     * Get date_creation
-     *
-     * @return \DateTime 
-     */
-    public function getDateCreation()
-    {
-        return $this->date_creation;
-    }
-
-    /**
-     * Set date_modification
-     *
-     * @param \DateTime $dateModification
-     * @return User
-     */
-    public function setDateModification($dateModification)
-    {
-        $this->date_modification = $dateModification;
-    
-        return $this;
-    }
-
-    /**
-     * Get date_modification
-     *
-     * @return \DateTime 
-     */
-    public function getDateModification()
-    {
-        return $this->date_modification;
-    }
 
     /**
      * Set dateofbirth
@@ -471,5 +339,28 @@ class User extends BaseUser
     public function getTeacher()
     {
         return $this->teacher;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     * @return User
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+    
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string 
+     */
+    public function getToken()
+    {
+        return $this->token;
     }
 }

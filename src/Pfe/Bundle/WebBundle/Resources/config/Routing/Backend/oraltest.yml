@@ -1,0 +1,30 @@
+oraltest:
+    pattern:  /
+    defaults: { _controller: "PfeHoralTestBundle:Oraltest:index" }
+
+oraltest_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeHoralTestBundle:Oraltest:show" }
+
+oraltest_new:
+    pattern:  /new
+    defaults: { _controller: "PfeHoralTestBundle:Oraltest:new" }
+
+oraltest_create:
+    pattern:  /create
+    defaults: { _controller: "PfeHoralTestBundle:Oraltest:create" }
+    requirements: { _method: post }
+
+oraltest_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeHoralTestBundle:Oraltest:edit" }
+
+oraltest_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeHoralTestBundle:Oraltest:update" }
+    requirements: { _method: post|put }
+
+oraltest_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeHoralTestBundle:Oraltest:delete" }
+    requirements: { _method: post|delete }

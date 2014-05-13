@@ -1,0 +1,52 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+<html><head>
+    <script type="text/javascript" src="{{ asset('bundles/pfeweb/Backend/js/jquery-1.10.2.min.js') }}"></script></head>
+
+    <form id="form_recherche" action="{{ path('pfe_user_rechercher') }}" method="post">
+        {{ form_widget(form) }}
+        <input type="submit" value="Rechercher" />
+    </form>
+
+
+{#<div class="loading"></div>#}
+<div id="resultats_recherche">
+    {% include 'PfeUserBundle:User:liste.html.twig' with {'users' : users}  %}
+</div>
+
+<p><a href="{{ path('user_create') }}">Ajouter un acteur</a><p>
+
+    <script>
+       /// $(".loading").hide();
+        $("#form_recherch").submit(function(){
+            alert("rrrrrrrrr");
+            //$(".loading").show();
+            var motcle = $("#userrecherche_motcle").val();
+            var DATA = 'motcle=' + motcle;
+            $.ajax({
+                type: "POST",
+                url: "{{ path('pfe_user_rechercher')}}",
+                data: DATA,
+                cache: false,
+                success: function(data){
+                    alert("fffff");
+                    $('#resultats_recherche').html(data);
+                   // $(".loading").hide();
+                }
+            });
+            return false;
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+{% endblock %}

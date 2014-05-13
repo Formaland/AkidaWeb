@@ -1,0 +1,32 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+{% block content -%}
+
+<table border="0" width="150" height="150" align="center" bgcolor="green">
+    <tr bgcolor="#f8f8ff">
+        <td colspan="7" align="center">
+            <font color="black" size="5%" align="center">
+
+                {{ 'form.titreuser'|trans({}, 'backend') }}</font>
+
+    </tr>
+    <tr bgcolor="#add8e6" ><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td width="120">
+            <a class="btn btn-white" href="#" id="simple">
+                {{ 'user.list'|trans({}, 'backend') }}
+            </a>
+
+        </td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td width="120">
+            <a class="btn btn-white" href="#" id="apprenant">
+
+                {{ 'user.unitaire'|trans({}, 'backend') }}
+
+            </a>
+        </td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+    </tr>
+
+
+
+</table>
+{% endblock %}

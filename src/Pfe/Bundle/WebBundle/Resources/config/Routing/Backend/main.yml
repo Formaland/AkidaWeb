@@ -17,5 +17,31 @@ pfe_user_include_group:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/group.yml"
     prefix: /group
 
+pfe_user_include_commission:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/commission.yml"
+    prefix: /commission
+
+pfe_user_include_courses:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/courses.yml"
+    prefix: /courses
+
+pfe_user_include_examen:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/examen.yml"
+    prefix: /examen
+
+pfe_user_include_oraltest:
+     resource: "@PfeWebBundle/Resources/config/Routing/Backend/oraltest.yml"
+     prefix: /oraltest
+
+pfe_user_include_hezb:
+     resource: "@PfeWebBundle/Resources/config/Routing/Backend/hezb.yml"
+     prefix: /hezb
+
+pfe_user_include_sourah:
+     resource: "@PfeWebBundle/Resources/config/Routing/Backend/sourah.yml"
+     prefix: /sourah
+
+
+
 pfe_user_include_security:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/security.yml"

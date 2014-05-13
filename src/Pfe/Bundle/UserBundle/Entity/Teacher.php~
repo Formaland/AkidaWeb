@@ -27,9 +27,26 @@ class Teacher
     /**
      * @var string
      *
-     * @ORM\Column(name="diplome", type="string", length=30, nullable=true)
+     * @ORM\Column(name="diplome", type="string", length=80, nullable=true)
      */
     protected $diplome;
+
+    /**
+     * @var object Courses
+     *
+     * @ORM\JoinColumn(name="courses_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses", mappedBy="courses",  cascade={"persist"})
+     */
+    protected $courses;
+
+
+    /**
+     * @var object Commission
+     *
+     * @ORM\JoinColumn(name="commission_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Commission", mappedBy="commission",  cascade={"persist"})
+     */
+    protected $commission;
 
     /**
      * @var string
@@ -81,21 +98,6 @@ class Teacher
         return $this->diplome;
     }
 
-    /**
-     * @param object $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * @return object
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 
 
     /**
@@ -122,7 +124,40 @@ class Teacher
     }
     public function __toString()
     {
-        return $this->getId();
+        return $this->getDescription();
     }
 
+
+    /**
+     * Add courses
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
+     * @return Teacher
+     */
+    public function addCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses[] = $courses;
+    
+        return $this;
+    }
+
+    /**
+     * Remove courses
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
+     */
+    public function removeCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses->removeElement($courses);
+    }
+
+    /**
+     * Get courses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCourses()
+    {
+        return $this->courses;
+    }
 }

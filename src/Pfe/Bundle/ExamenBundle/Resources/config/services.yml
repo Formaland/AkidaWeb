@@ -1,0 +1,7 @@
+parameters:
+#    pfe_examen.example.class: Pfe\Bundle\ExamenBundle\Example
+
+services:
+#    pfe_examen.example:
+#        class: %pfe_examen.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

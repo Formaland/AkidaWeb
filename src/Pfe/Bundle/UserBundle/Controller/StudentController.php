@@ -4,13 +4,16 @@ namespace Pfe\Bundle\UserBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pfe\Bundle\UserBundle\Entity\Student;
 use Pfe\Bundle\UserBundle\Form\StudentType;
 
 /**
  * Student controller.
  *
+ * @Route("/student")
  */
 class StudentController extends Controller
 {
@@ -18,6 +21,9 @@ class StudentController extends Controller
     /**
      * Lists all Student entities.
      *
+     * @Route("/", name="student")
+     * @Method("GET")
+     * @Template()
      */
     public function indexAction()
     {
@@ -25,13 +31,16 @@ class StudentController extends Controller
 
         $entities = $em->getRepository('PfeUserBundle:Student')->findAll();
 
-        return $this->render('PfeUserBundle:Student:index.html.twig', array(
+        return array(
             'entities' => $entities,
-        ));
+        );
     }
     /**
      * Creates a new Student entity.
      *
+     * @Route("/", name="student_create")
+     * @Method("POST")
+     * @Template("PfeUserBundle:Student:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -47,10 +56,10 @@ class StudentController extends Controller
             return $this->redirect($this->generateUrl('student_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('PfeUserBundle:Student:new.html.twig', array(
+        return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
+        );
     }
 
     /**
@@ -75,21 +84,27 @@ class StudentController extends Controller
     /**
      * Displays a form to create a new Student entity.
      *
+     * @Route("/new", name="student_new")
+     * @Method("GET")
+     * @Template()
      */
     public function newAction()
     {
         $entity = new Student();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('PfeUserBundle:Student:new.html.twig', array(
+        return array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
+        );
     }
 
     /**
      * Finds and displays a Student entity.
      *
+     * @Route("/{id}", name="student_show")
+     * @Method("GET")
+     * @Template()
      */
     public function showAction($id)
     {
@@ -103,14 +118,18 @@ class StudentController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('PfeUserBundle:Student:show.html.twig', array(
+        return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),
+        );
     }
 
     /**
      * Displays a form to edit an existing Student entity.
      *
+     * @Route("/{id}/edit", name="student_edit")
+     * @Method("GET")
+     * @Template()
      */
     public function editAction($id)
     {
@@ -125,11 +144,11 @@ class StudentController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('PfeUserBundle:Student:edit.html.twig', array(
+        return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
@@ -153,6 +172,9 @@ class StudentController extends Controller
     /**
      * Edits an existing Student entity.
      *
+     * @Route("/{id}", name="student_update")
+     * @Method("PUT")
+     * @Template("PfeUserBundle:Student:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -174,15 +196,17 @@ class StudentController extends Controller
             return $this->redirect($this->generateUrl('student_edit', array('id' => $id)));
         }
 
-        return $this->render('PfeUserBundle:Student:edit.html.twig', array(
+        return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
     /**
      * Deletes a Student entity.
      *
+     * @Route("/{id}", name="student_delete")
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

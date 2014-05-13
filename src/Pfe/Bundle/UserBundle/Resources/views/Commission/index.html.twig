@@ -1,0 +1,78 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+
+<h1>  {{ 'sidebar.Liste des commissions'|trans({}, 'backend') }}</h1>
+
+
+<p class="mb20"></p>
+
+<div class="table-responsive">
+
+    <table class="table table-hidaction table-hover mb30">
+        <thead>
+        <tr>
+            <th></th>
+
+            <th>
+                {{ 'commission.description'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'commission.type'|trans({}, 'backend') }}
+            </th>
+
+            </th>
+            <th>
+                #
+            </th>
+
+
+        </tr>
+
+
+
+
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+
+                <td class="table-action">
+
+                    <a href="{{ path('commission_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="delete-row" href="">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+
+                </td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.typecommission }}</td>
+                <td><a href="{{ path('commission_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+
+                {#<td>
+                <ul>
+                    <li>
+                        <a href="{{ path('commission_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                   <li>
+                        <a href="{{ path('commission_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>#}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('commission_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

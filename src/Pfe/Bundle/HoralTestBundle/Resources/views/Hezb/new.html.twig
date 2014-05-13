@@ -1,0 +1,111 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+
+<div class="col-md-6">
+
+    <form id="basicForm" class="form-horizontal" action="path{{'hezb_create'}}" novalidate="novalidate" methode='post'>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close" href="#">
+
+                        ×
+
+                    </a>
+                    <a class="minimize" href="#">
+
+                        -
+
+                    </a>
+                </div>
+                <h4 class="panel-title">
+                    <font color="blue" size="5%" align="left">
+                    {{ 'sidebar.Ajouter hezb'|trans({}, 'backend') }}</font>
+
+                </h4>
+
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+                        {{ form_widget(form.numhezb) }}
+                        {{ form_errors(form.numhezb) }}
+                    </div>
+
+
+
+
+                    <label class="col-sm-3 control-label"><font color="black">
+
+
+                        {{ 'hezb.num hezb'|trans({}, 'backend') }}</font>
+
+                    </label></div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(form.sourah) }}
+                        {{ form_errors(form.sourah) }}
+                    </div>
+
+
+
+                    <label class="col-sm-3 control-label">
+                        <font color="black">
+
+
+                        {{ 'sourah.nom'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+
+
+
+
+
+
+                <!--
+
+                 panel
+
+                -->
+
+
+            </div>
+
+
+
+
+    </div></form></div>
+
+   {#<h1>User creation</h1>
+
+
+
+   {{ form(form) }}
+
+         <ul class="record_actions">
+     <li>
+         <a href="{{ path('user') }}">
+             Back to the list
+         </a>
+     </li>
+ </ul>#}
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

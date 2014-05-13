@@ -19,7 +19,9 @@ class GroupType extends AbstractType
             ->add('description')
             ->add('date_creation')
             ->add('date_modification')
-            ->add('student')
+            ->add('courses')
+            ->add('Modifier','submit')
+            ->add('create','submit')
         ;
     }
     

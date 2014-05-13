@@ -1,0 +1,49 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+    <h1>Examen</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nameexamen</th>
+                <td>{{ entity.nameexamen }}</td>
+            </tr>
+            <tr>
+                <th>Dateexamen</th>
+                <td>{{ entity.dateexamen|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Starttime</th>
+                <td>{{ entity.starttime|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Endtime</th>
+                <td>{{ entity.endtime|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('examen') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('examen_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

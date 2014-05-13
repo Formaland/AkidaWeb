@@ -1,51 +1,155 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
 
-    <h1>User list</h1>
+{% block content -%}
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Cin</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Adresse</th>
-                <th>Date of birth</th>
-                <th>Phone</th>
-               {#<th>Roles</th>#}
-                <th>Date creation</th>
-                <th>Date modification</th>
-                <th>Registration date</th>
-                <th>Description</th>
+
+        <h1>{{ 'user.liste_users'|trans({}, 'backend') }}</h1>
+
+
+        <p class="mb20"></p>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped mb30">
+                <thead>
+                <tr>
+
+
+
+
+
+                    <th></th>
+                    <th>
+                        {{ 'user.date_naissance'|trans({}, 'backend') }}
+                    </th>
+
+
+                    <th>
+                        {{ 'user.email'|trans({}, 'backend') }}
+                    </th>
+
+                    <th>
+                        {{ 'user.prenom'|trans({}, 'backend') }}
+                    </th>
+
+                    <th>
+
+                        {{ 'user.nom'|trans({}, 'backend') }}
+
+                    </th>
+                    <th>
+
+                        {{ 'user.login'|trans({}, 'backend') }}
+
+                    </th>
+
+
+                    <th>
+                        #
+                    </th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+                    {% for entity in entities %}
+
+                <tr>
+
+                    <td class="table-action">
+
+                        <a href="{{ path('user_edit', { 'id': entity.id }) }}">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class="delete-row" href="">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+
+                    </td>
+
+                   {#<td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>#}
+
+               {# <td>{{ entity.description }}</td>#}
+                {#<td>{% if entity.registrationdate %}{{ entity.registrationdate|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                <td>{% if entity.dateofbirth %}{{ entity.dateofbirth|date('Y-m-d H:i:s') }}{% endif %}</td>
+
+                {#<td>{{ entity.phone }}</td>#}
+                {#<td>{{ entity.adresse }}</td>#}
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.lastName }}</td>
+
+                <td>
+                   {{ entity.firstName }}</option> </select>
+                </td>
+
+
+               {# <td>{{ entity.cin }}</td>#}
+
+                <td>{{ entity.userName }}</td>
+               <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+
+
+
+
+
+
+
 
             </tr>
-        </thead>
-        <tbody>
+
+
+                <tr></tr>
+            <tr></tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        <select>
+            {% for entity in entities%}
+
+                <option value="">{{ entity.userName }}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+
+
+{#    <table class="records_list">
+        <thead>
+            <tr>
+
+                <th> {{ 'user.cin'|trans({}, 'backend') }}
+                </th>
+                <th>{{ 'user.nom'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.prenom'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.adress'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.num_tel'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.email'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.date_naissance'|trans({}, 'backend') }}</th>
+               {# <th>Enabled</th>
+
+                <th>{{ 'user.description'|trans({}, 'backend') }}</th>
+
+                <th>  {{ 'user.date_inscription'|trans({}, 'backend') }} </th>
+            </tr>
+        </thead> #}
+       {#<tbody>
         {% for entity in entities %}
             <tr>
+                <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
                 <td>{{ entity.id }}</td>
                 <td>{{ entity.cin }}</td>
-                <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
-
-                <td>{{ entity.email }}</td>
-
                 <td>{{ entity.firstName }}</td>
                 <td>{{ entity.lastName }}</td>
                 <td>{{ entity.adresse }}</td>
-                <td>{% if entity.dateofbirth %}{{ entity.dateofbirth|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.phone }}</td>
-               {#<td>{{ entity.roles }}</td>#}
-
-                <td>{% if entity.datecreation %}{{ entity.datecreation|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.datemodification %}{{ entity.datemodification|date('Y-m-d H:i:s') }}{% endif %}</td>
-
-                <td>{% if entity.registrationdate %}{{ entity.registrationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.email }}</td>
+                <td>{% if entity.dateofbirth %}{{ entity.dateofbirth|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.description }}</td>
-
+                <td>{% if entity.registrationdate %}{{ entity.registrationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>
@@ -67,5 +171,5 @@
                 Create a new entry
             </a>
         </li>
-    </ul>
+    </ul>#}
     {% endblock %}

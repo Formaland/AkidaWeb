@@ -1,0 +1,7 @@
+parameters:
+#    pfe_horal_test.example.class: Pfe\Bundle\HoralTestBundle\Example
+
+services:
+#    pfe_horal_test.example:
+#        class: %pfe_horal_test.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

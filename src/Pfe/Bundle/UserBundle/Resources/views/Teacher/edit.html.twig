@@ -1,6 +1,125 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
-    <h1>{{ 'sidebar.Modifier enseignant'|trans({}, 'backend') }}</h1>
+
+{% block content -%}
+
+    <div class="col-md-6">
+
+        <form id="basicForm" class="form-horizontal" action="{{ path('teacher_update', { 'id': entity.id }) }}"  novalidate="novalidate" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            −
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title">
+
+                        {{ 'sidebar.Modifier enseignant'|trans({}, 'backend') }}
+
+                    </h4>
+
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.diplome) }}
+                            {{ form_errors(edit_form.diplome) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'enseignant.diplome'|trans({}, 'backend') }}
+
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.description) }}
+                            {{ form_errors(edit_form.description) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'enseignant.description'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+
+
+                                {{ form_widget(edit_form.Modifier) }}
+
+                            </div>
+                        </div>
+                        <!--
+
+                         panel
+
+                        -->
+
+
+
+
+
+
+
+                    </div></div> </div>
+
+
+            {{ form_rest(edit_form) }}
+        </form></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {# <h1>Teacher edit</h1>
 
     {{ form(edit_form) }}
 
@@ -11,5 +130,5 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
-</ul>
+</ul>#}
 {% endblock %}

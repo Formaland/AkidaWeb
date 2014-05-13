@@ -10,10 +10,15 @@ user_new:
     pattern:  /new
     defaults: { _controller: "PfeUserBundle:User:new" }
 
+user_test:
+    pattern:  /test
+    defaults: { _controller: "PfeUserBundle:User:test" }
+
+
 user_create:
     pattern:  /create
     defaults: { _controller: "PfeUserBundle:User:create" }
-    requirements: { _method: post }
+    requirements: { _method: post|get }
 
 user_edit:
     pattern:  /{id}/edit
@@ -28,3 +33,15 @@ user_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "PfeUserBundle:User:delete" }
     requirements: { _method: post|delete }
+
+user_lister:
+    pattern:  /lister
+    defaults: { _controller: "PfeUserBundle:User:lister" }
+
+
+
+pfe_user_rechercher:
+  pattern: /user/rechercher
+  defaults: { _controller: PfeUserBundle:User:rechercher }
+  requirements:
+    _method: POST

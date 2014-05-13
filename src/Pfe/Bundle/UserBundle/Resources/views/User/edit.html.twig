@@ -1,7 +1,194 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
-    <h1>User edit</h1>
+
+{% block content -%}
+
+
+
+    <div class="col-md-6">
+
+    <form id="basicForm" class="form-horizontal" action="{{ path('user_update', { 'id': entity.id }) }}"  novalidate="novalidate" method="post">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close" href="#">
+
+                        ×
+
+                    </a>
+                    <a class="minimize" href="#">
+
+                        −
+
+                    </a>
+                </div>
+                <font color="blue" size="5%" align="left">
+
+                    {{ 'form.modifuser'|trans({}, 'backend') }}</font>
+
+
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+                        {{ form_widget(edit_form.username) }}
+                        {{ form_errors(edit_form.username) }}
+                    </div>
+
+
+
+
+                    <label class="col-sm-3 control-label"><font color="black">
+
+                            {{ 'user.login'|trans({}, 'backend') }}</font>
+                        <font color="red">
+
+                            *
+                        </font>
+                    </label></div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(edit_form.firstName) }}
+                        {{ form_errors(edit_form.firstName) }}
+                    </div>
+
+
+
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+                            {{ 'user.nom'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(edit_form.lastName) }}
+                        {{ form_errors(edit_form.lastName) }}
+                    </div>
+
+
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font>
+                        <font color="black">
+
+                            {{ 'user.prenom'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(edit_form.email) }}
+                        {{ form_errors(edit_form.email) }}
+                    </div>
+
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+                            {{ 'user.email'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(edit_form.password) }}
+                        {{ form_errors(edit_form.password) }}
+
+                    </div>
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+
+                            {{ 'user.password'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_widget(edit_form.dateofbirth) }}
+                        {{ form_errors(edit_form.dateofbirth) }}
+                    </div>
+
+
+
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+
+                            {{ 'user.date_naissance'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+
+
+
+
+                <div class="panel-footer">
+
+                    <div class="row">
+                        <div class="col-sm-9 col-sm-offset-3"><font color="blue" size="3,5%" align="center" >
+
+                                {{ form_rest(edit_form) }}</font>
+                            {#{{ form_widget(form.create) }}#}
+
+                        </div>
+                    </div>
+                    <!--
+
+                     panel
+
+                    -->
+
+
+
+
+
+
+
+                </div></div> </div>
+
+
+    </form></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {# <h1>User edit</h1>
 
     {{ form(edit_form) }}
 
@@ -12,5 +199,5 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
-</ul>
+</ul>#}
 {% endblock %}

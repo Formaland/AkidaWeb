@@ -1,18 +1,159 @@
 {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
 {% block content -%}
-    <h1>{{ 'sidebar.Enregister apprenant'|trans({}, 'backend') }}</h1>
+    <div class="col-md-6">
+
+    <form id="basicForm" class="form-horizontal" action="{{ path('student_create') }}"  novalidate="novalidate" method="post">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-btns">
+            <a class="panel-close" href="#">
+
+                ×
+
+            </a>
+            <a class="minimize" href="#">
+
+                −
+
+            </a>
+        </div>
+        <h4 class="panel-title">
+
+            {{ 'sidebar.Enregister apprenant'|trans({}, 'backend') }}
+
+        </h4>
+
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+
+            <div class="col-sm-9">
+                <div style="display: list-item;"> {{ form_widget(form.mere) }}</div>
+                {{ form_errors(form.mere) }}
+            </div>
 
 
 
-    {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('student') }}"><button type="button" class="btn btn-info">
-                <span class="  glyphicon-circle-arrow-left"></span>
-                {{ 'Liens.Retour à la liste'|trans({}, 'backend') }}
-        </button></a>
+            <label class="col-sm-3 control-label">
 
-    </li>
-</ul>
+                <span class="asterisk">
+
+                            *
+
+                        </span>
+                {{ 'student.Mere'|trans({}, 'backend') }}
+
+            </label></div>
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(form.pere) }}
+                {{ form_errors(form.pere) }}
+            </div>
+
+
+
+            <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                {{ 'student.Pere'|trans({}, 'backend') }}
+
+            </label>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(form.ecole) }}
+                {{ form_errors(form.ecole) }}
+            </div>
+
+
+            <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                {{ 'student.Ecole'|trans({}, 'backend') }}
+
+            </label>
+
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(form.niveauscolaire) }}
+                {{ form_errors(form.niveauscolaire) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                {{ 'student.Niveau scolaire'|trans({}, 'backend') }}
+
+            </label>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(form.group) }}
+                {{ form_errors(form.group) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                        <span class="asterisk">
+
+                            *
+
+                        </span>
+
+                {{ 'sidebar.Groupe'|trans({}, 'backend') }}
+
+            </label>
+
+        </div>
+
+
+
+
+        <div class="panel-footer">
+
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+
+
+                    {{ form_widget(form.create) }}
+
+                </div>
+            </div>
+            <!--
+
+             panel
+
+            -->
+
+
+
+
+
+
+
+        </div></div> </div>
+
+    {{ form_rest(form) }}
+    </form></div>
+
 {% endblock %}

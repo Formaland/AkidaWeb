@@ -42,7 +42,7 @@ class Weeklysession
     protected $courses;
 
     /**
-     * @ORM\OneToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Oraltest", mappedBy="weeklysession")
+     * @ORM\OneToMany(targetEntity="Pfe\Bundle\HoralTestBundle\Entity\Oraltest", mappedBy="weeklysession")
      * @ORM\JoinColumn(name="weeklysession_id", referencedColumnName="id")
      */
     protected $oraltest;

@@ -4,16 +4,13 @@ namespace Pfe\Bundle\UserBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use Pfe\Bundle\UserBundle\Entity\Group;
 use Pfe\Bundle\UserBundle\Form\GroupType;
 
 /**
  * Group controller.
  *
- * @Route("/group")
  */
 class GroupController extends Controller
 {
@@ -21,9 +18,6 @@ class GroupController extends Controller
     /**
      * Lists all Group entities.
      *
-     * @Route("/", name="group")
-     * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
@@ -31,16 +25,13 @@ class GroupController extends Controller
 
         $entities = $em->getRepository('PfeUserBundle:Group')->findAll();
 
-        return array(
+        return $this->render('PfeUserBundle:Group:index.html.twig', array(
             'entities' => $entities,
-        );
+        ));
     }
     /**
      * Creates a new Group entity.
      *
-     * @Route("/", name="group_create")
-     * @Method("POST")
-     * @Template("PfeUserBundle:Group:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -56,10 +47,10 @@ class GroupController extends Controller
             return $this->redirect($this->generateUrl('group_show', array('id' => $entity->getId())));
         }
 
-        return array(
+        return $this->render('PfeUserBundle:Group:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
@@ -84,27 +75,21 @@ class GroupController extends Controller
     /**
      * Displays a form to create a new Group entity.
      *
-     * @Route("/new", name="group_new")
-     * @Method("GET")
-     * @Template()
      */
     public function newAction()
     {
         $entity = new Group();
         $form   = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('PfeUserBundle:Group:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
      * Finds and displays a Group entity.
      *
-     * @Route("/{id}", name="group_show")
-     * @Method("GET")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -118,18 +103,14 @@ class GroupController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('PfeUserBundle:Group:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
+            'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
      * Displays a form to edit an existing Group entity.
      *
-     * @Route("/{id}/edit", name="group_edit")
-     * @Method("GET")
-     * @Template()
      */
     public function editAction($id)
     {
@@ -144,11 +125,11 @@ class GroupController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('PfeUserBundle:Group:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -172,9 +153,6 @@ class GroupController extends Controller
     /**
      * Edits an existing Group entity.
      *
-     * @Route("/{id}", name="group_update")
-     * @Method("PUT")
-     * @Template("PfeUserBundle:Group:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -196,17 +174,15 @@ class GroupController extends Controller
             return $this->redirect($this->generateUrl('group_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('PfeUserBundle:Group:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
     /**
      * Deletes a Group entity.
      *
-     * @Route("/{id}", name="group_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

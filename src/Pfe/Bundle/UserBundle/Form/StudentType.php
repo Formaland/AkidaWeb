@@ -15,11 +15,12 @@ class StudentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
             ->add('mere')
             ->add('pere')
             ->add('ecole')
-            ->add('niveau_scolaire')
+            ->add('niveauscolaire')
+            ->add('group')
+           ->add('create','submit')
         ;
     }
     
@@ -39,6 +40,5 @@ class StudentType extends AbstractType
     public function getName()
     {
         return 'pfe_bundle_userbundle_student';
-
     }
 }

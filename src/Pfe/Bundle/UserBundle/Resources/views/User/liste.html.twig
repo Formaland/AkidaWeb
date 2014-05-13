@@ -1,0 +1,17 @@
+
+{% block liste -%}
+
+<table>
+    <select>
+    {% for u in users %}
+        <tr>
+        <td>
+            <option value="">{{ entity.userName }}</option></td>
+
+</tr>
+
+    {% endfor %}
+    </select>
+
+</table>
+{% endblock %}

@@ -21,13 +21,12 @@ class Typecourse
      */
     private $id;
 
+
     /**
-     * @var object Courses
-     *
-     * @ORM\JoinColumn(name="courses_id", referencedColumnName="id")
-     * @ORM\OneToOne(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses", inversedBy="courses",  cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses", mappedBy="typecourse")
      */
-    protected $group;
+    private  $courses;
+
     /**
      * @var string
      *
@@ -142,5 +141,35 @@ class Typecourse
     public function getGroup()
     {
         return $this->group;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add courses
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
+     * @return Typecourse
+     */
+    public function addCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses[] = $courses;
+    
+        return $this;
+    }
+
+    /**
+     * Remove courses
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
+     */
+    public function removeCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses->removeElement($courses);
     }
 }

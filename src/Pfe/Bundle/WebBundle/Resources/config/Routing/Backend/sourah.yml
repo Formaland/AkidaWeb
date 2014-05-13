@@ -1,0 +1,30 @@
+sourah:
+    pattern:  /
+    defaults: { _controller: "PfeHoralTestBundle:Sourah:index" }
+
+sourah_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeHoralTestBundle:Sourah:show" }
+
+sourah_new:
+    pattern:  /new
+    defaults: { _controller: "PfeHoralTestBundle:Sourah:new" }
+
+sourah_create:
+    pattern:  /create
+    defaults: { _controller: "PfeHoralTestBundle:Sourah:create" }
+    requirements: { _method: post }
+
+sourah_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeHoralTestBundle:Sourah:edit" }
+
+sourah_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeHoralTestBundle:Sourah:update" }
+    requirements: { _method: post|put }
+
+sourah_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeHoralTestBundle:Sourah:delete" }
+    requirements: { _method: post|delete }

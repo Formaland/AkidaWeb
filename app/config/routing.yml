@@ -1,3 +1,11 @@
+pfe_horal_test:
+    resource: "@PfeHoralTestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pfe_examen:
+    resource: "@PfeExamenBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pfe_session:
     resource: "@PfeSessionBundle/Resources/config/routing.yml"
     prefix:   /

@@ -2,6 +2,7 @@
 
 namespace Pfe\Bundle\UserBundle\Controller;
 
+use Pfe\Bundle\UserBundle\Form\UserTestForm;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -9,6 +10,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pfe\Bundle\UserBundle\Entity\User;
 use Pfe\Bundle\UserBundle\Form\UserType;
+use Pfe\Bundle\UserBundle\Form\UserTest;
+use Pfe\Bundle\UserBundle\Form\UserRechercheForm;
+
 
 /**
  * User controller.
@@ -17,6 +21,7 @@ use Pfe\Bundle\UserBundle\Form\UserType;
  */
 class UserController extends Controller
 {
+
 
     /**
      * Lists all User entities.
@@ -31,10 +36,65 @@ class UserController extends Controller
 
         $entities = $em->getRepository('PfeUserBundle:User')->findAll();
 
-        return array(
-            'entities' => $entities,
-        );
+       return array(
+          'entities' => $entities,
+     );
+
+
     }
+
+    public function listerAction()
+    {
+        $userManager=$this->get('fos_user.user_manager');
+        $users=$userManager->findUsers();
+        // ...
+        $form = $this->container->get('form.factory')->create(new UserRechercheForm());
+
+        return $this->container->get('templating')->renderResponse('PfeUserBundle:User:new.html.twig', array(
+            'users' => $users,
+            'form' => $form->createView()
+        ));
+    }
+
+
+    public function rechercherAction()
+    {
+
+        $request = $this->container->get('request');
+
+        if($request->isXmlHttpRequest())
+        {
+            $motcle = '';
+            $motcle = $request->request->get('motcle');
+
+            $em = $this->container->get('doctrine')->getEntityManager();
+
+            if($motcle != '')
+            {
+                $qb = $em->createQueryBuilder();
+
+                $qb->select('u')
+                    ->from('PfeUserBundle:User', 'u')
+                    ->where("u.username LIKE :motcle ")
+                   ->setParameter('motcle', '%'.$motcle.'%');
+
+                $query = $qb->getQuery();
+                $users = $query->getResult();
+            }
+            else {
+                $users = $em->getRepository('PfeUserBundle:User')->findAll();
+            }
+
+            return $this->container->get('templating')->renderResponse('PfeUserBundle:User:new.html.twig', array(
+                'users' => $users
+            ));
+        }
+        else {
+            return $this->indexAction();
+        }
+    }
+
+
     /**
      * Creates a new User entity.
      *
@@ -45,6 +105,9 @@ class UserController extends Controller
     public function createAction(Request $request)
     {
         $entity = new User();
+
+
+
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -76,7 +139,7 @@ class UserController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        #{ $form->add('submit', 'submit', array('label' => 'إضافة'));#}
 
         return $form;
     }
@@ -97,6 +160,8 @@ class UserController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         );
+
+
     }
 
     /**

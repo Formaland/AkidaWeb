@@ -4,6 +4,7 @@ namespace Pfe\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Student
  *
@@ -39,14 +40,14 @@ class Student
     /**
      * @var string
      *
-     * @ORM\Column(name="ecole", type="string", length=30, nullable=true)
+     * @ORM\Column(name="ecole", type="string", length=80, nullable=true)
      */
     protected $ecole;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="niveauscolaire", type="string", length=30, nullable=true)
+     * @ORM\Column(name="niveauscolaire", type="string", length=80, nullable=true)
      */
     protected $niveauscolaire;
 
@@ -54,8 +55,8 @@ class Student
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Group", mappedBy="student")
-     *
+     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Group", inversedBy="students")
+     *@ORM\JoinColumn(nullable=false)
      */
     protected $group;
 
@@ -75,21 +76,6 @@ class Student
         return $this->id;
     }
 
-    /**
-     * @param object $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * @return object
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
     /**
      * Set pere
      *
@@ -182,13 +168,33 @@ class Student
     }
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+
+    }
+
+
+
+
+#{# public function __toString()
+   # {
+#{#return $this->getPere();#}
+   # }
+#}
+
+
+
     /**
      * Set group
      *
      * @param \Pfe\Bundle\UserBundle\Entity\Group $group
      * @return Student
      */
-    public function setGroup(\Pfe\Bundle\UserBundle\Entity\Group $group = null)
+    public function setGroup(\Pfe\Bundle\UserBundle\Entity\Group $group)
     {
         $this->group = $group;
     
@@ -204,41 +210,4 @@ class Student
     {
         return $this->group;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add group
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\Group $group
-     * @return Student
-     */
-    public function addGroup(\Pfe\Bundle\UserBundle\Entity\Group $group)
-    {
-        $this->group[] = $group;
-
-        return $this;
-    }
-
-    /**
-     * Remove group
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\Group $group
-     */
-    public function removeGroup(\Pfe\Bundle\UserBundle\Entity\Group $group)
-    {
-        $this->group->removeElement($group);
-    }
-    public function __toString()
-    {
-        return $this->getId();
-    }
-
-
-
 }

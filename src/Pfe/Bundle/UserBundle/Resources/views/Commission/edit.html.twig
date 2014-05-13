@@ -1,0 +1,146 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+
+    <div class="col-md-6">
+
+        <form id="basicForm" class="form-horizontal" action="{{ path('commission_update', { 'id': entity.id }) }}"  novalidate="novalidate" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            −
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title">
+
+                        {{ 'form.modifcomm'|trans({}, 'backend') }}
+
+                    </h4>
+
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.typecommission) }}
+                            {{ form_errors(edit_form.typecommission) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+
+                            {{ 'commission.type'|trans({}, 'backend') }}
+
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.description) }}
+                            {{ form_errors(edit_form.description) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'commission.description'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.teacher) }}
+                            {{ form_errors(edit_form.teacher) }}
+                        </div>
+
+
+                        <label class="col-sm-3 control-label">
+
+
+                            {{ 'commission.enseignant'|trans({}, 'backend') }}
+
+                        </label>
+
+                    </div>
+
+
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+
+
+                                {{ form_widget(edit_form.Modifier) }}
+
+                            </div>
+                        </div>
+                        <!--
+
+                         panel
+
+                        -->
+
+
+
+
+
+
+
+                    </div></div> </div>
+
+            {{ form_rest(edit_form) }}
+        </form></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {#<h1>Commission edit</h1>
+
+     {{ form(edit_form) }}
+
+         <ul class="record_actions">
+     <li>
+         <a href="{{ path('commission') }}">
+             Back to the list
+         </a>
+     </li>
+     <li>{{ form(delete_form) }}</li>
+ </ul>#}
+{% endblock %}
