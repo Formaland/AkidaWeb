@@ -4,6 +4,7 @@ namespace Pfe\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Pfe\Bundle\UserBundle\Entity\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Teacher
@@ -28,6 +29,7 @@ class Teacher
      * @var string
      *
      * @ORM\Column(name="diplome", type="string", length=80, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $diplome;
 
@@ -141,7 +143,7 @@ class Teacher
     }
     public function __toString()
     {
-        return $this->getDescription();
+        return $this->getDiplome();
     }
 
 
@@ -209,5 +211,61 @@ class Teacher
     public function getCommission()
     {
         return $this->commission;
+    }
+
+    /**
+     * Add oraltest
+     *
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
+     * @return Teacher
+     */
+    public function addOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
+    {
+        $this->oraltest[] = $oraltest;
+    
+        return $this;
+    }
+
+    /**
+     * Remove oraltest
+     *
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
+     */
+    public function removeOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
+    {
+        $this->oraltest->removeElement($oraltest);
+    }
+
+    /**
+     * Get oraltest
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOraltest()
+    {
+        return $this->oraltest;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\User $user
+     * @return Teacher
+     */
+    public function setUser(\Pfe\Bundle\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Pfe\Bundle\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -53,7 +53,7 @@ class HezbController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('hezb_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('hezb'));
         }
 
         return array(
@@ -193,7 +193,7 @@ class HezbController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('hezb_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('hezb'));
         }
 
         return array(

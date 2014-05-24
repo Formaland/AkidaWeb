@@ -53,7 +53,7 @@ class CoursesController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('courses_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('courses'));
         }
 
         return array(
@@ -76,7 +76,7 @@ class CoursesController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        //$form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -193,7 +193,7 @@ class CoursesController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('courses_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('courses'));
         }
 
         return array(

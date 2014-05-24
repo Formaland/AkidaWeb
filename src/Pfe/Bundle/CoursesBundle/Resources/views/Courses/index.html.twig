@@ -3,14 +3,22 @@
 
 {% block content -%}
 
-<h1>{{ 'sidebar.Liste des cours'|trans({}, 'backend') }}</h1>
-
 <p class="mb20"></p>
 
 <div class="table-responsive">
 
-    <table class="table table-striped mb30">
+    <table class="table table-bordered mb30">
         <thead>
+        <tr>
+            <th colspan="4">
+
+
+                <h4 class="panel-title" align="center">
+                    <font color="#008b8b" size="5%" >
+                        {{ 'sidebar.Liste des cours'|trans({}, 'backend') }}</font></h4>
+
+            </th>
+        </tr>
         <tr>
 
 
@@ -18,9 +26,9 @@
             <th></th>
 
 
-            <th>
+           <th>
                 {{ 'cours.duree'|trans({}, 'backend') }}
-            </th>
+         </th>
             <th>
                 {{ 'cours.nom'|trans({}, 'backend') }}
             </th>
@@ -60,27 +68,10 @@
 
                 <td><a href="{{ path('courses_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
 
-
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('courses_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('courses_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('courses_new') }}">
-                Create a new entry
-            </a>
-        </li>
+</li>
     </ul>
     {% endblock %}

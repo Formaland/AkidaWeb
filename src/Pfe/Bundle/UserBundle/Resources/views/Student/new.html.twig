@@ -4,7 +4,7 @@
 {% block content -%}
     <div class="col-md-6">
 
-    <form id="basicForm" class="form-horizontal" action="{{ path('student_create') }}"  novalidate="novalidate" method="post">
+    <form  action="{{ path('student_create') }}"  {{ form_enctype(form) }} method="post">
     <div class="panel panel-default">
     <div class="panel-heading">
         <div class="panel-btns">
@@ -19,9 +19,9 @@
 
             </a>
         </div>
-        <h4 class="panel-title">
+        <h4 class="panel-title" align="center"><font color="#008b8b" size="5%" align="left">
 
-            {{ 'sidebar.Enregister apprenant'|trans({}, 'backend') }}
+            {{ 'sidebar.Enregister apprenant'|trans({}, 'backend') }}</font>
 
         </h4>
 
@@ -30,7 +30,7 @@
         <div class="form-group">
 
             <div class="col-sm-9">
-                <div style="display: list-item;"> {{ form_widget(form.mere) }}</div>
+                <div > {{ form_widget(form.mere) }}</div>
                 {{ form_errors(form.mere) }}
             </div>
 
@@ -39,12 +39,12 @@
 
             <label class="col-sm-3 control-label">
 
-                <span class="asterisk">
+                <font color="red">
 
                             *
 
-                        </span>
-                {{ 'student.Mere'|trans({}, 'backend') }}
+                       </font><font color="black">
+                {{ 'student.Mere'|trans({}, 'backend') }}</font>
 
             </label></div>
         <div class="form-group">
@@ -56,13 +56,12 @@
 
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
-
+                <font color="red">
                             *
 
-                        </span>
+                       </font><font color="black">
 
-                {{ 'student.Pere'|trans({}, 'backend') }}
+                {{ 'student.Pere'|trans({}, 'backend') }}</font>
 
             </label>
 
@@ -77,13 +76,12 @@
 
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
-
+                <font color="red">
                             *
 
-                        </span>
+                       </font><font color="black">
 
-                {{ 'student.Ecole'|trans({}, 'backend') }}
+                {{ 'student.Ecole'|trans({}, 'backend') }}</font>
 
             </label>
 
@@ -95,13 +93,13 @@
             </div>
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
+                <font color="red">
 
                             *
 
-                        </span>
+                        </font><font color="black">
 
-                {{ 'student.Niveau scolaire'|trans({}, 'backend') }}
+                {{ 'student.Niveau scolaire'|trans({}, 'backend') }}</font>
 
             </label>
 
@@ -114,13 +112,12 @@
             </div>
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
-
+                <font color="red">
                             *
 
-                        </span>
+                        </font><font color="black">
 
-                {{ 'sidebar.Groupe'|trans({}, 'backend') }}
+                {{ 'sidebar.Groupe'|trans({}, 'backend') }}</font>
 
             </label>
 
@@ -132,10 +129,11 @@
         <div class="panel-footer">
 
             <div class="row">
-                <div class="col-sm-9 col-sm-offset-3">
+                <div class="col-sm-9 col-sm-offset-3" >
 
 
-                    {{ form_widget(form.create) }}
+                    <p>&nbsp;&nbsp;</p>
+                    <p align="center"> <button type="submit" class="btn btn-success" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
 
                 </div>
             </div>

@@ -17,11 +17,9 @@ class GroupType extends AbstractType
         $builder
             ->add('nom')
             ->add('description')
-            ->add('date_creation')
-            ->add('date_modification')
+
             ->add('courses')
-            ->add('Modifier','submit')
-            ->add('create','submit')
+
         ;
     }
     

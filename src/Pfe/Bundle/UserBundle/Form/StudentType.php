@@ -20,7 +20,7 @@ class StudentType extends AbstractType
             ->add('ecole')
             ->add('niveauscolaire')
             ->add('group')
-           ->add('create','submit')
+
         ;
     }
     

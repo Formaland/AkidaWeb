@@ -27,13 +27,7 @@ class Weeklysession
      */
     protected $classroom;
 
-    /**
-     * @var object Student
-     *
-     * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
-     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", inversedBy="student",  cascade={"persist"})
-     */
-    protected $student;
+
 
     /**
      * @ORM\OneToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses", mappedBy="weeklysession")
@@ -58,14 +52,14 @@ class Weeklysession
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="starttime", type="datetime")
+     * @ORM\Column(name="starttime", type="time")
      */
     private $starttime;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endtime", type="datetime")
+     * @ORM\Column(name="endtime", type="time")
      */
     private $endtime;
 
@@ -133,6 +127,11 @@ class Weeklysession
     {
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->getDay();
+    }
     
     /**
      * Add courses
@@ -167,38 +166,6 @@ class Weeklysession
         return $this->courses;
     }
 
-    /**
-     * Add student
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\Student $student
-     * @return Weeklysession
-     */
-    public function addStudent(\Pfe\Bundle\UserBundle\Entity\Student $student)
-    {
-        $this->student[] = $student;
-    
-        return $this;
-    }
-
-    /**
-     * Remove student
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\Student $student
-     */
-    public function removeStudent(\Pfe\Bundle\UserBundle\Entity\Student $student)
-    {
-        $this->student->removeElement($student);
-    }
-
-    /**
-     * Get student
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getStudent()
-    {
-        return $this->student;
-    }
 
     /**
      * Add classroom

@@ -30,9 +30,12 @@ class TeacherController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PfeUserBundle:Teacher')->findAll();
-
+        foreach ($entities as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }
         return array(
             'entities' => $entities,
+            'deleteForms' => $deleteForms,
         );
     }
     /**
@@ -76,7 +79,7 @@ class TeacherController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+       // $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -165,7 +168,7 @@ class TeacherController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        //$form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -193,7 +196,7 @@ class TeacherController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('teacher_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('teacher'));
         }
 
         return array(

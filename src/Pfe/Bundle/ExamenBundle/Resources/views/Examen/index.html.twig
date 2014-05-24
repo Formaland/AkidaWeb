@@ -5,15 +5,24 @@
 
 
 
-<h1>{{ 'sidebar.Liste des examens'|trans({}, 'backend') }}</h1>
-
 <p class="mb20"></p>
 
 <div class="table-responsive">
 
-    <table class="table table-striped mb30">
+    <table class="table table-bordered mb30">
         <thead>
         <tr>
+            <th colspan="6">
+
+
+                <h4 class="panel-title" align="center">
+                    <font color="#008b8b" size="5%" align="left">
+                        {{ 'sidebar.Liste des examens'|trans({}, 'backend') }}</font></h4>
+
+            </th>
+        </tr>
+        <tr>
+
 
 
 
@@ -79,11 +88,11 @@
         </tbody>
     </table>
 
-        <ul>
+      {# <ul>
         <li>
             <a href="{{ path('examen_new') }}">
                 Create a new entry
             </a>
         </li>
-    </ul>
+    </ul>#}
     {% endblock %}

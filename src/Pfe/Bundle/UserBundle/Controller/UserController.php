@@ -35,10 +35,27 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PfeUserBundle:User')->findAll();
-
+        foreach ($entities as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }
        return array(
           'entities' => $entities,
+           'deleteForms' => $deleteForms,
      );
+
+
+    }
+    public function indexxAction()
+    {
+        $userManager=$this->get('fos_user.user_manager');
+        $users=$userManager->findUsers();
+        // ...
+        $form = $this->container->get('form.factory')->create(new UserRechercheForm());
+
+        return $this->container->get('templating')->renderResponse('PfeUserBundle:User:indexx.html.twig', array(
+            'users' => $users,
+            'form' => $form->createView()
+        ));
 
 
     }
@@ -116,7 +133,9 @@ class UserController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('user_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('user'));
+            return $this->redirect($this->generateUrl('user_create'));
+
         }
 
         return array(
@@ -152,6 +171,19 @@ class UserController extends Controller
      * @Template()
      */
     public function newAction()
+    {
+        $entity = new User();
+        $form   = $this->createCreateForm($entity);
+
+        return array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        );
+
+
+    }
+
+    public function newwAction()
     {
         $entity = new User();
         $form   = $this->createCreateForm($entity);
@@ -230,7 +262,7 @@ class UserController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        //$form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -258,7 +290,7 @@ class UserController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('user_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('user'));
         }
 
         return array(

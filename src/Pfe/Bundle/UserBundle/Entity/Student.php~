@@ -61,6 +61,30 @@ class Student
     protected $group;
 
     /**
+     * @var object Examen
+     *
+     * @ORM\JoinColumn(name="examen_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\ExamenBundle\Entity\Examen", mappedBy="examen",  cascade={"persist"})
+     */
+    protected $examen;
+
+    /**
+     * @var object Oraltest
+     *
+     * @ORM\JoinColumn(name="oraltest_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\HoralTestBundle\Entity\Oraltest", mappedBy="Oraltest",  cascade={"persist"})
+     */
+    protected $oraltest;
+
+    /**
+     * @var object User
+     *
+
+     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\User", cascade={"persist"})
+     */
+    protected $user;
+
+    /**
      * @param int $id
      */
     public function setId($id)
@@ -209,5 +233,10 @@ class Student
     public function getGroup()
     {
         return $this->group;
+
+    }
+    public function __toString()
+    {
+        return $this->getId();
     }
 }

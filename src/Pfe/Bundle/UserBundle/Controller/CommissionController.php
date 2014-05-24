@@ -76,7 +76,7 @@ class CommissionController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+       // $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -193,7 +193,7 @@ class CommissionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('commission_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('commission'));
         }
 
         return array(

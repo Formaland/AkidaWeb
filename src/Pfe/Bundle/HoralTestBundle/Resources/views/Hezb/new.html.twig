@@ -6,7 +6,7 @@
 
 <div class="col-md-6">
 
-    <form id="basicForm" class="form-horizontal" action="path{{'hezb_create'}}" novalidate="novalidate" methode='post'>
+    <form  action="{{ path('hezb_create') }}" {{ form_enctype(form) }} method='post'>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="panel-btns">
@@ -21,8 +21,8 @@
 
                     </a>
                 </div>
-                <h4 class="panel-title">
-                    <font color="blue" size="5%" align="left">
+
+                    <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%">
                     {{ 'sidebar.Ajouter hezb'|trans({}, 'backend') }}</font>
 
                 </h4>
@@ -65,7 +65,27 @@
 
 
 
+                <div class="panel-footer">
 
+                    <div class="row">
+                        <div class="col-sm-9 col-sm-offset-3">
+
+                            <p align="center"> <button type="submit" class="btn btn-success" id="validerhezb"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
+                        </div>
+                    </div>
+                    <!--
+
+                     panel
+
+                    -->
+
+
+
+
+
+
+
+                </div>
 
 
 
@@ -81,7 +101,9 @@
 
 
 
-    </div></form></div>
+    </div>
+        {{ form_rest(form) }}
+    </form></div>
 
    {#<h1>User creation</h1>
 

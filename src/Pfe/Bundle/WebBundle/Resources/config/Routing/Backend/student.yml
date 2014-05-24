@@ -27,4 +27,4 @@ student_update:
 student_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "PfeUserBundle:Student:delete" }
-    requirements: { _method: post|delete }
+

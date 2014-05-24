@@ -29,11 +29,15 @@ pfe_user_include_examen:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/examen.yml"
     prefix: /examen
 
-pfe_user_include_oraltest:
+pfe_examen_include_typeexamen:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/typeexamen.yml"
+    prefix: /typeexamen
+
+pfe_horaltest_include_oraltest:
      resource: "@PfeWebBundle/Resources/config/Routing/Backend/oraltest.yml"
      prefix: /oraltest
 
-pfe_user_include_hezb:
+pfe_horaltest_include_hezb:
      resource: "@PfeWebBundle/Resources/config/Routing/Backend/hezb.yml"
      prefix: /hezb
 
@@ -41,7 +45,17 @@ pfe_user_include_sourah:
      resource: "@PfeWebBundle/Resources/config/Routing/Backend/sourah.yml"
      prefix: /sourah
 
+pfe_user_include_weeklysession:
+     resource: "@PfeWebBundle/Resources/config/Routing/Backend/weeklysession.yml"
+     prefix: /weeklysession
 
+pfe_user_include_session:
+     resource: "@PfeWebBundle/Resources/config/Routing/Backend/session.yml"
+     prefix: /session
+
+pfe_session_include_classroom:
+     resource: "@PfeWebBundle/Resources/config/Routing/Backend/classroom.yml"
+     prefix: /classroom
 
 pfe_user_include_security:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/security.yml"

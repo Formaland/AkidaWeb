@@ -164,7 +164,7 @@ class Courses
     public function setWeeklysession(\Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession = null)
     {
         $this->weeklysession = $weeklysession;
-    
+
         return $this;
     }
 

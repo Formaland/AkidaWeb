@@ -19,8 +19,8 @@ class CommissionType extends AbstractType
             ->add('description')
             ->add('teacher')
              #{#>add('note')#}
-            ->add('create','submit')
-            ->add('Modifier','submit')
+           // ->add('create','submit')
+            //->add('Modifier','submit')
 
 
 

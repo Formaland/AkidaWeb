@@ -5,7 +5,7 @@
 
     <div class="col-md-6">
 
-        <form id="basicForm" class="form-horizontal" action="path{{'hezb_create'}}" novalidate="novalidate" methode='post'>
+        <form id="basicForm" class="form-horizontal" action="{{ path('courses_create') }}" novalidate="novalidate" method="post">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-btns">
@@ -20,9 +20,8 @@
 
                         </a>
                     </div>
-                    <h4 class="panel-title">
-                        <font color="blue" size="5%" align="left">
-                            {{ 'sidebar.Ajouter hezb'|trans({}, 'backend') }}</font>
+                    <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%" align="left">
+                            {{ 'sidebar.Ajouter cours'|trans({}, 'backend') }}</font>
 
                     </h4>
 
@@ -38,10 +37,14 @@
 
 
 
-                        <label class="col-sm-3 control-label"><font color="black">
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+                            </font><font color="black">
 
 
-                                {{ 'cours.nom'|trans({}, 'backend') }}</font>
+                            {{ 'cours.nom'|trans({}, 'backend') }}</font>
 
                         </label></div>
                     <div class="form-group">
@@ -53,7 +56,10 @@
 
 
                         <label class="col-sm-3 control-label">
-                            <font color="black">
+                            <font color="red">
+
+                                *
+                            </font><font color="black">
 
 
                                 {{ 'cours.duree'|trans({}, 'backend') }}</font>
@@ -70,8 +76,10 @@
 
 
                         <label class="col-sm-3 control-label">
-                            <font color="black">
+                            <font color="red">
 
+                                *
+                            </font><font color="black">
 
                                 {{ 'groupe.nom'|trans({}, 'backend') }}</font>
 
@@ -85,9 +93,11 @@
                         </div>
 
 
-
                         <label class="col-sm-3 control-label">
-                            <font color="black">
+                            <font color="red">
+
+                                *
+                            </font><font color="black">
 
 
                                 {{ 'seanceheb.nom'|trans({}, 'backend') }}</font>
@@ -96,7 +106,29 @@
 
                     </div>
 
+                    <div class="panel-footer">
 
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3" >
+
+
+                                <p align="center"> <button type="submit" class="btn btn-success" id="validercours"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
+
+                            </div>
+                        </div>
+                        <!--
+
+                         panel
+
+                        -->
+
+
+
+
+
+
+
+                    </div>
 
 
 

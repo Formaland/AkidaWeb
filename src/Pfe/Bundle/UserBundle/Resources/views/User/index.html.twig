@@ -1,20 +1,26 @@
 {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-
 {% block content -%}
-
-
-        <h1>{{ 'user.liste_users'|trans({}, 'backend') }}</h1>
 
 
         <p class="mb20"></p>
 
         <div class="table-responsive">
 
-            <table class="table table-striped mb30">
+            <table class="table table-bordered mb30">
                 <thead>
                 <tr>
 
+                    <th colspan="8">
+
+
+                        <h4 class="panel-title" align="center">
+                            <font color="#008b8b" size="5%" align="left">
+                                {{ 'user.liste_users'|trans({}, 'backend') }}</font></h4>
+
+                    </th>
+                </tr>
+                <tr>
 
 
 
@@ -63,13 +69,24 @@
                         <a href="{{ path('user_edit', { 'id': entity.id }) }}">
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <a class="delete-row" href="">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
 
-                    </td>
+                        <form action="{{ path('user_delete', { 'id': entity.id }) }}" method="post">
+                             <input type="hidden" name="_method" value="DELETE" />
+                            <div style="display: none;"> {{ form_widget(deleteForms[entity.id]) }}</div>
+                           <button type="submit" class="fa fa-trash-o">
+                               {#  <i class="fa fa-trash-o"></i>#}
+                                {#{{ 'links.admin.form.delete' | trans({}, 'FooBundle') }}#}
+                            </button>
+                        </form>
 
-                   {#<td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>#}
+
+                        {#  <a class="delete-row" href="{{ path('user_delete', { 'id': entity.id }) }}">
+                              {# <i class="fa fa-trash-o"></i>
+                           </a>#}
+
+                       </td>
+
+                      {#<td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>#}
 
                {# <td>{{ entity.description }}</td>#}
                 {#<td>{% if entity.registrationdate %}{{ entity.registrationdate|date('Y-m-d H:i:s') }}{% endif %}</td>#}

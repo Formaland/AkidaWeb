@@ -2,7 +2,230 @@
 
 
 {% block content -%}
-    <h1>Examen creation</h1>
+
+    <div class="col-md-6">
+
+        <form id="basicForm" class="form-horizontal" action="{{ path('examen_create') }}"  novalidate="novalidate" method="post">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            −
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title" align="center"><font color="#008b8b" size="5%" align="left">
+
+                            {{ 'sidebar.Ajouter examen'|trans({}, 'backend') }}</font>
+
+                    </h4>
+
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            <div > {{ form_widget(form.nameexamen) }}</div>
+                            {{ form_errors(form.nameexamen) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+
+                            <font color="red">
+
+                                *
+
+                            </font><font color="black">
+                                {{ 'examen.nom'|trans({}, 'backend') }}</font>
+
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.dateexamen) }}
+                            {{ form_errors(form.dateexamen) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'examen.date'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.starttime) }}
+                            {{ form_errors(form.starttime) }}
+                        </div>
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'examen.heure deb'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.endtime) }}
+                            {{ form_errors(form.endtime) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'examen.heure fin'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.description) }}
+                            {{ form_errors(form.description) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                         <font color="black">
+
+                                {{ 'user.description'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.student) }}
+                            {{ form_errors(form.student) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'student.nom'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.typeexamen) }}
+                            {{ form_errors(form.typeexamen) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'examen.typeexam'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.courses) }}
+                            {{ form_errors(form.courses) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'cours.cours'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.commission) }}
+                            {{ form_errors(form.commission) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'sidebar.Commission'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3" >
+
+
+                                <p>&nbsp;&nbsp;</p>
+                                <p align="center"> <button type="submit" class="btn btn-success" id="validerexamen"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
+
+                            </div>
+                        </div>
+                        <!--
+
+                         panel
+
+                        -->
+
+
+
+
+
+
+
+                    </div></div> </div>
+
+            {{ form_rest(form) }}
+        </form></div>
+
+
+
+
+    {# <h1>Examen creation</h1>
 
     {{ form(form) }}
 
@@ -12,5 +235,5 @@
             Back to the list
         </a>
     </li>
-</ul>
+</ul>#}
 {% endblock %}

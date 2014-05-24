@@ -20,11 +20,11 @@
 
                         </a>
                     </div>
-                    <h4 class="panel-title">
+                    <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%" align="left">
 
                         {{ 'sidebar.Modifier enseignant'|trans({}, 'backend') }}
 
-                    </h4>
+                </font>    </h4>
 
                 </div>
                 <div class="panel-body">
@@ -71,8 +71,8 @@
                         <div class="row">
                             <div class="col-sm-9 col-sm-offset-3">
 
+                                <p align="center"> <button type="submit" class="btn btn-success" id="validerenseignant"><i class="icon-ok icon-white" align="center"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button></p>
 
-                                {{ form_widget(edit_form.Modifier) }}
 
                             </div>
                         </div>
@@ -93,29 +93,6 @@
 
             {{ form_rest(edit_form) }}
         </form></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

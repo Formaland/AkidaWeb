@@ -32,7 +32,7 @@ class UserType extends AbstractType
 
 
            # ->add('student')
-        #->add('teacher')
+          # ->add('teacher')
 
 
 

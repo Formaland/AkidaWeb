@@ -51,7 +51,7 @@ class Commission
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=255)
+     * @ORM\Column(name="description", type="text",length=255,  nullable=true)
      */
     private $description;
 
@@ -118,6 +118,19 @@ class Commission
     {
         $this->teacher = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+    /**
+     * Set teacher
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Teacher $teacher
+     * @return Commission
+     */
+    public function setTeacher(\Pfe\Bundle\UserBundle\Entity\Teacher $teacher = null)
+    {
+        $this->teacher = $teacher;
+
+        return $this;
+    }
     
     /**
      * Add teacher
@@ -155,7 +168,7 @@ class Commission
     /**
      * Set note
      *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Note $note
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Note $note
      * @return Commission
      */
     public function setNote(\Pfe\Bundle\ExamenBundle\Entity\Note $note = null)
@@ -177,5 +190,61 @@ class Commission
     public function __toString()
     {
         return $this->getTypecommission();
+    }
+
+    /**
+     * Add note
+     *
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Note $note
+     * @return Commission
+     */
+    public function addNote(\Pfe\Bundle\ExamenBundle\Entity\Note $note)
+    {
+        $this->note[] = $note;
+    
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Note $note
+     */
+    public function removeNote(\Pfe\Bundle\ExamenBundle\Entity\Note $note)
+    {
+        $this->note->removeElement($note);
+    }
+
+    /**
+     * Add examen
+     *
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examen
+     * @return Commission
+     */
+    public function addExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examen)
+    {
+        $this->examen[] = $examen;
+    
+        return $this;
+    }
+
+    /**
+     * Remove examen
+     *
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examen
+     */
+    public function removeExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examen)
+    {
+        $this->examen->removeElement($examen);
+    }
+
+    /**
+     * Get examen
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExamen()
+    {
+        return $this->examen;
     }
 }

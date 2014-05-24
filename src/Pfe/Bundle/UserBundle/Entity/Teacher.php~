@@ -39,6 +39,14 @@ class Teacher
      */
     protected $courses;
 
+    /**
+     * @var object Oraltest
+     *
+     * @ORM\JoinColumn(name="oraltest_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\HoralTestBundle\Entity\Oraltest", mappedBy="oraltest",  cascade={"persist"})
+     */
+    protected $oraltest;
+
 
     /**
      * @var object Commission
@@ -49,9 +57,18 @@ class Teacher
     protected $commission;
 
     /**
+     * @var object User
+     *
+     *
+     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\User", cascade={"persist"})
+     *
+     */
+    protected $user;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string",length=255,  nullable=true)
+     * @ORM\Column(name="description", type="text",length=255,  nullable=true)
      */
     protected $description;
 
@@ -159,5 +176,38 @@ class Teacher
     public function getCourses()
     {
         return $this->courses;
+    }
+
+    /**
+     * Add commission
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
+     * @return Teacher
+     */
+    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    {
+        $this->commission[] = $commission;
+    
+        return $this;
+    }
+
+    /**
+     * Remove commission
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
+     */
+    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    {
+        $this->commission->removeElement($commission);
+    }
+
+    /**
+     * Get commission
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommission()
+    {
+        return $this->commission;
     }
 }

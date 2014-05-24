@@ -3,35 +3,48 @@
 
 {% block content -%}
 
-<h1>{{ 'sidebar.Liste des apprenants'|trans({}, 'backend') }}</h1>
-
 
 <p class="mb20"></p>
 
 <div class="table-responsive">
 
-    <table class="table table-striped mb30">
+    <table class="table table-bordered mb30">
         <thead>
         <tr>
-       <th></th>
 
-            <th>
+            <th colspan="7">
+
+
+                <h4 class="panel-title" align="center">
+                    <font color="#008b8b" size="5%" align="left">
+                        {{ 'sidebar.Liste des apprenants'|trans({}, 'backend') }}</font></h4>
+
+            </th>
+        </tr>
+        <tr>
+
+
+        <th></th>
+
+            <th><font color="black">
                 {{ 'student.Niveau scolaire'|trans({}, 'backend') }}
-            </th>
-            <th>
+           </font> </th>
+            <th><font color="black">
                 {{ 'student.Ecole'|trans({}, 'backend') }}
-            </th>
-            <th>
+            </font></th>
+            <th><font color="black">
                 {{ 'student.Mere'|trans({}, 'backend') }}
-            </th>
-            <th>
+            </font></th>
+            <th><font color="black">
                 {{ 'student.Pere'|trans({}, 'backend') }}
-            </th>
+           </font> </th>
 
-            </th>
-            <th>
+
+
+
+            <th><font color="black">
                 #
-            </th>
+          </font>  </th>
 
 
         </tr>
@@ -48,9 +61,14 @@
                     <a href="{{ path('student_edit', { 'id': entity.id }) }}">
                         <i class="fa fa-pencil"></i>
                     </a>
-                    <a class="delete-row" href="{{ path('student_delete', { 'id': entity.id }) }}">
-                        <i class="fa fa-trash-o"></i>
-                    </a>
+                    <form action="{{ path('student_delete', { 'id': entity.id }) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <div style="display: none;"> {{ form_widget(deleteForms[entity.id]) }}</div>
+                        <button type="submit" class="fa fa-trash-o">
+                            {#  <i class="fa fa-trash-o"></i>#}
+                            {#{{ 'links.admin.form.delete' | trans({}, 'FooBundle') }}#}
+                        </button>
+                    </form>
 
                 </td>
 
@@ -78,11 +96,11 @@
         </tbody>
     </table>
 
-        <ul>
+       {#<ul>
         <li>
             <a href="{{ path('student_new') }}">
                 Create a new entry
             </a>
         </li>
-    </ul>
+    </ul>#}
     {% endblock %}

@@ -21,7 +21,7 @@ hezb_edit:
 
 hezb_update:
     pattern:  /{id}/update
-    defaults: { _controller: "PfeCHoralTestBundle:Hezb:update" }
+    defaults: { _controller: "PfeHoralTestBundle:Hezb:update" }
     requirements: { _method: post|put }
 
 hezb_delete:

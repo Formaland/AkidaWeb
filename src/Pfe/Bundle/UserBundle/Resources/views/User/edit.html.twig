@@ -7,7 +7,8 @@
 
     <div class="col-md-6">
 
-    <form id="basicForm" class="form-horizontal" action="{{ path('user_update', { 'id': entity.id }) }}"  novalidate="novalidate" method="post">
+    <form  action="{{ path('user_update', { 'id': entity.id }) }}"   method="post">
+       {{ form_start(edit_form) }}
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="panel-btns">
@@ -22,63 +23,49 @@
 
                     </a>
                 </div>
-                <font color="blue" size="5%" align="left">
+                <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%">
 
                     {{ 'form.modifuser'|trans({}, 'backend') }}</font>
 
 
-            </div>
-            <div class="panel-body">
-                <div class="form-group">
+           </h4> </div>
+            <div class="panel-body" >
+            <div class="form-group">
 
-                    <div class="col-sm-9">
-                        {{ form_widget(edit_form.username) }}
-                        {{ form_errors(edit_form.username) }}
-                    </div>
+                <div class="col-sm-9">
 
 
-
-
-                    <label class="col-sm-3 control-label"><font color="black">
-
-                            {{ 'user.login'|trans({}, 'backend') }}</font>
-                        <font color="red">
-
-                            *
-                        </font>
-                    </label></div>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        {{ form_widget(edit_form.firstName) }}
-                        {{ form_errors(edit_form.firstName) }}
-                    </div>
-
-
-
-                    <label class="col-sm-3 control-label">
-                        <font color="red">
-
-                            *
-                        </font><font color="black">
-                            {{ 'user.nom'|trans({}, 'backend') }}</font>
-
-                    </label>
+                    {{ form_errors(edit_form.username) }}
+                    {{ form_widget(edit_form.username) }}</option>
 
                 </div>
+                <label class="col-sm-3 control-label">
+                    <font color="black">
 
+                        {{ 'user.login'|trans({}, 'backend') }}</font>
+                </label></div>
 
+            <div class="form-group">
+                <div class="col-sm-9">
+
+                    {{ form_errors(edit_form.firstName) }}
+                    {{ form_widget(edit_form.firstName) }}
+                </div>
+                <label class="col-sm-3 control-label">
+                    <font color="black">
+                        {{ 'user.nom'|trans({}, 'backend') }}</font>
+
+                </label>
+
+            </div>
+            <div>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        {{ form_widget(edit_form.lastName) }}
                         {{ form_errors(edit_form.lastName) }}
+                        {{ form_widget(edit_form.lastName) }}
                     </div>
-
-
                     <label class="col-sm-3 control-label">
-                        <font color="red">
 
-                            *
-                        </font>
                         <font color="black">
 
                             {{ 'user.prenom'|trans({}, 'backend') }}</font>
@@ -86,90 +73,145 @@
                     </label>
 
                 </div>
+                <div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_errors(edit_form.email) }}
+                            {{ form_widget(edit_form.email) }}
+                        </div>
+                        <label class="col-sm-3 control-label">
+                         <font color="black">
+                                {{ 'user.email'|trans({}, 'backend') }}</font>
 
-
-
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        {{ form_widget(edit_form.email) }}
-                        {{ form_errors(edit_form.email) }}
-                    </div>
-
-                    <label class="col-sm-3 control-label">
-                        <font color="red">
-
-                            *
-                        </font><font color="black">
-                            {{ 'user.email'|trans({}, 'backend') }}</font>
-
-                    </label>
-
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        {{ form_widget(edit_form.password) }}
-                        {{ form_errors(edit_form.password) }}
+                        </label>
 
                     </div>
-                    <label class="col-sm-3 control-label">
-                        <font color="red">
+                    <div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.password) }}
+                                {{ form_widget(edit_form.password) }}
+                            </div>
+                            <label class="col-sm-3 control-label">
+                             <font color="black">
 
-                            *
-                        </font><font color="black">
+                                    {{ 'user.password'|trans({}, 'backend') }}</font>
 
-                            {{ 'user.password'|trans({}, 'backend') }}</font>
+                            </label>
 
-                    </label>
+                        </div>
 
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        {{ form_widget(edit_form.dateofbirth) }}
-                        {{ form_errors(edit_form.dateofbirth) }}
-                    </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.dateofbirth) }}
+                                {{ form_widget(edit_form.dateofbirth) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                <font color="black">
+
+                                    {{ 'user.date_naissance'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.cin) }}
+                                {{ form_widget(edit_form.cin) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                <font color="black">
+
+                                    {{ 'user.cin'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.adresse) }}
+                                {{ form_widget(edit_form.adresse) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                               <font color="black">
+
+                                    {{ 'user.adress'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.phone) }}
+                                {{ form_widget(edit_form.phone) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                               <font color="black">
+
+                                    {{ 'user.num_tel'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.enabled) }}
+                                {{ form_widget(edit_form.enabled) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                              <font color="black">
+
+                                    {{ 'user.date_naissance'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.description) }}
+                                {{ form_widget(edit_form.description) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                <font color="black">
+
+                                    {{ 'user.description'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                {{ form_errors(edit_form.roles) }}
+                                {{ form_widget(edit_form.roles) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                <font color="black">
+
+                                    {{ 'user.role'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+                        <div class="panel-footer">
+
+                            <div class="row">
+                                <div class="col-sm-9 col-sm-offset-3">
 
 
 
-                    <label class="col-sm-3 control-label">
-                        <font color="red">
+                                    <p align="center"> <button type="submit" class="btn btn-success" id="valideruser"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button></p>
 
-                            *
-                        </font><font color="black">
-
-                            {{ 'user.date_naissance'|trans({}, 'backend') }}</font>
-
-                    </label>
-
-                </div>
-
-
-
-
-
-                <div class="panel-footer">
-
-                    <div class="row">
-                        <div class="col-sm-9 col-sm-offset-3"><font color="blue" size="3,5%" align="center" >
-
-                                {{ form_rest(edit_form) }}</font>
+                                    {{ form_end(edit_form) }}</div></div></div></div></div></div></div>
                             {#{{ form_widget(form.create) }}#}
 
                         </div>
-                    </div>
-                    <!--
-
-                     panel
-
-                    -->
-
-
-
-
-
-
-
-                </div></div> </div>
-
 
     </form></div>
 

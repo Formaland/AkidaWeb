@@ -53,7 +53,7 @@ class OraltestController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('oraltest_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('oraltest'));
         }
 
         return array(
@@ -76,7 +76,7 @@ class OraltestController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+       // $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -193,7 +193,7 @@ class OraltestController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('oraltest_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('oraltest'));
         }
 
         return array(

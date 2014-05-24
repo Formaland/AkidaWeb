@@ -10,6 +10,7 @@ courses_new:
     pattern:  /new
     defaults: { _controller: "PfeCoursesBundle:Courses:new" }
 
+
 courses_create:
     pattern:  /create
     defaults: { _controller: "PfeCoursesBundle:Courses:create" }

@@ -5,7 +5,7 @@
 
     <div class="col-md-6">
 
-    <form id="basicForm" class="form-horizontal" action="{{ path('group_create') }}"  novalidate="novalidate" method="post">
+    <form  action="{{ path('group_create') }}"  {{ form_enctype(form) }} method="post">
     <div class="panel panel-default">
     <div class="panel-heading">
         <div class="panel-btns">
@@ -20,12 +20,11 @@
 
             </a>
         </div>
-        <h4 class="panel-title">
+      <h4 class="panel-title" align="center"><font color="#008b8b" size="5%" align="left">
 
-            {{ 'sidebar.Ajouter groupe'|trans({}, 'backend') }}
+            {{ 'sidebar.Ajouter groupe'|trans({}, 'backend') }}</font>
 
         </h4>
-
     </div>
     <div class="panel-body">
         <div class="form-group">
@@ -39,13 +38,14 @@
 
 
             <label class="col-sm-3 control-label">
+                <font color="red">
 
-                {{ 'groupe.nom'|trans({}, 'backend') }}
-                <span class="asterisk">
+                    *
 
-                            *
+                </font><font color="black">
 
-                        </span>
+                {{ 'groupe.nom'|trans({}, 'backend') }}</font>
+
             </label></div>
         <div class="form-group">
             <div class="col-sm-9">
@@ -56,56 +56,16 @@
 
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
 
-                            *
-
-                        </span>
-
-                {{ 'groupe.description'|trans({}, 'backend') }}
+                <font color="black">
+                {{ 'groupe.description'|trans({}, 'backend') }}</font>
 
             </label>
 
         </div>
 
 
-        <div class="form-group">
-            <div class="col-sm-9">
-                {{ form_widget(form.date_creation) }}
-                {{ form_errors(form.date_creation) }}
-            </div>
 
-
-            <label class="col-sm-3 control-label">
-                        <span class="asterisk">
-
-                            *
-
-                        </span>
-
-                {{ 'groupe.datecreation'|trans({}, 'backend') }}
-
-            </label>
-
-        </div>
-        <div class="form-group">
-            <div class="col-sm-9">
-                {{ form_widget(form.date_modification) }}
-                {{ form_errors(form.date_modification) }}
-            </div>
-
-            <label class="col-sm-3 control-label">
-                        <span class="asterisk">
-
-                            *
-
-                        </span>
-
-                {{ 'groupe.datemodification'|trans({}, 'backend') }}
-
-            </label>
-
-        </div>
         <div class="form-group">
             <div class="col-sm-9">
                 {{ form_widget(form.courses) }}
@@ -114,13 +74,12 @@
 
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
-
+                <font color="red">
                             *
 
-                        </span>
+                        </font><font color="black">
 
-                {{ 'sidebar.Cours'|trans({}, 'backend') }}
+                {{ 'sidebar.Cours'|trans({}, 'backend') }}</font>
 
             </label>
 
@@ -134,8 +93,8 @@
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
 
+                    <p align="center"> <button type="submit" class="btn btn-success" id="validergroupe"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
 
-                    {{ form_widget(form.create) }}
 
                 </div>
             </div>

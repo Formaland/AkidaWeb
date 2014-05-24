@@ -3,6 +3,7 @@
 namespace Pfe\Bundle\ExamenBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Examen
  *
@@ -54,6 +55,7 @@ class Examen
      * @var string
      *
      * @ORM\Column(name="nameexamen", type="string", length=30)
+     * @Assert\NotBlank()
      */
     private $nameexamen;
 
@@ -143,28 +145,6 @@ class Examen
         return $this->dateexamen;
     }
 
-    /**
-     * Set d
-     *
-     * @param string $d
-     * @return Examen
-     */
-    public function setD($d)
-    {
-        $this->d = $d;
-    
-        return $this;
-    }
-
-    /**
-     * Get d
-     *
-     * @return string 
-     */
-    public function getD()
-    {
-        return $this->d;
-    }
 
     /**
      * Set starttime
@@ -311,10 +291,10 @@ class Examen
     /**
      * Add typeexamen
      *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Typeexamen $typeexamen
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen
      * @return Examen
      */
-    public function addTypeexamen(\Pfe\Bundle\CoursesBundle\Entity\Typeexamen $typeexamen)
+    public function addTypeexamen(\Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen)
     {
         $this->typeexamen[] = $typeexamen;
     
@@ -324,9 +304,9 @@ class Examen
     /**
      * Remove typeexamen
      *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Typeexamen $typeexamen
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen
      */
-    public function removeTypeexamen(\Pfe\Bundle\CoursesBundle\Entity\Typeexamen $typeexamen)
+    public function removeTypeexamen(\Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen)
     {
         $this->typeexamen->removeElement($typeexamen);
     }
@@ -377,10 +357,10 @@ class Examen
     /**
      * Add commission
      *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Commission $commission
+     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      * @return Examen
      */
-    public function addCommission(\Pfe\Bundle\CoursesBundle\Entity\Commission $commission)
+    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
     {
         $this->commission[] = $commission;
     
@@ -390,9 +370,9 @@ class Examen
     /**
      * Remove commission
      *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Commission $commission
+     * @param \Pfe\Bundle\userBundle\Entity\Commission $commission
      */
-    public function removeCommission(\Pfe\Bundle\CoursesBundle\Entity\Commission $commission)
+    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
     {
         $this->commission->removeElement($commission);
     }

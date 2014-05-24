@@ -139,4 +139,9 @@ class Typeexamen
     {
         return $this->examen;
     }
+
+    public function __toString()
+    {
+        return $this->getNametypeexamen();
+    }
 }

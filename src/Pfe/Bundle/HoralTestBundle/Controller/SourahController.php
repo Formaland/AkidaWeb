@@ -53,7 +53,7 @@ class SourahController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('sourah_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('sourah'));
         }
 
         return array(
@@ -193,7 +193,7 @@ class SourahController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('sourah_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('sourah'));
         }
 
         return array(

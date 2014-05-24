@@ -4,7 +4,7 @@
 {% block content -%}
     <div class="col-md-6">
 
-    <form id="basicForm" class="form-horizontal" action="{{ path('commission_create') }}"  novalidate="novalidate" method="post">
+    <form  action="{{ path('commission_create') }}"  {{ form_enctype(form) }} method="post">
     <div class="panel panel-default">
     <div class="panel-heading">
         <div class="panel-btns">
@@ -19,9 +19,8 @@
 
             </a>
         </div>
-        <h4 class="panel-title">
-
-            {{ 'sidebar.Ajouter commission'|trans({}, 'backend') }}
+        <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%">
+            {{ 'sidebar.Ajouter commission'|trans({}, 'backend') }}</font>
 
         </h4>
 
@@ -35,17 +34,15 @@
             </div>
 
 
-
-
             <label class="col-sm-3 control-label">
+                <font color="red">
 
-                {{ 'commission.type'|trans({}, 'backend') }}
-                <span class="asterisk">
+                    *
+                </font><font color="black">
 
-                            *
-
-                        </span>
+                    {{ 'commission.type'|trans({}, 'backend') }}</font>
             </label></div>
+
         <div class="form-group">
             <div class="col-sm-9">
                 {{ form_widget(form.description) }}
@@ -55,15 +52,11 @@
 
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
-
-                            *
-
-                        </span>
+                <font color="black">
 
                 {{ 'commission.description'|trans({}, 'backend') }}
 
-            </label>
+            </font></label>
 
         </div>
 
@@ -76,15 +69,15 @@
 
 
             <label class="col-sm-3 control-label">
-                        <span class="asterisk">
+                <font color="red">
 
-                            *
+                *
 
-                        </span>
+                       </font><font color="black">
 
                 {{ 'commission.enseignant'|trans({}, 'backend') }}
 
-            </label>
+           </font> </label>
 
     </div>
 
@@ -95,9 +88,7 @@
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
 
-
-                    {{ form_widget(form.create) }}
-
+                   <p align="center"> <button type="submit" class="btn btn-success" id="valideruser"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
                 </div>
             </div>
             <!--

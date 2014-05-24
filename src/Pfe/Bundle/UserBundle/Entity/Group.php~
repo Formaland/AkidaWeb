@@ -29,9 +29,9 @@ class Group
     private $nom;
 
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text",length=255)
      */
     private $description;
 
@@ -61,9 +61,11 @@ class Group
      * @var object Courses
      *
      * @ORM\JoinColumn(name="courses_id", referencedColumnName="id")
-     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses", mappedBy="courses",  cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Pfe\Bundle\CoursesBundle\Entity\Courses",orphanRemoval=true, mappedBy="group",  cascade={"persist"})
      */
     protected $courses;
+
+
 
 
 

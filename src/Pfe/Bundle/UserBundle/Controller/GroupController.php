@@ -24,9 +24,12 @@ class GroupController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PfeUserBundle:Group')->findAll();
-
+        foreach ($entities as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }
         return $this->render('PfeUserBundle:Group:index.html.twig', array(
             'entities' => $entities,
+            'deleteForms' => $deleteForms,
         ));
     }
     /**
@@ -67,7 +70,7 @@ class GroupController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+     //   $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -171,7 +174,7 @@ class GroupController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('group_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('group'));
         }
 
         return $this->render('PfeUserBundle:Group:edit.html.twig', array(

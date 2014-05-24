@@ -3,7 +3,7 @@
 namespace Pfe\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Student
@@ -27,6 +27,7 @@ class Student
      * @var string
      *
      * @ORM\Column(name="mere", type="string", length=30, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $mere;
 
@@ -34,6 +35,7 @@ class Student
      * @var string
      *
      * @ORM\Column(name="pere", type="string", length=30, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $pere;
 
@@ -41,6 +43,7 @@ class Student
      * @var string
      *
      * @ORM\Column(name="ecole", type="string", length=80, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $ecole;
 
@@ -48,6 +51,7 @@ class Student
      * @var string
      *
      * @ORM\Column(name="niveauscolaire", type="string", length=80, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $niveauscolaire;
 
@@ -201,17 +205,6 @@ class Student
 
     }
 
-
-
-
-#{# public function __toString()
-   # {
-#{#return $this->getPere();#}
-   # }
-#}
-
-
-
     /**
      * Set group
      *
@@ -235,8 +228,99 @@ class Student
         return $this->group;
 
     }
+
+
     public function __toString()
     {
-        return $this->getPere();
+        return $this->getMere();
+    }
+
+    /**
+     * Add examen
+     *
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examen
+     * @return Student
+     */
+    public function addExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examen)
+    {
+        $this->examen[] = $examen;
+    
+        return $this;
+    }
+
+    /**
+     * Remove examen
+     *
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examen
+     */
+    public function removeExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examen)
+    {
+        $this->examen->removeElement($examen);
+    }
+
+    /**
+     * Get examen
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExamen()
+    {
+        return $this->examen;
+    }
+
+    /**
+     * Add oraltest
+     *
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
+     * @return Student
+     */
+    public function addOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
+    {
+        $this->oraltest[] = $oraltest;
+    
+        return $this;
+    }
+
+    /**
+     * Remove oraltest
+     *
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
+     */
+    public function removeOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
+    {
+        $this->oraltest->removeElement($oraltest);
+    }
+
+    /**
+     * Get oraltest
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOraltest()
+    {
+        return $this->oraltest;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\User $user
+     * @return Student
+     */
+    public function setUser(\Pfe\Bundle\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Pfe\Bundle\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -24,7 +24,7 @@ sidebar:
   Liste des cours: قائمة الدّروس
   Liste des commissions: قائمة لجان العرض
   Examens:  الإختبارات الكتابية
-  Ajouter examen: إضافة إختبار
+  Ajouter examen: إضافة إختبار كتابي
   Liste des examens: قائمة الإختبارات الكتابية
   Examens horales: العرض
   Ajouter examen horale: إضافة عرض
@@ -47,12 +47,14 @@ Liens:
   Ajouter: إضافة
   Retour à la liste: العودة إلى القائمة
   envoyer: ارسال
+  modifier: تغيير
 
 student:
   Mere: الأم
   Pere: الأب
   Ecole: المدرسة
   Niveau scolaire: المستوى الدّراسي
+  nom: اسم المتعلّم
   Id: الرّمز
 
 user:
@@ -76,6 +78,9 @@ user:
   simple: مستخدم عادي
   list: قائمة
   unitaire: أحادي
+  user existe: مستخدم موجود
+  user no existe: مستخدم غير موجود
+  role: الصفة
 
 enseignant:
   diplome: الشّهادة
@@ -97,12 +102,14 @@ commission:
 cours:
   nom: عنوان الدّرس
   duree: مدة الدّرس
+  cours:  الدّروس
 
 examen:
   nom: اسم الاختبار
   date: تاريخ الاختبار
   heure deb: ساعة البداية
   heure fin: ساعة النهاية
+  typeexam: نوع الاختبار
 
 horale:
   nom: إسم العرض
@@ -115,6 +122,16 @@ sourah:
 
 seanceheb:
    nom: الحصّة الأسبوعية
+   day: اليوم
+
+seance:
+  date: التاريخ
+  listesean: قائمة الحصص
+  modifsean: تغيير تاريخ حصّة
+
+classroom:
+   nom: اسم القاعة
+   capacite: قدرة الاستعاب
 
 form:
   titreuser: إضافة مستخدم جديد
@@ -123,3 +140,4 @@ form:
   modifcomm:  تغيير لجنة العرض
   modifstudent: تغيير ملف تعريف المتعلّم
   user existe: مستخدم موجود
+  ajoutseance: إضافة حصّة

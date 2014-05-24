@@ -39,9 +39,12 @@ class Courses
      * @var object Group
      *
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
-     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Group", inversedBy="group",  cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Group", inversedBy="courses")
      */
     protected $group;
+
+
+
 
     /**
      * @var object Teacher
@@ -164,7 +167,7 @@ class Courses
     public function setWeeklysession(\Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession = null)
     {
         $this->weeklysession = $weeklysession;
-    
+
         return $this;
     }
 
@@ -179,6 +182,7 @@ class Courses
     }
     /**
      * Constructor
+     *
      */
     public function __construct()
     {

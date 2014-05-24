@@ -20,9 +20,9 @@
 
                         </a>
                     </div>
-                    <h4 class="panel-title">
+                    <h4 class="panel-title" align="center"><font color="#008b8b" size="5%" align="left">
 
-                        {{ 'form.modifstudent'|trans({}, 'backend') }}
+                            {{ 'sidebar.Enregister apprenant'|trans({}, 'backend') }}</font>
 
                     </h4>
 
@@ -31,7 +31,7 @@
                     <div class="form-group">
 
                         <div class="col-sm-9">
-                            {{ form_widget(edit_form.mere) }}
+                  {{ form_widget(edit_form.mere) }}
                             {{ form_errors(edit_form.mere) }}
                         </div>
 
@@ -41,7 +41,8 @@
                         <label class="col-sm-3 control-label">
 
 
-                            {{ 'student.Mere'|trans({}, 'backend') }}
+                             <font color="black">
+                                {{ 'student.Mere'|trans({}, 'backend') }}</font>
 
                         </label></div>
                     <div class="form-group">
@@ -53,10 +54,9 @@
 
 
                         <label class="col-sm-3 control-label">
+                         <font color="black">
 
-
-
-                            {{ 'student.Pere'|trans({}, 'backend') }}
+                                {{ 'student.Pere'|trans({}, 'backend') }}</font>
 
                         </label>
 
@@ -71,9 +71,9 @@
 
 
                         <label class="col-sm-3 control-label">
+                            <font color="black">
 
-
-                            {{ 'student.Ecole'|trans({}, 'backend') }}
+                                {{ 'student.Ecole'|trans({}, 'backend') }}</font>
 
                         </label>
 
@@ -85,9 +85,9 @@
                         </div>
 
                         <label class="col-sm-3 control-label">
+                            <font color="black">
 
-
-                            {{ 'student.Niveau scolaire'|trans({}, 'backend') }}
+                                {{ 'student.Niveau scolaire'|trans({}, 'backend') }}</font>
 
                         </label>
 
@@ -101,14 +101,12 @@
 
                         <label class="col-sm-3 control-label">
 
-
+                            <font color="black">
                             {{ 'sidebar.Groupe'|trans({}, 'backend') }}
 
-                        </label>
+                        </font></label>
 
                     </div>
-
-
 
 
                     <div class="panel-footer">
@@ -117,51 +115,17 @@
                             <div class="col-sm-9 col-sm-offset-3">
 
 
-                                {{ form_widget(edit_form.submit) }}
+                                <p align="center"> <button type="submit" class="btn btn-success" id="valideruser"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button></p>
 
-                            </div>
-                        </div>
-                        <!--
-
-                         panel
-
-                        -->
+                                {{ form_end(edit_form) }}</div></div></div></div>
 
 
 
 
-
-
-
-                    </div></div> </div>
+                    </div>
 
             {{ form_rest(edit_form) }}
         </form></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
