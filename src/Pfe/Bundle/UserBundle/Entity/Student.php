@@ -195,13 +195,15 @@ class Student
         return $this->niveauscolaire;
     }
 
-
-
     /**
      * Constructor
      */
     public function __construct()
     {
+        $user = $this->user;
+        $user = new User();
+        $user->setRoles(array('ROLE_STUDENT'));
+        $user->setEnabled(true);
 
     }
 

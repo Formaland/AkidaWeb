@@ -3,8 +3,9 @@ security:
         FOS\UserBundle\Model\UserInterface: sha512
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_STUDENT:       ROLE_STUDENT
+        ROLE_TEACHER:       ROLE_TEACHER
+        ROLE_ADMIN:         ROLE_ADMIN
 
     providers:
         fos_userbundle:
@@ -25,4 +26,4 @@ security:
 
     access_control:
         - { host: admin.akida-web.local, path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { host: admin.akida-web.local, path: ^/, roles: ROLE_ADMIN }
+        - { host: admin.akida-web.local, path: ^/administrator, roles: ROLE_ADMIN }

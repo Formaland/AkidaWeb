@@ -20,10 +20,10 @@ class ExamenType extends AbstractType
             ->add('starttime')
             ->add('endtime')
             ->add('description')
-            ->add('student')
-            ->add('typeexamen')
+            ->add('students')
+            ->add('typeexamens')
             ->add('courses')
-            ->add('commission')
+            ->add('commissions')
         ;
     }
     

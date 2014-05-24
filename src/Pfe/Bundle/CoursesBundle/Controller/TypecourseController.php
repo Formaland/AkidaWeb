@@ -4,16 +4,13 @@ namespace Pfe\Bundle\CoursesBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use Pfe\Bundle\CoursesBundle\Entity\Typecourse;
 use Pfe\Bundle\CoursesBundle\Form\TypecourseType;
 
 /**
  * Typecourse controller.
  *
- * @Route("/typecourse")
  */
 class TypecourseController extends Controller
 {
@@ -21,9 +18,6 @@ class TypecourseController extends Controller
     /**
      * Lists all Typecourse entities.
      *
-     * @Route("/", name="typecourse")
-     * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
@@ -31,16 +25,13 @@ class TypecourseController extends Controller
 
         $entities = $em->getRepository('PfeCoursesBundle:Typecourse')->findAll();
 
-        return array(
+        return $this->render('PfeCoursesBundle:Typecourse:index.html.twig', array(
             'entities' => $entities,
-        );
+        ));
     }
     /**
      * Creates a new Typecourse entity.
      *
-     * @Route("/", name="typecourse_create")
-     * @Method("POST")
-     * @Template("PfeCoursesBundle:Typecourse:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -53,13 +44,13 @@ class TypecourseController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('typecourse'));
+            return $this->redirect($this->generateUrl('typecourse_show', array('id' => $entity->getId())));
         }
 
-        return array(
+        return $this->render('PfeCoursesBundle:Typecourse:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
@@ -84,27 +75,21 @@ class TypecourseController extends Controller
     /**
      * Displays a form to create a new Typecourse entity.
      *
-     * @Route("/new", name="typecourse_new")
-     * @Method("GET")
-     * @Template()
      */
     public function newAction()
     {
         $entity = new Typecourse();
         $form   = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('PfeCoursesBundle:Typecourse:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
      * Finds and displays a Typecourse entity.
      *
-     * @Route("/{id}", name="typecourse_show")
-     * @Method("GET")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -118,18 +103,14 @@ class TypecourseController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('PfeCoursesBundle:Typecourse:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
+            'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
      * Displays a form to edit an existing Typecourse entity.
      *
-     * @Route("/{id}/edit", name="typecourse_edit")
-     * @Method("GET")
-     * @Template()
      */
     public function editAction($id)
     {
@@ -144,11 +125,11 @@ class TypecourseController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('PfeCoursesBundle:Typecourse:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -172,9 +153,6 @@ class TypecourseController extends Controller
     /**
      * Edits an existing Typecourse entity.
      *
-     * @Route("/{id}", name="typecourse_update")
-     * @Method("PUT")
-     * @Template("PfeCoursesBundle:Typecourse:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -193,20 +171,18 @@ class TypecourseController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('typecourse'));
+            return $this->redirect($this->generateUrl('typecourse_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('PfeCoursesBundle:Typecourse:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
     /**
      * Deletes a Typecourse entity.
      *
-     * @Route("/{id}", name="typecourse_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

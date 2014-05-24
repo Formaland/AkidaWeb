@@ -64,7 +64,18 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# FOSUserBundle Configuration
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Pfe\Bundle\UserBundle\Entity\User
+    # Ajout de confirmation d'inscription par email
+    registration:
+        form:
+            type: pfe_user_registration
+        confirmation:
+            enabled: true
+    # adresse email de l'emmeteur d'email pour l'inscription et l'oublie de mot de passe etc ...
+    from_email:
+        address:        akida-web@gmail.com
+        sender_name:    Inscription Akida Web

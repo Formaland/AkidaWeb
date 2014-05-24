@@ -48,6 +48,26 @@
 
                         </label></div>
                     <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(form.typecourse) }}
+                            {{ form_errors(form.typecourse) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+                            </font><font color="black">
+
+
+                                {{ 'cours.nom'|trans({}, 'backend') }}</font>
+
+                        </label></div>
+                    <div class="form-group">
                         <div class="col-sm-9">
                             {{ form_widget(form.durationcourses) }}
                             {{ form_errors(form.durationcourses) }}
@@ -67,10 +87,11 @@
                         </label>
 
                     </div>
+
                     <div class="form-group">
                         <div class="col-sm-9">
-                            {{ form_widget(form.group) }}
-                            {{ form_errors(form.group) }}
+                            {{ form_widget(form.groups) }}
+                            {{ form_errors(form.groups) }}
                         </div>
 
 
@@ -143,7 +164,7 @@
 
                 </div>
 
-
+                {{ form_widget(form._token) }}
 
 
             </div></form></div>

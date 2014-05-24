@@ -5,3 +5,7 @@ pfe_frontend_homepage:
 pfe_frontend_page:
     pattern:  /contact
     defaults: { _controller: PfeWebBundle:Frontend/Page:index }
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register

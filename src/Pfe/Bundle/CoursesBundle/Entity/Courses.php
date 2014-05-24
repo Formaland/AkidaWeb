@@ -41,7 +41,7 @@ class Courses
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Group", inversedBy="group",  cascade={"persist"})
      */
-    protected $group;
+    protected $groups;
 
     /**
      * @var object Teacher
@@ -49,7 +49,7 @@ class Courses
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Teacher", inversedBy="teacher",  cascade={"persist"})
      */
-    protected $teacher;
+    protected $teachers;
 
 
     /**
@@ -123,100 +123,79 @@ class Courses
     }
 
     /**
-     * Add group
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\group $group
-     * @return Courses
-     */
-    public function addGroup(\Pfe\Bundle\UserBundle\Entity\group $group)
-    {
-        $this->group[] = $group;
-    
-        return $this;
-    }
-
-    /**
-     * Remove group
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\group $group
-     */
-    public function removeGroup(\Pfe\Bundle\UserBundle\Entity\group $group)
-    {
-        $this->group->removeElement($group);
-    }
-
-    /**
-     * Get group
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGroup()
-    {
-        return $this->group;
-    }
-
-    /**
-     * Set weeklysession
-     *
-     * @param \Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession
-     * @return Courses
-     */
-    public function setWeeklysession(\Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession = null)
-    {
-        $this->weeklysession = $weeklysession;
-
-        return $this;
-    }
-
-    /**
-     * Get weeklysession
-     *
-     * @return \Pfe\Bundle\SessionBundle\Entity\Weeklysession 
-     */
-    public function getWeeklysession()
-    {
-        return $this->weeklysession;
-    }
-    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->teacher = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->teachers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->weeklysession = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
-     * Add teacher
+     * Add groups
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\Teacher $teacher
+     * @param \Pfe\Bundle\UserBundle\Entity\Group $groups
      * @return Courses
      */
-    public function addTeacher(\Pfe\Bundle\UserBundle\Entity\Teacher $teacher)
+    public function addGroup(\Pfe\Bundle\UserBundle\Entity\Group $groups)
     {
-        $this->teacher[] = $teacher;
+        $this->groups[] = $groups;
     
         return $this;
     }
 
     /**
-     * Remove teacher
+     * Remove groups
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\Teacher $teacher
+     * @param \Pfe\Bundle\UserBundle\Entity\Group $groups
      */
-    public function removeTeacher(\Pfe\Bundle\UserBundle\Entity\Teacher $teacher)
+    public function removeGroup(\Pfe\Bundle\UserBundle\Entity\Group $groups)
     {
-        $this->teacher->removeElement($teacher);
+        $this->groups->removeElement($groups);
     }
 
     /**
-     * Get teacher
+     * Get groups
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getTeacher()
+    public function getGroups()
     {
-        return $this->teacher;
+        return $this->groups;
+    }
+
+    /**
+     * Add teachers
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Teacher $teachers
+     * @return Courses
+     */
+    public function addTeacher(\Pfe\Bundle\UserBundle\Entity\Teacher $teachers)
+    {
+        $this->teachers[] = $teachers;
+    
+        return $this;
+    }
+
+    /**
+     * Remove teachers
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\Teacher $teachers
+     */
+    public function removeTeacher(\Pfe\Bundle\UserBundle\Entity\Teacher $teachers)
+    {
+        $this->teachers->removeElement($teachers);
+    }
+
+    /**
+     * Get teachers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeachers()
+    {
+        return $this->teachers;
     }
 
     /**
@@ -240,6 +219,16 @@ class Courses
     public function removeWeeklysession(\Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession)
     {
         $this->weeklysession->removeElement($weeklysession);
+    }
+
+    /**
+     * Get weeklysession
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getWeeklysession()
+    {
+        return $this->weeklysession;
     }
 
     /**

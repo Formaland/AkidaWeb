@@ -1,0 +1,30 @@
+student:
+    pattern:  /
+    defaults: { _controller: "PfeUserBundle:Student:index" }
+
+student_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeUserBundle:Student:show" }
+
+student_new:
+    pattern:  /new
+    defaults: { _controller: "PfeUserBundle:Student:new" }
+
+student_create:
+    pattern:  /create
+    defaults: { _controller: "PfeUserBundle:Student:create" }
+    requirements: { _method: post }
+
+student_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeUserBundle:Student:edit" }
+
+student_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeUserBundle:Student:update" }
+    requirements: { _method: post|put }
+
+student_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeUserBundle:Student:delete" }
+    requirements: { _method: post|delete }

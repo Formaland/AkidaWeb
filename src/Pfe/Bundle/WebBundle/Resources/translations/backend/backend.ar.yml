@@ -1,10 +1,10 @@
 title:
+  head: الإدارة - مجلس الإدارة الجول
+  page: طاولة مجلس
 
- head: الإدارة - مجلس الإدارة الجول
-
- page: طاولة مجلس
-
-
- sidebar:
-
- dashboard: طاولة مجلس
+sidebar:
+  dashboard: طاولة مجلس
+  administrator:
+    name: Gestion des administrateurs
+    index: Tout les administrateurs
+    new: Ajouter un administrateur

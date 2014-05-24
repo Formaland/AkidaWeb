@@ -1,0 +1,30 @@
+typecourse:
+    pattern:  /
+    defaults: { _controller: "PfeCoursesBundle:Typecourse:index" }
+
+typecourse_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeCoursesBundle:Typecourse:show" }
+
+typecourse_new:
+    pattern:  /new
+    defaults: { _controller: "PfeCoursesBundle:Typecourse:new" }
+
+typecourse_create:
+    pattern:  /create
+    defaults: { _controller: "PfeCoursesBundle:Typecourse:create" }
+    requirements: { _method: post }
+
+typecourse_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeCoursesBundle:Typecourse:edit" }
+
+typecourse_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeCoursesBundle:Typecourse:update" }
+    requirements: { _method: post|put }
+
+typecourse_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeCoursesBundle:Typecourse:delete" }
+    requirements: { _method: post|delete }

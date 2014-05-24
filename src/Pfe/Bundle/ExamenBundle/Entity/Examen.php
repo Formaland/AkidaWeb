@@ -27,14 +27,14 @@ class Examen
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", inversedBy="student",  cascade={"persist"})
      */
-    protected $student;
+    protected $students;
     /**
      * @var object Typeexamen
      *
      * @ORM\JoinColumn(name="typeexamen_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\ExamenBundle\Entity\Typeexamen", inversedBy="typeexamen",  cascade={"persist"})
      */
-    protected $typeexamen;
+    protected $typeexamens;
 
     /**
      * @var object Courses
@@ -50,7 +50,7 @@ class Examen
      * @ORM\JoinColumn(name="commission_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Commission", inversedBy="commission",  cascade={"persist"})
      */
-    protected $commission;
+    protected $commissions;
     /**
      * @var string
      *
@@ -214,111 +214,83 @@ class Examen
     {
         return $this->description;
     }
+    
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->typeexamens = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->commissions = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
-     * Add group
+     * Add students
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\group $group
+     * @param \Pfe\Bundle\UserBundle\Entity\Student $students
      * @return Examen
      */
-    public function addGroup(\Pfe\Bundle\UserBundle\Entity\group $group)
+    public function addStudent(\Pfe\Bundle\UserBundle\Entity\Student $students)
     {
-        $this->group[] = $group;
+        $this->students[] = $students;
     
         return $this;
     }
 
     /**
-     * Remove group
+     * Remove students
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\group $group
+     * @param \Pfe\Bundle\UserBundle\Entity\Student $students
      */
-    public function removeGroup(\Pfe\Bundle\UserBundle\Entity\group $group)
+    public function removeStudent(\Pfe\Bundle\UserBundle\Entity\Student $students)
     {
-        $this->group->removeElement($group);
+        $this->students->removeElement($students);
     }
 
     /**
-     * Get group
+     * Get students
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGroup()
+    public function getStudents()
     {
-        return $this->group;
+        return $this->students;
     }
 
     /**
-     * Add student
+     * Add typeexamens
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\Student $student
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamens
      * @return Examen
      */
-    public function addStudent(\Pfe\Bundle\UserBundle\Entity\Student $student)
+    public function addTypeexamen(\Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamens)
     {
-        $this->student[] = $student;
+        $this->typeexamens[] = $typeexamens;
     
         return $this;
     }
 
     /**
-     * Remove student
+     * Remove typeexamens
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\Student $student
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamens
      */
-    public function removeStudent(\Pfe\Bundle\UserBundle\Entity\Student $student)
+    public function removeTypeexamen(\Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamens)
     {
-        $this->student->removeElement($student);
+        $this->typeexamens->removeElement($typeexamens);
     }
 
     /**
-     * Get student
+     * Get typeexamens
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getStudent()
+    public function getTypeexamens()
     {
-        return $this->student;
-    }
-
-    /**
-     * Add typeexamen
-     *
-     * @param \Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen
-     * @return Examen
-     */
-    public function addTypeexamen(\Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen)
-    {
-        $this->typeexamen[] = $typeexamen;
-    
-        return $this;
-    }
-
-    /**
-     * Remove typeexamen
-     *
-     * @param \Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen
-     */
-    public function removeTypeexamen(\Pfe\Bundle\ExamenBundle\Entity\Typeexamen $typeexamen)
-    {
-        $this->typeexamen->removeElement($typeexamen);
-    }
-
-    /**
-     * Get typeexamen
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTypeexamen()
-    {
-        return $this->typeexamen;
+        return $this->typeexamens;
     }
 
     /**
@@ -355,35 +327,35 @@ class Examen
     }
 
     /**
-     * Add commission
+     * Add commissions
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
+     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commissions
      * @return Examen
      */
-    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission[] = $commission;
+        $this->commissions[] = $commissions;
     
         return $this;
     }
 
     /**
-     * Remove commission
+     * Remove commissions
      *
-     * @param \Pfe\Bundle\userBundle\Entity\Commission $commission
+     * @param \Pfe\Bundle\UserBundle\Entity\Commission $commissions
      */
-    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission->removeElement($commission);
+        $this->commissions->removeElement($commissions);
     }
 
     /**
-     * Get commission
+     * Get commissions
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCommission()
+    public function getCommissions()
     {
-        return $this->commission;
+        return $this->commissions;
     }
 }

@@ -42,6 +42,22 @@ class Typecourse
     private $description;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     *
+     */
+    public function __toString()
+    {
+        return $this->nametypecourse;
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -98,59 +114,6 @@ class Typecourse
     }
 
     /**
-     * Set courses
-     *
-     * @param string $courses
-     * @return Typecourse
-     */
-    public function setCourses($courses)
-    {
-        $this->courses = $courses;
-    
-        return $this;
-    }
-
-    /**
-     * Get courses
-     *
-     * @return string 
-     */
-    public function getCourses()
-    {
-        return $this->courses;
-    }
-
-    /**
-     * Set group
-     *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $group
-     * @return Typecourse
-     */
-    public function setGroup(\Pfe\Bundle\CoursesBundle\Entity\Courses $group = null)
-    {
-        $this->group = $group;
-    
-        return $this;
-    }
-
-    /**
-     * Get group
-     *
-     * @return \Pfe\Bundle\CoursesBundle\Entity\Courses 
-     */
-    public function getGroup()
-    {
-        return $this->group;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
      * Add courses
      *
      * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
@@ -171,5 +134,15 @@ class Typecourse
     public function removeCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
     {
         $this->courses->removeElement($courses);
+    }
+
+    /**
+     * Get courses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCourses()
+    {
+        return $this->courses;
     }
 }

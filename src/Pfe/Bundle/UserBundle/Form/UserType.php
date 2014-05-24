@@ -16,19 +16,28 @@ class UserType extends AbstractType
     {
         $builder
 
-            ->add('cin')
+            ->add('cin', 'text')
             ->add('username')
             ->add('firstName')
             ->add('lastName')
-
             ->add('adresse')
             ->add('phone')
-            ->add('email','email')
-            ->add('password','password')
+            ->add('email', 'repeated', array(
+                'type' => 'email',
+                'invalid_message' => 'L\'email doivent correspondre',
+                'options' => array('required' => true),
+                'first_options'  => array('label' => 'Email'),
+                'second_options' => array('label' => 'Email (validation)'),
+            ))
+            ->add('plainPassword', 'repeated', array(
+                'type' => 'password',
+                'invalid_message' => 'Les mots de passe doivent correspondre',
+                'options' => array('required' => true),
+                'first_options'  => array('label' => 'Mot de passe'),
+                'second_options' => array('label' => 'Mot de passe (validation)'),
+            ))
             ->add('dateofbirth','birthday')
-            ->add('enabled')
             ->add('description')
-            ->add('roles')
 
 
            # ->add('student')

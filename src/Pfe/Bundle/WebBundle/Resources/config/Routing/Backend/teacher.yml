@@ -1,5 +1,9 @@
 teacher:
     pattern:  /
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: teacher_index, permanent: true }
+
+teacher_index:
+    pattern:  /index
     defaults: { _controller: "PfeUserBundle:Teacher:index" }
 
 teacher_show:
@@ -27,3 +31,4 @@ teacher_update:
 teacher_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "PfeUserBundle:Teacher:delete" }
+    requirements: { _method: post|delete }

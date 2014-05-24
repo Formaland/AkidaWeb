@@ -1,5 +1,9 @@
 student:
     pattern:  /
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: student_index, permanent: true }
+
+student_index:
+    pattern:  /index
     defaults: { _controller: "PfeUserBundle:Student:index" }
 
 student_show:
@@ -27,4 +31,4 @@ student_update:
 student_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "PfeUserBundle:Student:delete" }
-
+    requirements: { _method: post|delete }

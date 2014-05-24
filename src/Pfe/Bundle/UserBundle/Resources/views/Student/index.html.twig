@@ -1,87 +1,28 @@
-{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+{% extends '::base.html.twig' %}
 
+{% block body -%}
+    <h1>Student list</h1>
 
-{% block content -%}
-
-
-<p class="mb20"></p>
-
-<div class="table-responsive">
-
-    <table class="table table-bordered mb30">
+    <table class="records_list">
         <thead>
-        <tr>
-
-            <th colspan="7">
-
-
-                <h4 class="panel-title" align="center">
-                    <font color="#008b8b" size="5%" align="left">
-                        {{ 'sidebar.Liste des apprenants'|trans({}, 'backend') }}</font></h4>
-
-            </th>
-        </tr>
-        <tr>
-
-
-        <th></th>
-
-            <th><font color="black">
-                {{ 'student.Niveau scolaire'|trans({}, 'backend') }}
-           </font> </th>
-            <th><font color="black">
-                {{ 'student.Ecole'|trans({}, 'backend') }}
-            </font></th>
-            <th><font color="black">
-                {{ 'student.Mere'|trans({}, 'backend') }}
-            </font></th>
-            <th><font color="black">
-                {{ 'student.Pere'|trans({}, 'backend') }}
-           </font> </th>
-
-
-
-
-            <th><font color="black">
-                #
-          </font>  </th>
-
-
-        </tr>
-
-
+            <tr>
+                <th>Id</th>
+                <th>Mere</th>
+                <th>Pere</th>
+                <th>Ecole</th>
+                <th>Niveauscolaire</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-
-
-                <td class="table-action">
-
-                    <a href="{{ path('student_edit', { 'id': entity.id }) }}">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <form action="{{ path('student_delete', { 'id': entity.id }) }}" method="post">
-                        <input type="hidden" name="_method" value="DELETE" />
-                        <div style="display: none;"> {{ form_widget(deleteForms[entity.id]) }}</div>
-                        <button type="submit" class="fa fa-trash-o">
-                            {#  <i class="fa fa-trash-o"></i>#}
-                            {#{{ 'links.admin.form.delete' | trans({}, 'FooBundle') }}#}
-                        </button>
-                    </form>
-
-                </td>
-
-                <td>{{ entity.niveauscolaire }}</td>
-                <td>{{ entity.ecole }}</td>
-
+                <td><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.mere }}</td>
                 <td>{{ entity.pere }}</td>
-
-               <td><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-
-
-                {#<td>
+                <td>{{ entity.ecole }}</td>
+                <td>{{ entity.niveauscolaire }}</td>
+                <td>
                 <ul>
                     <li>
                         <a href="{{ path('student_show', { 'id': entity.id }) }}">show</a>
@@ -90,17 +31,17 @@
                         <a href="{{ path('student_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
-                </td>#}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-       {#<ul>
+        <ul>
         <li>
             <a href="{{ path('student_new') }}">
                 Create a new entry
             </a>
         </li>
-    </ul>#}
+    </ul>
     {% endblock %}

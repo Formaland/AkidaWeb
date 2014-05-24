@@ -91,9 +91,13 @@ class User extends BaseUser
      */
     protected $registrationdate;
 
-
-
-
+    /**
+     * @var object User
+     *
+     * @ORM\OneToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", mappedBy="user", cascade={"persist"})
+     *
+     */
+    protected $student;
 
     /**
      * Get id

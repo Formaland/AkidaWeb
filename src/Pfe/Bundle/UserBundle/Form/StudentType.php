@@ -20,6 +20,7 @@ class StudentType extends AbstractType
             ->add('ecole')
             ->add('niveauscolaire')
             ->add('group')
+            ->add('user', new UserType())
 
         ;
     }

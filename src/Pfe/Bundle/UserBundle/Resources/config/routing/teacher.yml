@@ -1,0 +1,30 @@
+teacher:
+    pattern:  /
+    defaults: { _controller: "PfeUserBundle:Teacher:index" }
+
+teacher_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeUserBundle:Teacher:show" }
+
+teacher_new:
+    pattern:  /new
+    defaults: { _controller: "PfeUserBundle:Teacher:new" }
+
+teacher_create:
+    pattern:  /create
+    defaults: { _controller: "PfeUserBundle:Teacher:create" }
+    requirements: { _method: post }
+
+teacher_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeUserBundle:Teacher:edit" }
+
+teacher_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeUserBundle:Teacher:update" }
+    requirements: { _method: post|put }
+
+teacher_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeUserBundle:Teacher:delete" }
+    requirements: { _method: post|delete }

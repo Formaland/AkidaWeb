@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="pfe_teacher")
  * @ORM\Entity(repositoryClass="Pfe\Bundle\UserBundle\Entity\Repository\TeacherRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Teacher
 {
@@ -22,8 +23,6 @@ class Teacher
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-
 
     /**
      * @var string
@@ -74,11 +73,28 @@ class Teacher
      */
     protected $description;
 
- public function __construct(){
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->user = new User();
+        $this->user->addRole('ROLE_TEACHER');
+        $this->user->setEnabled(true);
+    }
 
+    /**
+     * Entity Class To String
+     */
+    public function __toString()
+    {
+        if($this->getUser())
+        {
+            return $this->getUser()->getFirstName . ' ' . $this->getUser()->getLastName();
+        }
+        return '';
+    }
 
-
-      }
     /**
      * @param int $id
      */
@@ -141,11 +157,6 @@ class Teacher
     {
         return $this->description;
     }
-    public function __toString()
-    {
-        return $this->getDiplome();
-    }
-
 
     /**
      * Add courses
@@ -267,5 +278,13 @@ class Teacher
     public function getUser()
     {
         return $this->user;
+    }
+
+    /*
+     * @ORM\preUpdate
+     */
+    public function updateTeacher()
+    {
+        $this->getUser()->addRole('ROLE_TEACHER');
     }
 }

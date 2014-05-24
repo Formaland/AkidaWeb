@@ -13,6 +13,7 @@ Pfe_user_group:
 Pfe_user_user:
     resource: "@PfeUserBundle/Resources/config/routing/user.yml"
     prefix:   /user
+
 Pfe_user_commission:
     resource: "@PfeUserBundle/Resources/config/routing/commission.yml"
     prefix:   /commission

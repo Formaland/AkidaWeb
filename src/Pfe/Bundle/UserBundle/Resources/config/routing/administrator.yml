@@ -1,0 +1,30 @@
+administrator:
+    pattern:  /
+    defaults: { _controller: "PfeUserBundle:Administrator:index" }
+
+administrator_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeUserBundle:Administrator:show" }
+
+administrator_new:
+    pattern:  /new
+    defaults: { _controller: "PfeUserBundle:Administrator:new" }
+
+administrator_create:
+    pattern:  /create
+    defaults: { _controller: "PfeUserBundle:Administrator:create" }
+    requirements: { _method: post }
+
+administrator_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeUserBundle:Administrator:edit" }
+
+administrator_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeUserBundle:Administrator:update" }
+    requirements: { _method: post|put }
+
+administrator_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeUserBundle:Administrator:delete" }
+    requirements: { _method: post|delete }

@@ -16,8 +16,9 @@ class CoursesType extends AbstractType
     {
         $builder
             ->add('namecourses')
+            ->add('typecourse')
             ->add('durationcourses')
-            ->add('group')
+            ->add('groups')
             ->add('weeklysession')
         ;
     }
