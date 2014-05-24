@@ -1,0 +1,30 @@
+classroom:
+    pattern:  /
+    defaults: { _controller: "PfeSessionBundle:Classroom:index" }
+
+classroom_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeSessionBundle:Classroom:show" }
+
+classroom_new:
+    pattern:  /new
+    defaults: { _controller: "PfeSessionBundle:Classroom:new" }
+
+classroom_create:
+    pattern:  /create
+    defaults: { _controller: "PfeSessionBundle:Classroom:create" }
+    requirements: { _method: post }
+
+classroom_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeSessionBundle:Classroom:edit" }
+
+classroom_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeSessionBundle:Classroom:update" }
+    requirements: { _method: post|put }
+
+classroom_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeSessionBundle:Classroom:delete" }
+

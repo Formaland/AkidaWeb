@@ -1,0 +1,84 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+
+
+<p class="mb20"></p>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered mb30">
+        <thead>
+        <tr>
+            <th colspan="5">
+
+
+                <h4 class="panel-title" align="center">
+                    <font color="#008b8b" size="5%" align="left">
+                        {{ 'sidebar.Liste des  enseignants'|trans({}, 'backend') }}</font></h4>
+
+            </th>
+        </tr>
+        <tr>
+
+            <th></th>
+
+
+            <th>
+                {{ 'examen.heure fin'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'examen.heure deb'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'seanceheb.day'|trans({}, 'backend') }}
+            </th>
+
+            <th>
+                #
+            </th>
+
+
+        </tr>
+
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+
+                <td class="table-action">
+
+                    <a href="{{ path('weeklysession_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <form action="{{ path('weeklysession_delete', { 'id': entity.id }) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <div style="display: none;"> {{ form_widget(deleteForms[entity.id]) }}</div>
+                        <button type="submit" class="fa fa-trash-o">
+                            {#  <i class="fa fa-trash-o"></i>#}
+                            {#{{ 'links.admin.form.delete' | trans({}, 'FooBundle') }}#}
+                        </button>
+                    </form>
+
+
+                </td>
+
+
+
+
+
+
+                <td>{% if entity.endtime %}{{ entity.endtime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.starttime %}{{ entity.starttime|date('Y-m-d H:i:s') }}{% endif %}</td>
+
+                <td>{{ entity.day }}</td>
+                <td><a href="{{ path('weeklysession_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

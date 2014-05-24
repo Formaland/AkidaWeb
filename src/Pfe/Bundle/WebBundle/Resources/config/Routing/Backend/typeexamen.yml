@@ -1,0 +1,30 @@
+typeexamen:
+    pattern:  /
+    defaults: { _controller: "PfeExamenBundle:Typeexamen:index" }
+
+typeexamen_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeExamenBundle:Typeexamen:show" }
+
+typeexamen_new:
+    pattern:  /new
+    defaults: { _controller: "PfeExamenBundle:Typeexamen:new" }
+
+typeexamen_create:
+    pattern:  /create
+    defaults: { _controller: "PfeExamenBundle:Typeexamen:create" }
+    requirements: { _method: post }
+
+typeexamen_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeEsamenBundle:Typeexamen:edit" }
+
+typeexamen_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeExamenBundle:Typeexamen:update" }
+    requirements: { _method: post|put }
+
+typeexamen_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeExamenBundle:Typeexamen:delete" }
+    requirements: { _method: post|delete }

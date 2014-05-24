@@ -1,0 +1,74 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+{% block content -%}
+<p class="mb20"></p>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered mb30">
+        <thead>
+        <tr>
+            <th colspan="4">
+
+
+                <h4 class="panel-title" align="center">
+                    <font color="#008b8b" size="5%" align="left">
+                        {{ 'sidebar.Liste des examens'|trans({}, 'backend') }}</font></h4>
+
+            </th>
+        </tr>
+        <tr>
+
+
+
+
+            <th></th>
+
+            <th>
+                {{ 'commission.description'|trans({}, 'backend') }}
+            </th>
+            <th>
+                {{ 'examen.typeexam'|trans({}, 'backend') }}
+            </th>
+
+            <th>
+                #
+            </th>
+
+
+        </tr>
+
+
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+
+                <td class="table-action">
+
+                    <a href="{{ path('typeexamen_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="delete-row" href="">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+
+                </td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.nametypeexamen }}</td>
+
+                <td><a href="{{ path('typeexamen_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+     {#  <ul>
+        <li>
+            <a href="{{ path('typeexamen_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>#}
+    {% endblock %}

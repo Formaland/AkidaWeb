@@ -1,0 +1,94 @@
+{% block liste -%}
+
+    <html><head>
+    <script type="text/javascript" src="{{ asset('bundles/pfeweb/Backend/js/jquery-1.10.2.min.js') }}"></script></head>
+    <body>
+
+        <select id="addapprenant">
+            {% for u in users%}
+
+                <option value="{{ u.id }}" id="app">{{ u.userName }}</option>
+            {% endfor %}
+
+        </select>
+
+<div id="i">
+    iiiiiiiiiiiiiiiii
+</div>
+       {# {{ render(controller('PfeUserBundle:user:neww')) }} #}
+
+
+    </body>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#i").hide();
+
+            $("#addapprenant").click(function(){
+
+                alert("belle vie avec qui nous aime :)")
+                $("#i").show(500);
+            });
+
+        });
+    </script>
+
+
+
+{#    <table class="records_list">
+        <thead>
+            <tr>
+
+                <th> {{ 'user.cin'|trans({}, 'backend') }}
+                </th>
+                <th>{{ 'user.nom'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.prenom'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.adress'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.num_tel'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.email'|trans({}, 'backend') }}</th>
+                <th>{{ 'user.date_naissance'|trans({}, 'backend') }}</th>
+               {# <th>Enabled</th>
+
+                <th>{{ 'user.description'|trans({}, 'backend') }}</th>
+
+                <th>  {{ 'user.date_inscription'|trans({}, 'backend') }} </th>
+            </tr>
+        </thead> #}
+       {#<tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.cin }}</td>
+                <td>{{ entity.firstName }}</td>
+                <td>{{ entity.lastName }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.phone }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{% if entity.dateofbirth %}{{ entity.dateofbirth|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.description }}</td>
+                <td>{% if entity.registrationdate %}{{ entity.registrationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('user_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('user_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>#}
+    {% endblock %}

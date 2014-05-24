@@ -1,0 +1,30 @@
+weeklysession:
+    pattern:  /
+    defaults: { _controller: "PfeSessionBundle:Weeklysession:index" }
+
+weeklysession_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeSessionBundle:Weeklysession:show" }
+
+weeklysession_new:
+    pattern:  /new
+    defaults: { _controller: "PfeSessionBundle:Weeklysession:new" }
+
+weeklysession_create:
+    pattern:  /create
+    defaults: { _controller: "PfeSessionBundle:Weeklysession:create" }
+    requirements: { _method: post }
+
+weeklysession_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeSessionBundle:Weeklysession:edit" }
+
+weeklysession_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeSessionBundle:Weeklysession:update" }
+    requirements: { _method: post|put }
+
+weeklysession_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeSessionBundle:Weeklysession:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+session:
+    pattern:  /
+    defaults: { _controller: "PfeSessionBundle:Session:index" }
+
+session_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeSessionBundle:Session:show" }
+
+session_new:
+    pattern:  /new
+    defaults: { _controller: "PfeSessionBundle:Session:new" }
+
+session_create:
+    pattern:  /create
+    defaults: { _controller: "PfeSessionBundle:Session:create" }
+    requirements: { _method: post }
+
+session_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeSessionBundle:Session:edit" }
+
+session_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeSessionBundle:Session:update" }
+    requirements: { _method: post|put }
+
+session_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeSessionBundle:Session:delete" }
+    requirements: { _method: post|delete }

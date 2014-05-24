@@ -1,0 +1,76 @@
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
+
+
+{% block content -%}
+
+
+
+<div class="col-md-6">
+
+    <form  action="{{ path('session_update', { 'id': entity.id }) }}"   method="post">
+        {{ form_start(edit_form) }}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close" href="#">
+
+                        ×
+
+                    </a>
+                    <a class="minimize" href="#">
+
+                        −
+
+                    </a>
+                </div>
+                <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%">
+
+                        {{ 'seance.modifsean'|trans({}, 'backend') }}</font>
+
+
+                </h4> </div>
+            <div class="panel-body" >
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+
+
+                        {{ form_errors(edit_form.date) }}
+                        {{ form_widget(edit_form.date) }}</option>
+
+                    </div>
+                    <label class="col-sm-3 control-label">
+                        <font color="black">
+
+                            {{ 'seance.date'|trans({}, 'backend') }}</font>
+                    </label></div>
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+
+
+
+                                <p align="center"> <button type="submit" class="btn btn-success" id="valideruser"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button></p>
+
+                                {{ form_end(edit_form) }}</div></div></div></div></div>
+    {#{{ form_widget(form.create) }}#}
+
+    </form></div>
+
+
+
+    {# <h1>Session edit</h1>
+
+      {{ form(edit_form) }}
+
+          <ul class="record_actions">
+      <li>
+          <a href="{{ path('session') }}">
+              Back to the list
+          </a>
+      </li>
+      <li>{{ form(delete_form) }}</li>
+  </ul>#}
+{% endblock %}
