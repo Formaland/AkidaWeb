@@ -1,0 +1,7 @@
+parameters:
+#    pfe_frontend.example.class: Pfe\Bundle\FrontendBundle\Example
+
+services:
+#    pfe_frontend.example:
+#        class: %pfe_frontend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

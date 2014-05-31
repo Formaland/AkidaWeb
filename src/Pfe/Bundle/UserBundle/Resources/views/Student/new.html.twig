@@ -158,7 +158,7 @@
                 <div class="form-group">
                     <div class="col-sm-9">
                         {{ form_errors(form.user.email) }}
-                        {{ form_widget(form.user.email) }}
+                        {{ form_widget(form.user.email,{'attr': {'class': 'form-control'}}) }}
                     </div>
                     <label class="col-sm-3 control-label">
                         <font color="red">
@@ -216,7 +216,7 @@
                     <div class="form-group">
 
                         <div class="col-sm-9">
-                            <div > {{ form_widget(form.mere) }}</div>
+                            <div > {{ form_widget(form.mere,{'attr': {'class': 'form-control'}}) }}</div>
                             {{ form_errors(form.mere) }}
                         </div>
 
@@ -235,7 +235,7 @@
                         </label></div>
                     <div class="form-group">
                         <div class="col-sm-9">
-                            {{ form_widget(form.pere) }}
+                            {{ form_widget(form.pere,{'attr': {'class': 'form-control'}}) }}
                             {{ form_errors(form.pere) }}
                         </div>
 
@@ -256,7 +256,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-9">
-                            {{ form_widget(form.ecole) }}
+                            {{ form_widget(form.ecole,{'attr': {'class': 'form-control'}}) }}
                             {{ form_errors(form.ecole) }}
                         </div>
 
@@ -274,7 +274,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-9">
-                            {{ form_widget(form.niveauscolaire) }}
+                            {{ form_widget(form.niveauscolaire,{'attr': {'class': 'form-control'}}) }}
                             {{ form_errors(form.niveauscolaire) }}
                         </div>
 
@@ -309,9 +309,9 @@
                     </div>
 
                         <div class="form-group">
-                            <div class="col-md-9">
+                            <div class="col-md-6">
                                 {{ form_errors(form.user.description) }}
-                                {{ form_widget(form.user.description) }}
+                                {{ form_widget(form.user.description,{'attr': {'class': 'form-control'}}) }}
                             </div>
 
                             <label class="col-sm-3 control-label">

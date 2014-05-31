@@ -1,0 +1,30 @@
+presence:
+    pattern:  /
+    defaults: { _controller: "PfeSessionBundle:Presence:index" }
+
+presence_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeSessionBundle:Presence:show" }
+
+presence_new:
+    pattern:  /new
+    defaults: { _controller: "PfeSessionBundle:Presence:new" }
+
+presence_create:
+    pattern:  /create
+    defaults: { _controller: "PfeSessionBundle:Presence:create" }
+    requirements: { _method: post }
+
+presence_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeSessionBundle:Presence:edit" }
+
+presence_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeSessionBundle:Presence:update" }
+    requirements: { _method: post|put }
+
+presence_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeSessionBundle:Presence:delete" }
+    requirements: { _method: post|delete }
