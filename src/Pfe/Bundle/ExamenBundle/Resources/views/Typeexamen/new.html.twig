@@ -3,7 +3,7 @@
 {% block content -%}
 <div class="col-md-6">
 
-<form id="basicForm" class="form-horizontal" action="{{ path('typeexamen_create') }}"  novalidate="novalidate" method="post">
+<form  action="{{ path('typeexamen_create') }}"  {{ form_enctype(form) }} method="post">
 <div class="panel panel-default">
 <div class="panel-heading">
     <div class="panel-btns">
@@ -91,8 +91,8 @@
 
 
             <p>&nbsp;&nbsp;</p>
-            <p align="center"> <button type="submit" class="btn btn-success" id="validerexamen"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
-
+             <button type="submit" class="btn btn-success" id="validerexamen"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button>
+            <button type="reset" class="btn btn-danger" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.annuler'|trans({}, 'backend') }}</button>
         </div>
     </div>
 

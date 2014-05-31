@@ -30,9 +30,12 @@ class CoursesController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PfeCoursesBundle:Courses')->findAll();
-
+        foreach ($entities as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }
         return array(
             'entities' => $entities,
+            'deleteForms' => $deleteForms,
         );
     }
     /**

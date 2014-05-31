@@ -36,23 +36,6 @@ class Group
     private $description;
 
     /**
-     * @var datetime
-     *
-     * @ORM\Column(name="date_creation", type="datetime", length=40)
-     */
-    private $date_creation;
-
-    /**
-     * @var DATETIME
-     *
-     * @ORM\Column(name="date_modification", type="datetime", length=40)
-     */
-    private $date_modification;
-
-
-
-
-    /**
      * @ORM\OneToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Student", mappedBy="group")
      */
     private  $students;

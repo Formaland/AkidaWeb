@@ -26,15 +26,15 @@ class UserType extends AbstractType
                 'type' => 'email',
                 'invalid_message' => 'L\'email doivent correspondre',
                 'options' => array('required' => true),
-                'first_options'  => array('label' => 'Email'),
-                'second_options' => array('label' => 'Email (validation)'),
+                'first_options'  => array('label' => ' '),
+                'second_options' => array('label' => ' '),
             ))
             ->add('plainPassword', 'repeated', array(
                 'type' => 'password',
                 'invalid_message' => 'Les mots de passe doivent correspondre',
                 'options' => array('required' => true),
-                'first_options'  => array('label' => 'Mot de passe'),
-                'second_options' => array('label' => 'Mot de passe (validation)'),
+                'first_options'  => array('label' => ' '),
+                'second_options' => array('label' => ' '),
             ))
             ->add('dateofbirth','birthday')
             ->add('description')

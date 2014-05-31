@@ -24,9 +24,12 @@ class TypecourseController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PfeCoursesBundle:Typecourse')->findAll();
-
+        foreach ($entities as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }
         return $this->render('PfeCoursesBundle:Typecourse:index.html.twig', array(
             'entities' => $entities,
+            'deleteForms' => $deleteForms,
         ));
     }
     /**
@@ -44,7 +47,7 @@ class TypecourseController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('typecourse_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('typecourse'));
         }
 
         return $this->render('PfeCoursesBundle:Typecourse:new.html.twig', array(
@@ -67,7 +70,7 @@ class TypecourseController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        //$form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -146,7 +149,7 @@ class TypecourseController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+       // $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -171,7 +174,7 @@ class TypecourseController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('typecourse_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('typecourse'));
         }
 
         return $this->render('PfeCoursesBundle:Typecourse:edit.html.twig', array(

@@ -9,6 +9,10 @@ pfe_user_include_student:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/student.yml"
     prefix: /student
 
+pfe_user_include_user:
+    resource: "@PfeWebBundle/Resources/config/Routing/Backend/user.yml"
+    prefix: /user
+
 pfe_user_include_teacher:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/teacher.yml"
     prefix: /teacher
@@ -27,7 +31,7 @@ pfe_user_include_courses:
 
 pfe_user_include_typecourse:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/typecourse.yml"
-    prefix: /courses/typecourse
+    prefix: /typecourse
 
 pfe_user_include_examen:
     resource: "@PfeWebBundle/Resources/config/Routing/Backend/examen.yml"
@@ -56,6 +60,10 @@ pfe_user_include_weeklysession:
 pfe_user_include_session:
      resource: "@PfeWebBundle/Resources/config/Routing/Backend/session.yml"
      prefix: /session
+
+pfe_session_include_presence:
+     resource: "@PfeWebBundle/Resources/config/Routing/Backend/presence.yml"
+     prefix: /presence
 
 pfe_session_include_classroom:
      resource: "@PfeWebBundle/Resources/config/Routing/Backend/classroom.yml"

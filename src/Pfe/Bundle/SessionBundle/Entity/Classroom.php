@@ -3,6 +3,7 @@
 namespace Pfe\Bundle\SessionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Classroom
@@ -39,6 +40,29 @@ class Classroom
      * @ORM\Column(name="capacity", type="integer", length=2)
      */
     private $capacity;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Pfe\Bundle\SessionBundle\Entity\Session", mappedBy="session", cascade={"all"})
+     */
+    private $sessions;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->sessions = new ArrayCollection();
+    }
+
+    /**
+     * Entity toString
+     */
+    public function __toString()
+    {
+        return $this->nameclassroom;
+    }
 
     /**
      * Get id
@@ -115,5 +139,38 @@ class Classroom
     public function getWeeklysession()
     {
         return $this->weeklysession;
+    }
+
+    /**
+     * Add sessions
+     *
+     * @param \Pfe\Bundle\SessionBundle\Entity\Session $sessions
+     * @return Classroom
+     */
+    public function addSession(\Pfe\Bundle\SessionBundle\Entity\Session $sessions)
+    {
+        $this->sessions[] = $sessions;
+    
+        return $this;
+    }
+
+    /**
+     * Remove sessions
+     *
+     * @param \Pfe\Bundle\SessionBundle\Entity\Session $sessions
+     */
+    public function removeSession(\Pfe\Bundle\SessionBundle\Entity\Session $sessions)
+    {
+        $this->sessions->removeElement($sessions);
+    }
+
+    /**
+     * Get sessions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSessions()
+    {
+        return $this->sessions;
     }
 }

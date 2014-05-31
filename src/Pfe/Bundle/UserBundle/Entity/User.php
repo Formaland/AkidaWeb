@@ -293,11 +293,12 @@ class User extends BaseUser
     {
         return $this->description;
     }
+
     public function __toString()
     {
-        return $this->getCin();
-    }
+        return $this->getFirstName();
 
+        }
 
     /**
      * Set student

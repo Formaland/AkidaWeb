@@ -226,7 +226,11 @@ class Examen
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->commissions = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
+    public function __toString()
+    {
+        return $this->getNameexamen();
+    }
     /**
      * Add students
      *

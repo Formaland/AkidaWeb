@@ -1,17 +1,125 @@
 {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-
 {% block content -%}
-    <h1>Sourah edit</h1>
+    <div class="col-md-6">
 
-    {{ form(edit_form) }}
+        <form  action="{{ path('sourah_update', { 'id': entity.id }) }}" {{ form_enctype(form) }} methode='post'>
+            {{ form_start(edit_form) }}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('sourah') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            −
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title" align="center"><font color="#008b8b" size="5%" align="left">
+
+                            {{ 'sidebar.sourah.new'|trans({}, 'backend') }}
+
+                        </font> </h4>
+
+                </div>
+
+
+
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.namesourah) }}
+                            {{ form_errors(edit_form.namesourah) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'sourah.nom'|trans({}, 'backend') }}</font>
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.numsourah) }}
+                            {{ form_errors(edit_form.numsourah) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'sourah.num'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.hezb) }}
+                            {{ form_errors(edit_form.hezb) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'hezb.num hezb'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+
+                                <button type="submit" class="btn btn-success" id="valideruser"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button>
+                                <button type="reset" class="btn btn-danger" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.annuler'|trans({}, 'backend') }}</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div> </div>
+            {{ form_end(edit_form) }}
+        </form></div>
+
+
+{#<h1>Sourah edit</h1>
+
+ {{ form(edit_form) }}
+
+     <ul class="record_actions">
+ <li>
+     <a href="{{ path('sourah') }}">
+         Back to the list
+     </a>
+ </li>
+ <li>{{ form(delete_form) }}</li>
+</ul>#}
 {% endblock %}

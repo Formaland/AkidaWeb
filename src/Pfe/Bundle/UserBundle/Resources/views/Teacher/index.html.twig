@@ -1,25 +1,76 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Teacher list</h1>
 
-    <table class="records_list">
+{% block content -%}
+
+
+
+<p class="mb20"></p>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered mb30">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Diplome</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th colspan="4">
+
+
+                <h4 class="panel-title" align="center">
+                    <font color="#008b8b" size="5%" align="left">
+                        {{ 'sidebar.Liste des  enseignants'|trans({}, 'backend') }}</font></h4>
+
+            </th>
+        </tr>
+        <tr>
+
+            <th></th>
+
+
+
+            <th>
+                {{ 'enseignant.diplome'|trans({}, 'backend') }}
+            </th>
+
+            </th>
+            <th>
+                #
+            </th>
+
+
+        </tr>
         </thead>
+
+
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('teacher_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+
+                <td class="table-action">
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('teacher_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil"></i>
+                    </a>{% endif %}
+                    <form action="{{ path('teacher_delete', { 'id': entity.id }) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <div style="display: none;"> {{ form_widget(deleteForms[entity.id]) }}</div>
+                        <button type="submit" class="fa fa-trash-o">
+                            {#  <i class="fa fa-trash-o"></i>#}
+                            {#{{ 'links.admin.form.delete' | trans({}, 'FooBundle') }}#}
+                        </button>
+                    </form>
+
+
+                </td>
+
+
+
                 <td>{{ entity.diplome }}</td>
-                <td>{{ entity.description }}</td>
+                <td><a href="{{ path('teacher_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+               {#<td>{{ entity.description }}</td>
                 <td>
-                <ul>
+              <ul>
                     <li>
                         <a href="{{ path('teacher_show', { 'id': entity.id }) }}">show</a>
                     </li>
@@ -32,16 +83,16 @@
                     {% endif %}
                 </ul>
                 </td>
-            </tr>
+            </tr>#}
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
+        {# <ul>
         <li>
             <a href="{{ path('teacher_new') }}">
                 Create a new entry
             </a>
         </li>
-    </ul>
+    </ul>#}
     {% endblock %}

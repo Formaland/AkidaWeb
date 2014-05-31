@@ -13,7 +13,6 @@ use Pfe\Bundle\SessionBundle\Form\SessionType;
 /**
  * Session controller.
  *
- * @Route("/session")
  */
 class SessionController extends Controller
 {
@@ -21,9 +20,6 @@ class SessionController extends Controller
     /**
      * Lists all Session entities.
      *
-     * @Route("/", name="session")
-     * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
@@ -33,10 +29,10 @@ class SessionController extends Controller
         foreach ($entities as $entity) {
             $deleteForms[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
         }
-        return array(
+        return $this->render('PfeSessionBundle:Session:index.html.twig' ,array(
             'entities' => $entities,
             'deleteForms' => $deleteForms,
-        );
+        ));
     }
     /**
      * Creates a new Session entity.

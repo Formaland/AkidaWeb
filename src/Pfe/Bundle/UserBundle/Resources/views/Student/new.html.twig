@@ -1,7 +1,364 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
-{% block body -%}
-    <h1>Student creation</h1>
+{% block content -%}
+
+
+    <div class="col-md-12">
+
+        <form  action="{{ path('student_create') }}"  {{ form_enctype(form) }} method="post">
+        {{ form_start(form) }}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            −
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title" align="center"><font color="#008b8b" size="5%" align="left">
+
+                            {{ 'sidebar.Enregister apprenant'|trans({}, 'backend') }}</font>
+
+                    </h4>
+
+                </div>
+
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_errors(form.user.cin) }}
+                        {{ form_widget(form.user.cin, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+
+                            {{ 'user.cin'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+
+
+                        {{ form_errors(form.user.username) }}
+                        {{ form_widget(form.user.username,{'attr': {'class': 'form-control'}}) }}</option>
+
+                    </div>
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+
+                            {{ 'user.login'|trans({}, 'backend') }}</font>
+                    </label></div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+
+                        {{ form_errors(form.user.firstName) }}
+                        {{ form_widget(form.user.firstName,{'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+                            {{ 'user.nom'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_errors(form.user.lastName) }}
+                        {{ form_widget(form.user.lastName,{'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font>
+                        <font color="black">
+
+                            {{ 'user.prenom'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_errors(form.user.adresse) }}
+                        {{ form_widget(form.user.adresse,{'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+
+                            {{ 'user.adress'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_errors(form.user.phone) }}
+                        {{ form_widget(form.user.phone,{'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+
+                            {{ 'user.num_tel'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_errors(form.user.email) }}
+                        {{ form_widget(form.user.email,{'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+                            {{ 'user.email'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        {{ form_errors(form.user.email) }}
+                        {{ form_widget(form.user.email) }}
+                    </div>
+                    <label class="col-sm-3 control-label">
+                        <font color="red">
+
+                            *
+                        </font><font color="black">
+                            {{ 'user.email'|trans({}, 'backend') }}</font>
+
+                    </label>
+
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_errors(form.user.plainPassword) }}
+                            {{ form_widget(form.user.plainPassword) }}
+                        </div>
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+                            </font><font color="black">
+
+                                {{ 'user.password'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_errors(form.user.dateofbirth) }}
+                            {{ form_widget(form.user.dateofbirth) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+                            </font><font color="black">
+
+                                {{ 'user.date_naissance'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+
+
+
+
+                    <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            <div > {{ form_widget(form.mere) }}</div>
+                            {{ form_errors(form.mere) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+
+                            <font color="red">
+
+                                *
+
+                            </font><font color="black">
+                                {{ 'student.Mere'|trans({}, 'backend') }}</font>
+
+                        </label></div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.pere) }}
+                            {{ form_errors(form.pere) }}
+                        </div>
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'student.Pere'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.ecole) }}
+                            {{ form_errors(form.ecole) }}
+                        </div>
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'student.Ecole'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.niveauscolaire) }}
+                            {{ form_errors(form.niveauscolaire) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'student.Niveau scolaire'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                   </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            {{ form_widget(form.group) }}
+                            {{ form_errors(form.group) }}
+                        </div>
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+                                *
+
+                            </font><font color="black">
+
+                                {{ 'sidebar.Groupe'|trans({}, 'backend') }}</font>
+
+                        </label>
+
+                    </div>
+
+                        <div class="form-group">
+                            <div class="col-md-9">
+                                {{ form_errors(form.user.description) }}
+                                {{ form_widget(form.user.description) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                <font color="black">
+
+                                    {{ 'user.description'|trans({}, 'backend') }}</font>
+
+                            </label>
+
+                        </div>
+
+                    <div class="panel-footer">
+
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3" >
+
+
+                                <p>&nbsp;&nbsp;</p>
+                                 <button type="submit" class="btn btn-success" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button>
+                                <button type="reset" class="btn btn-danger" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.annuler'|trans({}, 'backend') }}</button>
+                            </div>
+                        </div>
+                        <!--
+
+                         panel
+
+                        -->
+
+
+
+
+
+
+
+                   </div></div> </div></div>
+
+            {{ form_end(form) }}
+        </form></div>
+
+
+
+
+
+
+
+
+   {#<h1>Student creation</h1>
 
     {{ form(form) }}
 
@@ -11,5 +368,5 @@
             Back to the list
         </a>
     </li>
-</ul>
+</ul>#}
 {% endblock %}

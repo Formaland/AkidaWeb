@@ -183,19 +183,6 @@ class UserController extends Controller
 
     }
 
-    public function newwAction()
-    {
-        $entity = new User();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-
-
-    }
-
     /**
      * Finds and displays a User entity.
      *

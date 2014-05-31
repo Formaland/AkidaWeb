@@ -1,9 +1,303 @@
 {% extends '::base.html.twig' %}
 
 {%  block body %}
-<<<<<<< HEAD
- <h1>{{title}}</h1>
-=======
- <h1>{{ title }}</h1>
->>>>>>> e6d09c14d8e54b631c6cb77449ca7afe24a13159
+    {%  block head %}
+{{ render(controller('PfeWebBundle:Frontend/Page:header')) }}
+
+    {% endblock %}
+
+
+{% block carousel %}
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide slider" data-ride="carousel">
+        <!-- Indicators -->
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="{{ asset('bundles/pfeweb/Frontend/images/slide-1.jpg')}}" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Example headline.</h1>
+                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/slide-2.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/slide-3.jpg" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>One more for good measure.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- end carousel -->
+
 {% endblock %}
+    {% block content %}
+
+        <!-- Main content
+            ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div class="container">
+
+            <div class="main-header">
+
+                <div class="col-md-4">
+                    <div class="box text-right green">
+                        <a href="#" title="">
+                            <h3>Some title</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box text-right orange">
+                        <a href="#" title="">
+                            <h3>Some title</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box text-right red">
+                        <a href="#" title="">
+                            <h3>Some title</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content index">
+                <div class="col-md-8">
+                    <div class="left text-right">
+                        <div class="section">
+                            <h2>Some big title</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                        <hr>
+
+                        <div class="sub-section clearfix">
+                            <div class="row">
+
+                                <div class="lesson-content col-md-9">
+                                    <h4>Some big title</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                                    <ul class="lesson-info">
+                                        <li><a href="#">Donwload prospect</a> <i class="fa fa-cloud-download"></i></li>
+                                        <li><a class="fancybox-media" href="#" rel="">Play video</a> <i class="fa fa-film"></i></li>
+                                        <li>Duration: 3 hours <i class="fa fa-time"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="lesson-image col-md-3">
+                                    <div class="wrapper">
+                                        <img src="images/lessons.png" alt="">
+                                        <h5>caption</h5>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="sub-section clearfix">
+                            <div class="row">
+
+                                <div class="lesson-content col-md-9">
+                                    <h4>Some big title</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                                    <ul class="lesson-info">
+                                        <li><a href="#">Donwload prospect</a> <i class="fa fa-cloud-download"></i></li>
+                                        <li><a class="fancybox-media" href="#" rel="">Play video</a> <i class="fa fa-film"></i></li>
+                                        <li>Duration: 3 hours <i class="fa fa-time"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="lesson-image col-md-3">
+                                    <div class="wrapper">
+                                        <img src="images/teacher.jpg" class="image" alt="">
+                                        <h5>caption</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="sub-section clearfix">
+                            <div class="row">
+
+                                <div class="lesson-content col-md-9">
+                                    <h4>Some big title</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                                    <ul class="lesson-info">
+                                        <li><a href="#">Donwload prospect</a> <i class="fa fa-cloud-download"></i></li>
+                                        <li><a class="fancybox-media" href="#" rel="">Play video</a> <i class="fa fa-film"></i></li>
+                                        <li>Duration: 3 hours <i class="fa fa-time"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="lesson-image col-md-3">
+                                    <div class="wrapper">
+                                        <img src="images/teacher-2.jpg" class="image" alt="">
+                                        <h5>caption</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <p class="text-center"> <a href="#" class="btn btn-primary" title="">View all courses</a> </p>
+
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="right text-right">
+                        <div class="box">
+                            <div class="section section-image text-right">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <h3>Post with image</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua..</p>
+                            </div>
+                            <hr>
+                            <div class="section">
+                                <h3>This is a title</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua..</p>
+                            </div>
+                            <hr>
+                            <div class="section">
+                                <h3>This is a title</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua..</p>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="section section-image text-right">
+                                <span class="glyphicon glyphicon-cog"></span>
+                                <h3>Post with image</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua..</p>
+                            </div>
+                            <hr>
+                            <div class="section section-image text-right">
+                                <span class="glyphicon glyphicon-time"></span>
+                                <h3>Post with image</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua..</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end MAIN CONTENT -->
+
+
+
+
+
+
+    {% endblock %}
+    {% block footer %}
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-center" id="brand-footer">
+                        <p><img src="images/logo-footer.jpg" alt=""></p>
+                        <p>Copyright © 2014</p>
+                        <div class="twitter"><a href="#">Follow on Twitter</a></div>
+                        <div class="fb"><a href="#">Like on  Facebook</a></div>
+                    </div>
+                    <div class="col-md-4 text-right" id="contacts-footer">
+                        <h4>Contacts</h4>
+                        <ul>
+                            <li>11 Lorem Epsum, Dolor - Sit LOREM, SIT <i class="fa fa-home"></i></li>
+                            <li>Telephone: + 00 (00) 000 000 <i class="fa fa-phone"></i></li>
+                            <li>Fax: + 00 (00) 000 000 <i class="fa fa-phone-sign"></i> </li>
+                            <li>Email: <a href="#">email@email.com</a> <i class="fa fa-envelope"></i> </li>
+                        </ul>
+                        <hr>
+                        <h4>Newsletter</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+
+                        <div id="message-newsletter"></div>
+                        <form method="post" action="assets/newsletter.php" name="newsletter" id="newsletter" class="form-inline">
+                            <button id="submit-newsletter" class=" btn btn-default"> Subscribe</button>
+                            <input name="email_newsletter" id="email_newsletter" class="form-control"  type="email" value="" placeholder="Your Email">
+                        </form>
+                    </div>
+                    <div class="col-md-4 text-right" id="quick-links">
+                        <h4>Quick links</h4>
+                        <ul>
+                            <li><a href="#" title="link">link</a></li>
+                            <li><a href="#" title="link">link</a></li>
+                            <li><a href="#" title="link">link</a></li>
+                            <li><a href="#" title="link">link</a></li>
+                            <li><a href="#" title="link">link</a></li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li><a href="#" title="link">other links</a></li>
+                            <li><a href="#" title="link">other links</a></li>
+                            <li><a href="#" title="link">other links</a></li>
+                            <li><a href="#" title="link">other links</a></li>
+                            <li><a href="#" title="link">other links</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <div id="toTop" style="display: block;">Back to Top</div>
+
+    {% endblock %}
+{% endblock %}
+
+        {% block javascripts %}<script src="{{ asset('bundles/pfeweb/Frontend/js/jquery.min.js')}}"></script>
+<script src="{{ asset('bundles/pfeweb/Frontend/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('bundles/pfeweb/Frontend/js/megamenu.js')}}"></script>
+<script src="{{ asset('bundles/pfeweb/Frontend/js/functions.js')}}"></script>
+
+        {% endblock %}

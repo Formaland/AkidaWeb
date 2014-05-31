@@ -22,7 +22,6 @@ typecourse_edit:
 typecourse_update:
     pattern:  /{id}/update
     defaults: { _controller: "PfeCoursesBundle:Typecourse:update" }
-    requirements: { _method: post|put }
 
 typecourse_delete:
     pattern:  /{id}/delete

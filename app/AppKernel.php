@@ -23,6 +23,10 @@ class AppKernel extends Kernel
             new Pfe\Bundle\SessionBundle\PfeSessionBundle(),
             new Pfe\Bundle\ExamenBundle\PfeExamenBundle(),
             new Pfe\Bundle\HoralTestBundle\PfeHoralTestBundle(),
+
+
+
+            new Pfe\Bundle\FrontendBundle\PfeFrontendBundle(),
          );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

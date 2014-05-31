@@ -51,12 +51,13 @@
                             <div class="col-sm-9 col-sm-offset-3">
 
 
-
-                                <p align="center"> <button type="submit" class="btn btn-success" id="valideruser"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button></p>
-
-                                {{ form_end(edit_form) }}</div></div></div></div></div>
+                                <p>&nbsp;&nbsp;</p>
+                                <button type="submit" class="btn btn-success" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button>
+                                <button type="reset" class="btn btn-danger" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.annuler'|trans({}, 'backend') }}</button>
+                                </div></div></div></div></div>
     {#{{ form_widget(form.create) }}#}
 
+        {{ form_end(edit_form) }}
     </form></div>
 
 

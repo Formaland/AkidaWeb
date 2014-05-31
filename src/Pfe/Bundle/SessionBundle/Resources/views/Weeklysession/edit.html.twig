@@ -6,6 +6,7 @@
     <div class="col-md-6">
 
         <form  action="{{ path('weeklysession_update', { 'id': entity.id }) }}"  method="post">
+            {{ form_start(edit_form) }}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-btns">
@@ -22,7 +23,7 @@
                     </div>
                     <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%" align="left">
 
-                            {{ 'sidebar.Modifier enseignant'|trans({}, 'backend') }}
+                            {{ 'sidebar.modifweek'|trans({}, 'backend') }}
 
                         </font>    </h4>
 
@@ -94,7 +95,7 @@
                        </div></div> </div>
 
 
-            {{ form_rest(edit_form) }}
+            {{ form_end(edit_form) }}
         </form></div>
 
 

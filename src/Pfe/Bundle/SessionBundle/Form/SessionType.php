@@ -16,6 +16,7 @@ class SessionType extends AbstractType
     {
         $builder
             ->add('date')
+            ->add('classroom')
         ;
     }
     

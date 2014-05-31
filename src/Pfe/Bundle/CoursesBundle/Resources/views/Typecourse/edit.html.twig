@@ -1,7 +1,105 @@
 {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
 
+
 {% block content -%}
-    <h1>Typecourse edit</h1>
+
+    <div class="col-md-6">
+
+        <form  action="{{ path('typecourse_update', { 'id': entity.id }) }}" {{ form_enctype(edit_form) }} method="post">
+            {{ form_start(edit_form) }}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-btns">
+                        <a class="panel-close" href="#">
+
+                            ×
+
+                        </a>
+                        <a class="minimize" href="#">
+
+                            -
+
+                        </a>
+                    </div>
+                    <h4 class="panel-title" align="center">   <font color="#008b8b" size="5%" align="left">
+                            {{ 'sidebar.modif typecours'|trans({}, 'backend') }}</font>
+
+                    </h4>
+
+                </div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+                            {{ form_widget(edit_form.nametypecourse) }}
+                            {{ form_errors(edit_form.nametypecourse) }}
+                        </div>
+
+
+
+
+                        <label class="col-sm-3 control-label">
+                            <font color="red">
+
+                                *
+                            </font><font color="black">
+
+
+                                {{ 'cours.type cours'|trans({}, 'backend') }}</font>
+
+                        </label></div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+
+                            <div class="col-sm-9">
+                                {{ form_widget(edit_form.description) }}
+                                {{ form_errors(edit_form.description) }}
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                <font color="red">
+
+                                    *
+                                </font><font color="black">
+
+
+                                    {{ 'enseignant.description'|trans({}, 'backend') }}</font>
+
+                            </label></div>
+
+                        <div class="panel-footer">
+
+                            <div class="row">
+                                <div class="col-sm-9 col-sm-offset-3" >
+
+
+                                    <button type="submit" class="btn btn-success" id="validercours"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button>
+                                    <button type="reset" class="btn btn-danger" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.annuler'|trans({}, 'backend') }}</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    {{ form_widget(edit_form._token) }}
+                    {{ form_rest(edit_form) }}
+
+                </div></div></form></div>
+
+
+
+
+
+
+
+
+
+
+    {# <h1>Typecourse edit</h1>
 
     {{ form(edit_form) }}
 
@@ -12,5 +110,5 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
-</ul>
+</ul>#}
 {% endblock %}

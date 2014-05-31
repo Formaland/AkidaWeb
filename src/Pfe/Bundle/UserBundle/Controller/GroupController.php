@@ -47,7 +47,7 @@ class GroupController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('group_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('group'));
         }
 
         return $this->render('PfeUserBundle:Group:new.html.twig', array(

@@ -1,6 +1,4 @@
 {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
-
-
 {% block content -%}
 
 <p class="mb20"></p>
@@ -42,15 +40,9 @@
         </tr>
 
 
-
-
-
-
         </thead>
         <tbody>
         {% for entity in entities %}
-            <tr>
-
             <tr>
 
                 <td class="table-action">
@@ -58,9 +50,14 @@
                     <a href="{{ path('courses_edit', { 'id': entity.id }) }}">
                         <i class="fa fa-pencil"></i>
                     </a>
-                    <a class="delete-row" href="">
-                        <i class="fa fa-trash-o"></i>
-                    </a>
+                    <form action="{{ path('courses_delete', { 'id': entity.id }) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <div style="display: none;"> {{ form_widget(deleteForms[entity.id]) }}</div>
+                        <button type="submit" class="fa fa-trash-o">
+                            {#  <i class="fa fa-trash-o"></i>#}
+                            {#{{ 'links.admin.form.delete' | trans({}, 'FooBundle') }}#}
+                        </button>
+                    </form>
 
                 </td>
             <td>{% if entity.durationcourses %}{{ entity.durationcourses|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -72,6 +69,5 @@
         {% endfor %}
         </tbody>
     </table>
-</li>
-    </ul>
+</div>
     {% endblock %}

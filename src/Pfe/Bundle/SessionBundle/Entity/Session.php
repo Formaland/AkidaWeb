@@ -37,6 +37,14 @@ class Session
     protected $student;
 
     /**
+     * @var object Classroom
+     *
+     * @ORM\JoinColumn(name="classroom_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\SessionBundle\Entity\Classroom", inversedBy="sessions",  cascade={"all"})
+     */
+    protected $classroom;
+
+    /**
      * @var object Weeklysession
      *
      * @ORM\JoinColumn(name="weeklysession_id", referencedColumnName="id")
@@ -115,5 +123,61 @@ class Session
     public function getStudent()
     {
         return $this->student;
+    }
+
+    /**
+     * Set classroom
+     *
+     * @param \Pfe\Bundle\SessionBundle\Entity\Classroom $classroom
+     * @return Session
+     */
+    public function setClassroom(\Pfe\Bundle\SessionBundle\Entity\Classroom $classroom = null)
+    {
+        $this->classroom = $classroom;
+    
+        return $this;
+    }
+
+    /**
+     * Get classroom
+     *
+     * @return \Pfe\Bundle\SessionBundle\Entity\Classroom 
+     */
+    public function getClassroom()
+    {
+        return $this->classroom;
+    }
+
+    /**
+     * Add weeklysession
+     *
+     * @param \Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession
+     * @return Session
+     */
+    public function addWeeklysession(\Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession)
+    {
+        $this->weeklysession[] = $weeklysession;
+    
+        return $this;
+    }
+
+    /**
+     * Remove weeklysession
+     *
+     * @param \Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession
+     */
+    public function removeWeeklysession(\Pfe\Bundle\SessionBundle\Entity\Weeklysession $weeklysession)
+    {
+        $this->weeklysession->removeElement($weeklysession);
+    }
+
+    /**
+     * Get weeklysession
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getWeeklysession()
+    {
+        return $this->weeklysession;
     }
 }

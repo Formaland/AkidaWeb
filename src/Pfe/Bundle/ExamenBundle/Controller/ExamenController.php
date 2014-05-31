@@ -30,7 +30,9 @@ class ExamenController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PfeExamenBundle:Examen')->findAll();
-
+        foreach ($entities as $entity) {
+            $deleteForms[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }
         return array(
             'entities' => $entities,
         );

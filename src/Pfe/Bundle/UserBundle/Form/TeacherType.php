@@ -16,7 +16,7 @@ class TeacherType extends AbstractType
     {
         $builder
             ->add('diplome')
-            ->add('description')
+            ->add('commissions')
             ->add('user', new UserType())
         ;
     }

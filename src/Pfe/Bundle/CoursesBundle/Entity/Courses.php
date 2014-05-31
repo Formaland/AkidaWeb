@@ -131,7 +131,17 @@ class Courses
         $this->teachers = new \Doctrine\Common\Collections\ArrayCollection();
         $this->weeklysession = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
+    /**
+     * Entity Class To String
+     */
+    public function __toString()
+    {
+
+            return $this->getNamecourses();
+
+        return '';
+    }
     /**
      * Add groups
      *

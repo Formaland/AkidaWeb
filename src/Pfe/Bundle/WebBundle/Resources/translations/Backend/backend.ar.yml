@@ -3,6 +3,59 @@ title:
   page: طاولة مجلس
 
 sidebar:
+  administrator:
+     name: الإداريين
+     index:  قائمة الإداريين
+     new:  إضافة إداري
+  group:
+     name:  المجموعة
+     index: قائمة المجموعات
+     new:  إضافة مجموعة
+  commission:
+      name:  لجان العرض
+      index:  قائمة لجان العرض
+      new:  إضافة لجنة عرض
+  student:
+      name: المتعلّم
+      index:  قائمة المتعلّمين
+      new:  إضافةمتعلّم
+  teacher:
+       name: المعلّم
+       index:  قائمةالمعلّمين
+       new: إضافةمعلّم
+  oraltest:
+        name:  العرض
+        index:   قائمة العروض
+        new: إضافة عرض
+  courses:
+         name: الدّروس
+         index:   قائمة الدّروس
+         new: إضافة درس
+  typecourses:
+           name: محاور الدّروس
+           index:    قائمة محاور الدّروس
+           new: إضافة محور درس
+  examen:
+         name:  الإختبارات الكتابية
+         index:   قائمة الإختبارات الكتابية
+         new: إضافة إختبار كتابي
+  typeexamen:
+         index:   قائمة أنواع الاختبارات
+         new: إضافة نوع اختبار
+  hezb:
+         name:  الأحزاب و السّور
+         index:  متابعة  حفض الأحزاب
+         new: إضافةحزب
+  sourah:
+         index:  متابعة  حفض السّور
+         new: إضافة سورة
+  seance:
+         name: جدول الأوقات
+         index: قائمة جداول  الأوقات
+         new: إضافة حصة
+         neww: إضافة حصة أسبوعية
+  salle:
+        new: إضافة قاعة
   utilisateur: المستخدمين
   Ajouter: إضافة مستخدم
   Lister: مشاهدة قائمة
@@ -13,6 +66,7 @@ sidebar:
   Lister groupe: قائمة المجموعات
   Liste des apprenants: قائمة المتعلّمين
   Enregister apprenant: تسجيل المتعلّم
+  Enregister admin: تسجيل إداري
   Liste des  enseignants: قائمة المعلّمون
   Enregistrer enseignant: تسجيل المعلّم
   Modifier apprenant: تغيير ملف تعريف المتعلّم
@@ -39,8 +93,13 @@ sidebar:
   App hezb: قائمة التّلاميذ الحافظين
   Menu: لائحة
   users: المستخدمين
-
-
+  oral:  إضافة عرض
+  ajouter type:  إضافة محور
+  modif typecours: تغيير المحور
+  listesouar: متابعة حفض السّور
+  modifweek:  تغيير الحصص الأسبوعية
+  listeweek: قائمة الحصص الأسبوعية
+  ajoutweek: إضافة حصة أسبوعية
 Liens:
   Editer: تحرير
   Show: عرض
@@ -48,6 +107,7 @@ Liens:
   Retour à la liste: العودة إلى القائمة
   envoyer: ارسال
   modifier: تغيير
+  annuler: إلغاء
 
 student:
   Mere: الأم
@@ -85,6 +145,7 @@ user:
 enseignant:
   diplome: الشّهادة
   description: الوصف
+  commission: اللّجنة
 
 groupe:
   nom: المجموعة
@@ -103,6 +164,7 @@ cours:
   nom: عنوان الدّرس
   duree: مدة الدّرس
   cours:  الدّروس
+  type cours: محور الدّرس
 
 examen:
   nom: اسم الاختبار
@@ -112,13 +174,16 @@ examen:
   typeexam: نوع الاختبار
 
 horale:
-  nom: إسم العرض
+  nom: عنوان العرض
+  student: المتعلّم
+  teacher: المعلّم
 
 hezb:
   num hezb: عدد الحزب
 
 sourah:
   nom: اسم السّورة
+  num: رقم السّورة
 
 seanceheb:
    nom: الحصّة الأسبوعية
@@ -141,3 +206,4 @@ form:
   modifstudent: تغيير ملف تعريف المتعلّم
   user existe: مستخدم موجود
   ajoutseance: إضافة حصّة
+  modifexam: تغيير اختبار كتابي

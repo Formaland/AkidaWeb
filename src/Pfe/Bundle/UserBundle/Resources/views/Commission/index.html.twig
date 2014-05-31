@@ -43,10 +43,14 @@
                     <a href="{{ path('commission_edit', { 'id': entity.id }) }}">
                         <i class="fa fa-pencil"></i>
                     </a>
-                    <a class="delete-row" href="">
-                        <i class="fa fa-trash-o"></i>
-                    </a>
-
+                    <form action="{{ path('commission_delete', { 'id': entity.id }) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <div style="display: none;"> {{ form_widget(deleteForms[entity.id]) }}</div>
+                        <button type="submit" class="fa fa-trash-o">
+                            {#  <i class="fa fa-trash-o"></i>#}
+                            {#{{ 'links.admin.form.delete' | trans({}, 'FooBundle') }}#}
+                        </button>
+                    </form>
                 </td>
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.typecommission }}</td>

@@ -55,8 +55,6 @@ class Student
      */
     protected $niveauscolaire;
 
-
-
     /**
      *
      * @ORM\ManyToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Group", inversedBy="students")
@@ -70,8 +68,15 @@ class Student
      * @ORM\JoinColumn(name="examen_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\ExamenBundle\Entity\Examen", mappedBy="examen",  cascade={"persist"})
      */
-    protected $examen;
+    protected $examens;
 
+    /**
+     * @var object Presence
+     *
+     * @ORM\JoinColumn(name="presence_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\SessionBundle\Entity\Presence", mappedBy="presence",  cascade={"persist"})
+     */
+    protected $presences;
     /**
      * @var object Oraltest
      *

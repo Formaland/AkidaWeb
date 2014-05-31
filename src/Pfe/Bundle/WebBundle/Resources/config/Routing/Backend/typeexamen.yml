@@ -17,7 +17,7 @@ typeexamen_create:
 
 typeexamen_edit:
     pattern:  /{id}/edit
-    defaults: { _controller: "PfeEsamenBundle:Typeexamen:edit" }
+    defaults: { _controller: "PfeExamenBundle:Typeexamen:edit" }
 
 typeexamen_update:
     pattern:  /{id}/update

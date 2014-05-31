@@ -14,4 +14,11 @@ class PageController extends Controller {
         return $this->render('PfeWebBundle:Frontend\Page:index.html.twig', array('title' => $t));
 
     }
+    public function headerAction(){
+
+
+
+        return $this->render('PfeWebBundle:Frontend\frontfile:header.html.twig');
+
+    }
 }

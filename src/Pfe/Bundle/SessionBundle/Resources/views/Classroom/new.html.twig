@@ -94,8 +94,8 @@
 
 
                                 <p>&nbsp;&nbsp;</p>
-                                <p align="center"> <button type="submit" class="btn btn-success" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button></p>
-
+                                 <button type="submit" class="btn btn-success" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.envoyer'|trans({}, 'backend') }}</button>
+                                <button type="reset" class="btn btn-danger" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.annuler'|trans({}, 'backend') }}</button>
                             </div>
                         </div>
                         <!--
@@ -112,7 +112,7 @@
 
                     </div></div> </div>
 
-            {{ form_rest(form) }}
+            {{ form_end(form) }}
         </form></div>
 
 

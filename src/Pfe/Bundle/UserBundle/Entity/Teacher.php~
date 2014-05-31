@@ -4,12 +4,14 @@ namespace Pfe\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Pfe\Bundle\UserBundle\Entity\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Teacher
  *
  * @ORM\Table(name="pfe_teacher")
  * @ORM\Entity(repositoryClass="Pfe\Bundle\UserBundle\Entity\Repository\TeacherRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Teacher
 {
@@ -22,12 +24,11 @@ class Teacher
      */
     protected $id;
 
-
-
     /**
      * @var string
      *
      * @ORM\Column(name="diplome", type="string", length=80, nullable=true)
+     * @Assert\NotBlank()
      */
     protected $diplome;
 
@@ -54,7 +55,7 @@ class Teacher
      * @ORM\JoinColumn(name="commission_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Commission", mappedBy="commission",  cascade={"persist"})
      */
-    protected $commission;
+    protected $commissions;
 
     /**
      * @var object User
@@ -65,18 +66,30 @@ class Teacher
      */
     protected $user;
 
+
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text",length=255,  nullable=true)
+     * Constructor
      */
-    protected $description;
+    public function __construct()
+    {
+        $this->user = new User();
+        $this->user->addRole('ROLE_TEACHER');
+        $this->user->setEnabled(true);
+    }
 
- public function __construct(){
+    /**
+     * Entity Class To String
+     */
+    public function __toString()
+    {
+        if($this->getUser())
+        {
+            return $this->getUser()->getFirstName() . ' ' . $this->getUser()->getLastName();
+        }
+        return '';
+    }
 
-
-
-      }
     /**
      * @param int $id
      */
@@ -114,36 +127,6 @@ class Teacher
     {
         return $this->diplome;
     }
-
-
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Teacher
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-    public function __toString()
-    {
-        return $this->getDescription();
-    }
-
 
     /**
      * Add courses
@@ -184,9 +167,9 @@ class Teacher
      * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      * @return Teacher
      */
-    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission[] = $commission;
+        $this->commissions[] = $commissions;
     
         return $this;
     }
@@ -196,9 +179,9 @@ class Teacher
      *
      * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      */
-    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission->removeElement($commission);
+        $this->commissions->removeElement($commissions);
     }
 
     /**
@@ -206,8 +189,72 @@ class Teacher
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCommission()
+    public function getCommissions()
     {
-        return $this->commission;
+        return $this->commissions;
+    }
+
+    /**
+     * Add oraltest
+     *
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
+     * @return Teacher
+     */
+    public function addOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
+    {
+        $this->oraltest[] = $oraltest;
+    
+        return $this;
+    }
+
+    /**
+     * Remove oraltest
+     *
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
+     */
+    public function removeOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
+    {
+        $this->oraltest->removeElement($oraltest);
+    }
+
+    /**
+     * Get oraltest
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOraltest()
+    {
+        return $this->oraltest;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Pfe\Bundle\UserBundle\Entity\User $user
+     * @return Teacher
+     */
+    public function setUser(\Pfe\Bundle\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Pfe\Bundle\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /*
+     * @ORM\preUpdate
+     */
+    public function updateTeacher()
+    {
+        $this->getUser()->addRole('ROLE_TEACHER');
     }
 }

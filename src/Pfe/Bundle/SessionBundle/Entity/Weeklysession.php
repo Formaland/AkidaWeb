@@ -63,6 +63,20 @@ class Weeklysession
      */
     private $endtime;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getDay();
+    }
+    
+
 
     /**
      * Get id
@@ -74,6 +88,28 @@ class Weeklysession
         return $this->id;
     }
 
+    /**
+     * Set day
+     *
+     * @param string $day
+     * @return Weeklysession
+     */
+    public function setDay($day)
+    {
+        $this->day = $day;
+    
+        return $this;
+    }
+
+    /**
+     * Get day
+     *
+     * @return string 
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
 
     /**
      * Set starttime
@@ -120,52 +156,6 @@ class Weeklysession
     {
         return $this->endtime;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    public function __toString()
-    {
-        return $this->getDay();
-    }
-    
-    /**
-     * Add courses
-     *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
-     * @return Weeklysession
-     */
-    public function addCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
-    {
-        $this->courses[] = $courses;
-    
-        return $this;
-    }
-
-    /**
-     * Remove courses
-     *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
-     */
-    public function removeCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
-    {
-        $this->courses->removeElement($courses);
-    }
-
-    /**
-     * Get courses
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCourses()
-    {
-        return $this->courses;
-    }
-
 
     /**
      * Add classroom
@@ -201,12 +191,45 @@ class Weeklysession
     }
 
     /**
-     * Add oraltest
+     * Add courses
      *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Oraltest $oraltest
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
      * @return Weeklysession
      */
-    public function addOraltest(\Pfe\Bundle\CoursesBundle\Entity\Oraltest $oraltest)
+    public function addCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses[] = $courses;
+    
+        return $this;
+    }
+
+    /**
+     * Remove courses
+     *
+     * @param \Pfe\Bundle\CoursesBundle\Entity\Courses $courses
+     */
+    public function removeCourse(\Pfe\Bundle\CoursesBundle\Entity\Courses $courses)
+    {
+        $this->courses->removeElement($courses);
+    }
+
+    /**
+     * Get courses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCourses()
+    {
+        return $this->courses;
+    }
+
+    /**
+     * Add oraltest
+     *
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
+     * @return Weeklysession
+     */
+    public function addOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
     {
         $this->oraltest[] = $oraltest;
     
@@ -216,9 +239,9 @@ class Weeklysession
     /**
      * Remove oraltest
      *
-     * @param \Pfe\Bundle\CoursesBundle\Entity\Oraltest $oraltest
+     * @param \Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest
      */
-    public function removeOraltest(\Pfe\Bundle\CoursesBundle\Entity\Oraltest $oraltest)
+    public function removeOraltest(\Pfe\Bundle\HoralTestBundle\Entity\Oraltest $oraltest)
     {
         $this->oraltest->removeElement($oraltest);
     }
@@ -231,28 +254,5 @@ class Weeklysession
     public function getOraltest()
     {
         return $this->oraltest;
-    }
-
-    /**
-     * Set day
-     *
-     * @param string $day
-     * @return Weeklysession
-     */
-    public function setDay($day)
-    {
-        $this->day = $day;
-    
-        return $this;
-    }
-
-    /**
-     * Get day
-     *
-     * @return string 
-     */
-    public function getDay()
-    {
-        return $this->day;
     }
 }

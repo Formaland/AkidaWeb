@@ -27,7 +27,7 @@ class Commission
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\teacher", inversedBy="teacher",  cascade={"persist"})
      */
-    protected $teacher;
+    private  $teachers;
 
     /**
      * @ORM\OneToMany(targetEntity="Pfe\Bundle\ExamenBundle\Entity\Note", mappedBy="commission")
@@ -40,7 +40,7 @@ class Commission
      * @ORM\JoinColumn(name="examen_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\ExamenBundle\Entity\Examen", mappedBy="examen",  cascade={"persist"})
      */
-    protected $examen;
+    protected $examens;
     /**
      * @var string
      *
@@ -56,6 +56,22 @@ class Commission
     private $description;
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->teachers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->note = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->examens = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getTypecommission();
+    }
+    
     /**
      * Get id
      *
@@ -111,85 +127,38 @@ class Commission
     {
         return $this->description;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->teacher = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Set teacher
+     * Add teachers
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\Teacher $teacher
+     * @param \Pfe\Bundle\UserBundle\Entity\teacher $teachers
      * @return Commission
      */
-    public function setTeacher(\Pfe\Bundle\UserBundle\Entity\Teacher $teacher = null)
+    public function addTeacher(\Pfe\Bundle\UserBundle\Entity\teacher $teachers)
     {
-        $this->teacher = $teacher;
-
-        return $this;
-    }
-    
-    /**
-     * Add teacher
-     *
-     * @param \Pfe\Bundle\UserBundle\Entity\teacher $teacher
-     * @return Commission
-     */
-    public function addTeacher(\Pfe\Bundle\UserBundle\Entity\teacher $teacher)
-    {
-        $this->teacher[] = $teacher;
+        $this->teachers[] = $teachers;
     
         return $this;
     }
 
     /**
-     * Remove teacher
+     * Remove teachers
      *
-     * @param \Pfe\Bundle\UserBundle\Entity\teacher $teacher
+     * @param \Pfe\Bundle\UserBundle\Entity\teacher $teachers
      */
-    public function removeTeacher(\Pfe\Bundle\UserBundle\Entity\teacher $teacher)
+    public function removeTeacher(\Pfe\Bundle\UserBundle\Entity\teacher $teachers)
     {
-        $this->teacher->removeElement($teacher);
+        $this->teachers->removeElement($teachers);
     }
 
     /**
-     * Get teacher
+     * Get teachers
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getTeacher()
+    public function getTeachers()
     {
-        return $this->teacher;
-    }
-
-    /**
-     * Set note
-     *
-     * @param \Pfe\Bundle\ExamenBundle\Entity\Note $note
-     * @return Commission
-     */
-    public function setNote(\Pfe\Bundle\ExamenBundle\Entity\Note $note = null)
-    {
-        $this->note = $note;
-    
-        return $this;
-    }
-
-    /**
-     * Get note
-     *
-     * @return \Pfe\Bundle\CoursesBundle\Entity\Note 
-     */
-    public function getNote()
-    {
-        return $this->note;
-    }
-    public function __toString()
-    {
-        return $this->getTypecommission();
+        return $this->teachers;
     }
 
     /**
@@ -216,35 +185,45 @@ class Commission
     }
 
     /**
-     * Add examen
+     * Get note
      *
-     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examen
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * Add examens
+     *
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examens
      * @return Commission
      */
-    public function addExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examen)
+    public function addExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examens)
     {
-        $this->examen[] = $examen;
+        $this->examens[] = $examens;
     
         return $this;
     }
 
     /**
-     * Remove examen
+     * Remove examens
      *
-     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examen
+     * @param \Pfe\Bundle\ExamenBundle\Entity\Examen $examens
      */
-    public function removeExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examen)
+    public function removeExamen(\Pfe\Bundle\ExamenBundle\Entity\Examen $examens)
     {
-        $this->examen->removeElement($examen);
+        $this->examens->removeElement($examens);
     }
 
     /**
-     * Get examen
+     * Get examens
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getExamen()
+    public function getExamens()
     {
-        return $this->examen;
+        return $this->examens;
     }
 }

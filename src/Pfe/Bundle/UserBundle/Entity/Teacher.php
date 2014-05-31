@@ -55,7 +55,7 @@ class Teacher
      * @ORM\JoinColumn(name="commission_id", referencedColumnName="id")
      * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\Commission", mappedBy="commission",  cascade={"persist"})
      */
-    protected $commission;
+    protected $commissions;
 
     /**
      * @var object User
@@ -66,12 +66,7 @@ class Teacher
      */
     protected $user;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text",length=255,  nullable=true)
-     */
-    protected $description;
+
 
     /**
      * Constructor
@@ -90,7 +85,7 @@ class Teacher
     {
         if($this->getUser())
         {
-            return $this->getUser()->getFirstName . ' ' . $this->getUser()->getLastName();
+            return $this->getUser()->getFirstName() . ' ' . $this->getUser()->getLastName();
         }
         return '';
     }
@@ -133,31 +128,6 @@ class Teacher
         return $this->diplome;
     }
 
-
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Teacher
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
     /**
      * Add courses
      *
@@ -197,9 +167,9 @@ class Teacher
      * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      * @return Teacher
      */
-    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission[] = $commission;
+        $this->commissions[] = $commissions;
     
         return $this;
     }
@@ -209,9 +179,9 @@ class Teacher
      *
      * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      */
-    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission->removeElement($commission);
+        $this->commissions->removeElement($commissions);
     }
 
     /**
@@ -219,9 +189,9 @@ class Teacher
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCommission()
+    public function getCommissions()
     {
-        return $this->commission;
+        return $this->commissions;
     }
 
     /**

@@ -26,7 +26,7 @@ class Note
      * @ORM\ManyToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\Commission", inversedBy="note")
      *@ORM\JoinColumn(nullable=false)
      */
-    protected $commission;
+    protected $commissions;
 
     /**
      * @var integer
@@ -73,7 +73,7 @@ class Note
      */
     public function __construct()
     {
-        $this->commission = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->commissions = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -82,9 +82,9 @@ class Note
      * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      * @return Note
      */
-    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function addCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission[] = $commission;
+        $this->commissions[] = $commissions;
     
         return $this;
     }
@@ -94,9 +94,9 @@ class Note
      *
      * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      */
-    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function removeCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission->removeElement($commission);
+        $this->commissions->removeElement($commissions);
     }
 
     /**
@@ -104,9 +104,9 @@ class Note
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCommission()
+    public function getCommissions()
     {
-        return $this->commission;
+        return $this->commissions;
     }
 
     /**
@@ -115,9 +115,9 @@ class Note
      * @param \Pfe\Bundle\UserBundle\Entity\Commission $commission
      * @return Note
      */
-    public function setCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commission)
+    public function setCommission(\Pfe\Bundle\UserBundle\Entity\Commission $commissions)
     {
-        $this->commission = $commission;
+        $this->commissions = $commissions;
     
         return $this;
     }

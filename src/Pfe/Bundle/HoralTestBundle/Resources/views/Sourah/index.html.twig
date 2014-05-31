@@ -1,44 +1,68 @@
 {% extends 'PfeWebBundle:Backend:layout.html.twig' %}
-
-
 {% block content -%}
-    <h1>Sourah list</h1>
 
-    <table class="records_list">
+<p class="mb20"></p>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered mb30">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Namesourah</th>
-                <th>Numsourah</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th colspan="4">
+
+
+                <h4 class="panel-title" align="center">
+                    <font color="#008b8b" size="5%" align="left">
+                        {{ 'sidebar.listesouar'|trans({}, 'backend') }}</font></h4>
+
+            </th>
+        </tr>
+        <tr>
+
+
+            <th></th>
+            <th>
+                {{ 'sourah.num'|trans({}, 'backend') }}
+            </th>
+
+            <th>
+                {{ 'sourah.nom'|trans({}, 'backend') }}
+            </th>
+
+
+            <th>
+                #
+            </th>
+
+
+        </tr>
+
+
         </thead>
-        <tbody>
+
+     <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('sourah_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.namesourah }}</td>
-                <td>{{ entity.numsourah }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('sourah_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('sourah_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+
+                <td class="table-action">
+
+                    <a href="{{ path('sourah_edit', { 'id': entity.id }) }}">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="delete-row" href="">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+
                 </td>
+
+                <td>{{ entity.numsourah }}</td>
+                <td>{{ entity.namesourah }}</td>
+
+                <td><a href="{{ path('sourah_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('sourah_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
     {% endblock %}

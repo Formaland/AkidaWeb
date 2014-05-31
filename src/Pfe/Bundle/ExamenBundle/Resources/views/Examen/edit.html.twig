@@ -2,7 +2,223 @@
 
 
 {% block content -%}
-    <h1>Examen edit</h1>
+
+    <div class="col-md-6">
+
+    <form  action="{{ path('examen_update', { 'id': entity.id }) }}"  method="post">
+    {{ form_start(edit_form) }}
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-btns">
+            <a class="panel-close" href="#">
+
+                ×
+
+            </a>
+            <a class="minimize" href="#">
+
+                −
+
+            </a>
+        </div>
+        <h4 class="panel-title" align="center"><font color="#008b8b" size="5%" align="left">
+
+                {{ 'form.modifexam'|trans({}, 'backend') }}</font>
+
+        </h4>
+
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+
+            <div class="col-sm-9">
+                <div > {{ form_widget(edit_form.nameexamen) }}</div>
+                {{ form_errors(edit_form.nameexamen) }}
+            </div>
+
+
+
+
+            <label class="col-sm-3 control-label">
+
+                <font color="red">
+
+                    *
+
+                </font><font color="black">
+                    {{ 'examen.nom'|trans({}, 'backend') }}</font>
+
+            </label></div>
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.dateexamen) }}
+                {{ form_errors(edit_form.dateexamen) }}
+            </div>
+
+
+
+            <label class="col-sm-3 control-label">
+                <font color="red">
+                    *
+
+                </font><font color="black">
+
+                    {{ 'examen.date'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.starttime) }}
+                {{ form_errors(edit_form.starttime) }}
+            </div>
+
+
+            <label class="col-sm-3 control-label">
+                <font color="red">
+                    *
+
+                </font><font color="black">
+
+                    {{ 'examen.heure deb'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.endtime) }}
+                {{ form_errors(edit_form.endtime) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                <font color="red">
+
+                    *
+
+                </font><font color="black">
+
+                    {{ 'examen.heure fin'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.description) }}
+                {{ form_errors(edit_form.description) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                <font color="black">
+
+                    {{ 'user.description'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.students) }}
+                {{ form_errors(edit_form.students) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                <font color="red">
+                    *
+
+                </font><font color="black">
+
+                    {{ 'student.nom'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.typeexamens) }}
+                {{ form_errors(edit_form.typeexamens) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                <font color="red">
+                    *
+
+                </font><font color="black">
+
+                    {{ 'examen.typeexam'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.courses) }}
+                {{ form_errors(edit_form.courses) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                <font color="red">
+                    *
+
+                </font><font color="black">
+
+                    {{ 'cours.cours'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                {{ form_widget(edit_form.commissions) }}
+                {{ form_errors(edit_form.commissions) }}
+            </div>
+
+            <label class="col-sm-3 control-label">
+                <font color="red">
+                    *
+
+                </font><font color="black">
+
+                    {{ 'sidebar.Commission'|trans({}, 'backend') }}</font>
+
+            </label>
+
+        </div>
+
+        <div class="panel-footer">
+
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3" >
+
+
+                    <p>&nbsp;&nbsp;</p>
+                    <button type="submit" class="btn btn-success" id="validerexamen"><i class="icon-ok icon-white"></i> {{ 'Liens.modifier'|trans({}, 'backend') }}</button>
+                    <button type="reset" class="btn btn-danger" id="validerapprenant"><i class="icon-ok icon-white"></i> {{ 'Liens.annuler'|trans({}, 'backend') }}</button>
+                </div>
+            </div>
+
+        </div></div> </div>
+
+    {{ form_end(edit_form) }}
+    </form></div>
+
+
+
+
+
+
+
+{#  <h1>Examen edit</h1>
 
     {{ form(edit_form) }}
 
@@ -13,5 +229,5 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
-</ul>
+</ul>#}
 {% endblock %}

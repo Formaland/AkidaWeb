@@ -6,7 +6,8 @@
 
     <div class="col-md-6">
 
-        <form id="basicForm" class="form-horizontal" action="{{ path('commission_update', { 'id': entity.id }) }}"  novalidate="novalidate" method="post">
+        <form  action="{{ path('commission_update', { 'id': entity.id }) }}"   method="post">
+            {{ form_start(edit_form) }}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-btns">
@@ -104,7 +105,7 @@
 
                     </div></div> </div>
 
-            {{ form_rest(edit_form) }}
+            {{ form_end(edit_form) }}
         </form></div>
 
 
